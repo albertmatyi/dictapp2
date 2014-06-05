@@ -1,0 +1,6 @@
+.openshift/
+.demeteorized/
+app.sublime-workspace
+!.assets/
+.assets/*
+!.assets/1.data
