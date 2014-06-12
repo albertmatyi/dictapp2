@@ -20,6 +20,7 @@
       "git": "https://github.com/chuangbo/meteor-marked.git",
       "tag": "v0.3.1"
     },
-    "bootstrap-wysiwyg": {}
+    "bootstrap-wysiwyg": {},
+    "GAnalytics": {}
   }
 }
