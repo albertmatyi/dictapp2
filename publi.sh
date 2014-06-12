@@ -1,7 +1,8 @@
 #!/bin/bash -x
-APPNAME=tatrateapp
-APPNAME=storyshare
-# rhc app create $APPNAME nodejs-0.10 mongodb-2.4 --from-code=https://github.com/openshift-quickstart/openshift-meteorjs-quickstart.git
+APPNAME=dictapp2
+cd .rhc_app
+rhc app create $APPNAME nodejs-0.10 mongodb-2.4 --from-code=https://github.com/openshift-quickstart/openshift-meteorjs-quickstart.git
+cd ../
 
 git add . --all
 git commit -a

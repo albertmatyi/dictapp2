@@ -1,4 +1,4 @@
-App = typeof App === 'undefined' ? {}:App;
+App = {};
 App.component = function (name) {
 	var	parts = name.split(/\./);
 	var pkg = App;

@@ -1,0 +1,22 @@
+<template name="appPropertyEditor">
+    <form class="app-property-editor">
+        {{#each props}}
+        {{> appPropertyEditorField}}
+        {{/each}}
+        <button type="submit" class="save btn btn-primary">
+        <span class="fa fa-save"></span>
+        Submit
+        </button>
+        <button type="submit" class="cancel btn btn-link">
+        <span class="fa fa-times"></span>
+        Cancel
+        </button>
+    </form>
+</template>
+<template name="appPropertyEditorField">
+  <div class="form-group">
+    <label for="{{_id}}">{{title}}</label>
+    <small>{{description}} <code>default: {{default}}</code></small>
+    <input type="text" class="form-control" id="{{_id}}" placeholder="{{default}}" value="{{value}}">
+</div>
+</template>

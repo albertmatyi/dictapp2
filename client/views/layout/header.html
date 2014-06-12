@@ -1,0 +1,43 @@
+<template name="header">
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header brand-wrapper">
+				
+				<a class="navbar-brand" href="{{ pathFor 'search' }}">
+					Law &amp; Order
+				</a>
+			</div>
+
+			<div class="search navbar-form navbar-left">
+				<div class="form-group">
+					<!-- <div class="input-group"> -->
+					{{#constant}}
+					<input type="text" placeholder="Keywords" class="form-control search-field">
+					{{/constant}}
+					<!-- <a class="input-group-addon">
+						<span class="fa fa-search"></span>
+					</a> -->
+					<!-- </div> -->
+				</div>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" data-target="languageMenu">
+						<span class="fa fa-cogs"></span>
+						<span class="caret"></span>
+					</a>
+					<ul class="language dropdown-menu">
+						<li>
+							<a> 
+								<span class="fa fa-users"></span>
+								Users
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div><!-- /.container-fluid -->
+	</nav>
+</template>

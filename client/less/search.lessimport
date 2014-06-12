@@ -1,0 +1,13 @@
+.search {
+	.item {
+		// background: lighten(@gray, 60%);
+		.box-shadow(@thumbnail-shadow);
+		border: @thumbnail-border;
+		&:nth-child(odd) {
+			
+		}
+		.title {
+			font-family: @font-family-serif;
+		}
+	}		
+}

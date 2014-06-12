@@ -1,0 +1,7 @@
+@border-radius-base: 0;
+@thumbnail-bg: #efefef;
+@thumbnail-padding: 8px;
+@thumbnail-shadow: 1px 1px 3px rgba(0,0,0,.2);
+@thumbnail-border: none;
+
+@z-editor: 300;

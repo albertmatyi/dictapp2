@@ -1,0 +1,28 @@
+<template name="panels">
+    {{#each panels}}
+    {{> panel}}
+    {{/each}}
+</template>
+<template name="panel">
+    <div class="panel-wrapper {{outside}}">
+        <div class="panel">
+            <div class="header">
+                {{ title }}
+                <a href="" class="close">
+                    <span class="fa fa-times"></span>
+                </a>
+            </div>
+            <div class="body">
+                {{> content contentData}}
+            </div>
+            <div class="footer">
+                {{footer}}
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="panelInvalid">
+    Wrong or no template defined for the panel
+</template>

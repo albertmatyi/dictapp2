@@ -21,7 +21,8 @@
       "marked": {
         "git": "https://github.com/chuangbo/meteor-marked.git",
         "tag": "v0.3.1"
-      }
+      },
+      "bootstrap-wysiwyg": {}
     },
     "packages": {
       "bootstrap3-less": {
@@ -48,6 +49,11 @@
         "git": "https://github.com/chuangbo/meteor-marked.git",
         "tag": "v0.3.1",
         "commit": "3d9a9c94793b20e1ee7c807931cb536010d6f820"
+      },
+      "bootstrap-wysiwyg": {
+        "git": "https://github.com/mcrider/meteor-bootstrap-wysiwyg.git",
+        "tag": "v0.1.0",
+        "commit": "b9b1ffadb42b8bbfade08aaea10e4fbe890d21dd"
       }
     }
   }

@@ -9,7 +9,7 @@
 				"packages/GAnalytics", 
 				"packages/accounts-ui-bootstrap-3", 
 				"packages/fast-render", 
-				"packages/font-awesome-4-less", 
+				// "packages/font-awesome-4-less", 
 				"packages/hammer", 
 				"packages/iron-router", 
 				"public/fontawesome", 
