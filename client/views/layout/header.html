@@ -4,39 +4,53 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header brand-wrapper">
 				
-				<a class="navbar-brand" href="{{ pathFor 'search' }}">
-					Law &amp; Order
+				<a class="navbar-brand" href="{{ pathFor 'home' }}">
+					<span class="logo fa fa-gavel"></span>
+					{{ i18n 'App.title' }}
 				</a>
 			</div>
-
-			<div class="search navbar-form navbar-left">
-				<div class="form-group">
-					<!-- <div class="input-group"> -->
-					{{#constant}}
-					<input type="text" placeholder="Keywords" class="form-control search-field">
-					{{/constant}}
-					<!-- <a class="input-group-addon">
-						<span class="fa fa-search"></span>
-					</a> -->
-					<!-- </div> -->
+			<ul class="nav navbar-nav navbar-left">
+				{{#if canEdit}}
+				<li>
+					<a href="" class="add btn" title="{{ i18n 'New definition' }}">
+						<span class="fa fa-plus"></span>
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+			<div class="search navbar-form">
+				<div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-2 col-lg-6 col-lg-offset-2">
+					<i class="fa fa-search search-icon"></i>
+					<input type="text" placeholder="Keywords" class="form-control search-field" value="{{searchString}}">
+					<span class="go btn btn-default">{{ i18n 'Go'}}</span>
 				</div>
+				<div class="visible-xs clearfix"></div>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right hidden-xs">
+				{{#if isAdmin}}
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" data-target="languageMenu">
 						<span class="fa fa-cogs"></span>
 						<span class="caret"></span>
 					</a>
-					<ul class="language dropdown-menu">
+					<ul class="dropdown-menu">
 						<li>
-							<a> 
+							<a href="" class="users">
 								<span class="fa fa-users"></span>
-								Users
+								{{ i18n 'Users' }}
+							</a>
+						</li>
+						<li>
+							<a href="" class="app-properties">
+								<span class="fa fa-cog"></span>
+								{{ i18n 'App Properties' }}
 							</a>
 						</li>
 					</ul>
 				</li>
+				{{/if}}
+				{{loginButtons align="right"}}
 			</ul>
 		</div><!-- /.container-fluid -->
 	</nav>

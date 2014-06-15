@@ -1,7 +1,18 @@
+// @font-family-base: @font-family-serif;
+
+
+@thumbnail-bg: transparent;
+
 @border-radius-base: 0;
-@thumbnail-bg: #efefef;
+@item-border-size: 2px;
 @thumbnail-padding: 8px;
-@thumbnail-shadow: 1px 1px 3px rgba(0,0,0,.2);
+@thumbnail-shadow: 0 @item-border-size/2 0 #ccc, 0 @item-border-size 0 #fff;
 @thumbnail-border: none;
 
-@z-editor: 300;
+@z-background: 10;
+@z-content: 20;
+@z-header: 30;
+@z-editor: 1000;
+
+
+@navbar-default-link-color: #fff;

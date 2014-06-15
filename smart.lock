@@ -23,7 +23,8 @@
         "tag": "v0.3.1"
       },
       "bootstrap-wysiwyg": {},
-      "GAnalytics": {}
+      "GAnalytics": {},
+      "jquery-masonry": {}
     },
     "packages": {
       "bootstrap3-less": {
@@ -60,6 +61,11 @@
         "git": "https://github.com/datariot/meteor-ganalytics.git",
         "tag": "v0.2.0",
         "commit": "2d5e48d5cc4c2f88edd40c0b2341d378bd4a702b"
+      },
+      "jquery-masonry": {
+        "git": "https://github.com/waltyuyu/meteor-jquery-masonry.git",
+        "tag": "v0.1.0",
+        "commit": "ec514fa4440f3cd77f5f567f25be27dc38ab57fa"
       }
     }
   }

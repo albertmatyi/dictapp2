@@ -1,22 +1,41 @@
-.editor-textarea {
-	min-height: 20vh;
-	height: 200px;
-	max-height: 80vh;
-	width: 100%;
-	border: solid 1px lighten(@gray, 60%);
-	.form-control-focus();
+.no-scroll {
+	.editor-overlay {
+		overflow-y: scroll;
+		overflow-x: auto;
+	}
 }
-.editor-wrapper {
+
+.editor-overlay {
+	@overlay-padding: 30px;
+	@footer-height: 46px;
+	@toolbar-height: 32px;
 	.position(0,0,0,0,fixed);
 	background-color: rgba(0, 0, 0, 0.3);
 	z-index: @z-editor;
-	.editor {
+	.editor-modal {
 		background-color: #fff;
-		.position(30px,30px,1em,30px);
+		.position(@overlay-padding, @overlay-padding, @footer-height + @padding-base-vertical, @overlay-padding);
 		overflow: auto;
+		.editor-wrapper {
+			height: 100%;
+			.editor-textarea {
+				min-height: 20vh;
+				height: ~'calc(100% - @{toolbar-height} - @{padding-base-vertical})';
+				border: solid 1px lighten(@gray, 60%);
+				.form-control-focus();
+			}
+			.editor-toolbar {
+				margin-top: @padding-base-vertical;
+				height: @toolbar-height;
+			}
+		}
 	}
 	.footer { 
+		height: @footer-height;
 		background-color: #fff;
-		.position(auto,30px,0px,30px);
+		.position(auto, @overlay-padding, @padding-base-vertical, @overlay-padding);
+		.btn {
+			margin-top: @padding-base-vertical;
+		}
 	}
 }

@@ -18,11 +18,22 @@ var fillWithDummyData = function () {
 	return true;
 };
 
+var addAdminUser = function () {
+	Accounts.createUser({username: 'admin',
+		password: 'asdasd',
+		profile: {
+			role: 'admin'
+		}
+	});
+	return true;
+};
+
 // =========================================================
 
 var migrations = [
 initial,
-fillWithDummyData
+fillWithDummyData,
+addAdminUser
 ];
 
 // =========================================================

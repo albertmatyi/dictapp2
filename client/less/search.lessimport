@@ -1,13 +1,31 @@
 .search {
-	.item {
-		// background: lighten(@gray, 60%);
-		.box-shadow(@thumbnail-shadow);
-		border: @thumbnail-border;
-		&:nth-child(odd) {
-			
-		}
-		.title {
+	@controls-height: 30px;
+	.results.row {
+		margin: 0;
+	}
+	.item-wrapper {
+		.item {
+			padding-bottom: 1em;
+			margin-bottom: @controls-height + @padding-base-vertical;
+			.box-shadow(@thumbnail-shadow);
 			font-family: @font-family-serif;
+			.title {
+				font-family: @font-family-serif;
+			}
+			.description {
+				padding-left: .5em;
+			}
+		}		
+		.controls {
+			.position(auto, @thumbnail-padding * 3, (@padding-base-vertical - @item-border-size/2), auto);
+			height: @controls-height;
+			overflow: hidden;
+			.btn {
+				position: relative;
+				top: -@padding-base-vertical;
+				@shadow: inset 0px @padding-base-vertical*2 5px -@padding-base-vertical rgba(0,0,0,.7);
+				.box-shadow(@shadow);
+			}
 		}
-	}		
+	}
 }

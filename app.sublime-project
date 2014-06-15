@@ -14,8 +14,10 @@
 				"packages/iron-router", 
 				"public/fontawesome", 
 				"packages/marked", 
+				"packages/jquery-masonry", 
 				".demeteorized/*", 
-				".openshift/*"]
+				".build/*", 
+				".rhc_app/*"]
 		}
 	]
 }

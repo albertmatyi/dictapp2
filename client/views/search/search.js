@@ -10,20 +10,54 @@ var bottomReached = function () {
 Meteor.startup(function () {
 	$(window).on('scroll', function () {
 		if (bottomReached()) {
-			var params = Router.current().params;
-			var limit = App.items.find(params.keywords, -1).count() + 10;
-			Meteor.subscribe('items', params.keywords, limit);
+			var string = App.search.getString();
+			var limit = App.items.find(string, -1).count() + 10;
+			Meteor.subscribe('items', string, limit);
 		}
 	});
 });
 
 Template.searchItem.events({
-	'click .item': function () {
-		Session.set('editor.itemId', this._id);
+	'click .edit.btn': function () {
+		App.editor.edit(this);
+	},
+	'click .delete.btn': function () {
+		var self = this;
+		bootbox.confirm(App.i18n.getString('Are you sure you wish to delete it?'), function (result) {
+			if (result) {
+				ItemsCollection.remove(self._id);
+			}
+		});
 	}
 });
-Template.searchItem.helpers({
-	edit: function () {
-		return Session.get('editor.itemId') === this._id;
+var $masonry;
+Template.search.rendered = function () {
+	if (!$masonry) {
+		$masonry = $(this.find('.results'));
+		$masonry.masonry({
+			itemSelector: '.item-wrapper'
+		});
+	} else {
+		$masonry.masonry('reload');
+	}
+};
+
+App.component('search').expose({
+	getString: function () {
+		return Session.get('search.string');
+	},
+	search: function (string) {
+		if (string === Session.get('search.string')) {
+			return;
+		}
+		if (!string) {
+			Router.go('home');
+		} else {
+			Router.go('search', {string: string});
+		}
 	}
 });
+
+Router.unload(function () {
+	$masonry =null;
+}, {only: ['search']});

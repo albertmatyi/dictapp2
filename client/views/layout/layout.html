@@ -1,6 +1,11 @@
 <template name="layout">
 	{{> header}}
+	<div class="background">
+		<div class="overlay"></div>
+	</div>
 	<div class="container {{page}}">
 		{{yield}}	
 	</div>
+	{{>editor}}
+	{{>panels}}
 </template>

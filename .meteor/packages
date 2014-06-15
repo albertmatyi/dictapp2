@@ -16,3 +16,6 @@ bootstrap-wysiwyg
 app-component
 app-property
 GAnalytics
+jquery-masonry
+bootbox
+panels

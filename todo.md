@@ -1,7 +1,15 @@
-# 03.04.2014
+DONE
+* new post
+* users signup
+* user mgmt
+* static i18n strs
+* prop mgmt
 
-* rich text editor (mind2 felere)
-* mobile verzio egyszerubb (kb: http://dex.adrianvintu.com/ )
-* kiemeles bug
-* remove kep/szoveg
-* impresszum / copyright @ fullscreen & no search
+IDEAS
+
+* highlight
+
+* results ranking (title match more important)
+* search history
+* favorite marking
+* search stats

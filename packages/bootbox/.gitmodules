@@ -1,0 +1,3 @@
+[submodule "bootbox"]
+	path = bootbox
+	url = git@github.com:makeusabrew/bootbox.git

@@ -5,7 +5,9 @@ var subscription;
 
 App.property = function (k) {
 	var key = 'property.' + k;
+	// console.log(key);
 	var prop = PropertiesCollection.findOne(key);
+	// console.log(prop);
 	var value;
 	if (!prop) {
 		if (Meteor.isClient) {
@@ -17,7 +19,10 @@ App.property = function (k) {
 	var postProcessor = postProcessors[key];
 	if (postProcessor) {
 		value = postProcessor(prop);
+	} else if (prop) {
+		value = prop.value;
 	}
+
 	return value;
 };
 
@@ -27,6 +32,7 @@ var defaults = {
 	title: '',
 	description: '',
 	postProcessor: function (prop) {
+		console.log(prop);
 		return prop.value;
 	},
 	validate: function (/* prop */) {}
@@ -65,7 +71,7 @@ App.component('property').expose({
 
 if (Meteor.isServer) {
 	Meteor.publish('properties', function () {
-		return PropertiesCollection.find({});
+		return PropertiesCollection.find({_id: {$regex: /property\..*/}});
 	});
 
 	PropertiesCollection.allow({
@@ -76,6 +82,11 @@ if (Meteor.isServer) {
 	Template.appPropertyEditor.helpers({
 		props: function () {
 			return PropertiesCollection.find();
+		}
+	});
+	Template.appPropertyEditorField.helpers({
+		title: function () {
+			return this.title || this._id.replace(/property|\./gi, ' ');
 		}
 	});
 	Template.appPropertyEditor.events({

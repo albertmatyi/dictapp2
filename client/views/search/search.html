@@ -1,5 +1,6 @@
 <template name="search">
-	<div class="row">
+
+	<div class="row results">
 		{{#each results}}
 		{{> searchItem}}
 		{{/each}}
@@ -7,15 +8,20 @@
 </template>
 
 <template name="searchItem">
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+	<div class="item-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3">
 		<div class="thumbnail item">
 			<h4 class="title">{{{title}}}</h4>
 			<div class="description">{{{description}}}</div>
 		</div>
-		{{#if isAdmin}}
+		{{#if canEdit}}
+		<div class="controls">
+			<button class="edit btn btn-primary">
+				<span class="fa fa-pencil"></span>
+			</button>
+			<button class="delete btn btn-warning">
+				<span class="fa fa-trash-o"></span>
+			</button>
+		</div>
 		{{/if}}
 	</div> 
-	{{#if edit}}
-	{{>editor}}
-	{{/if}}
 </template>

@@ -4,7 +4,9 @@ var Panels = {};
 var defaultOptions = {
     template: null, // the child template to be rendered
     data: {}, // the child template to be rendered
-    callback: function () { console.log('closed panel'); },
+    callback: function () { 
+        if (typeof console !== 'undefined') { console.log('closed panel'); }
+    },
     outside: true, // marking if panel should be outside of the screen
     _type: 'panels'
 };
@@ -25,12 +27,9 @@ Template.panel.helpers({
         return this.outside ? 'outside':'';
     },
     content: function () {
-        var opts = Panels[this.parentContext._id];
-        return opts ? opts.template:Template.panelInvalid;
-    },
-    contentData: function () {
         var opts = Panels[this._id];
-        return _.extend({parentContext: this}, opts ? opts.data:{});
+        var tpl = opts ? opts.template:Template.panelInvalid;
+        return tpl(opts.data);
     }
 });
 
