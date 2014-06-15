@@ -11,7 +11,7 @@ App.property.editFinished = function () {
 App.component('property').expose({
 	edit: function () {
 		panel = new Panel({
-			title: App.i18n.getString('Edit App Properties'),
+			title: App.i18n.getString('panel.app-properties.title'),
 			template: Template.appPropertyEditor
 		});
 	}

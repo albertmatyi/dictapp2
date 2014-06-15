@@ -71,17 +71,28 @@ App.component('property').expose({
 
 if (Meteor.isServer) {
 	Meteor.publish('properties', function () {
-		return PropertiesCollection.find({_id: {$regex: /property\..*/}});
-	});
+	return PropertiesCollection.find({_id: {$regex: /property\..*/}});
+});
 
 	PropertiesCollection.allow({
 		insert: App.property.authorized,
-		update: App.property.authorized
+		update: App.property.authorized,
+		remove: App.property.authorized
 	});
 } else if (Meteor.isClient) {
 	Template.appPropertyEditor.helpers({
 		props: function () {
 			return PropertiesCollection.find();
+		}
+	});
+	Template.appPropertyEditorField.events({
+		'click .delete.btn': function () {
+			var self = this;
+			bootbox.confirm(App.i18n.getString('confirm.delete'), function (result) {
+				if (result) {
+					PropertiesCollection.remove(self._id);
+				}
+			});
 		}
 	});
 	Template.appPropertyEditorField.helpers({

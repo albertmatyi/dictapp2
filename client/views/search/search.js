@@ -23,7 +23,7 @@ Template.searchItem.events({
 	},
 	'click .delete.btn': function () {
 		var self = this;
-		bootbox.confirm(App.i18n.getString('Are you sure you wish to delete it?'), function (result) {
+		bootbox.confirm(App.i18n.getString('confirm.delete'), function (result) {
 			if (result) {
 				ItemsCollection.remove(self._id);
 			}

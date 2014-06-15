@@ -5,9 +5,10 @@ var getString = function (str) {
 	if (!translation) {
 		console.warn('Adding translation for: ' + key);
 		App.property.set({
-			title: str.replace(/\./gi, ' '),
+			title: 'Label for ' + str.replace(/\./gi, ' '),
 			key: key, 
-			default: str
+			default: str,
+			removable: true
 		});
 	}
 	return translation || str;
