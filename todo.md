@@ -7,6 +7,8 @@ DONE
 
 IDEAS
 
+* Licence n stuff
+* editable
 * highlight
 
 * results ranking (title match more important)
