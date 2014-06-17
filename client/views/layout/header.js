@@ -1,7 +1,7 @@
 
 var clear = function () {
-	$('.search-box input').val('').focus();
-	Router.go('home');
+	$('.search-field').val('').focus();
+	search(true);
 };
 
 var search = function (instant) {
@@ -21,6 +21,9 @@ Template.header.events({
 	},
 	'click .go.btn': function () {
 		search();
+	},
+	'click .clear.btn': function () {
+		clear();
 	},
 	'click .users': function (e) {
 		e.preventDefault();

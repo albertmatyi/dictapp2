@@ -3,7 +3,7 @@ var getString = function (str) {
 	var key = 'i18n.' + lang + '.' + str;
 	var translation = App.property(key);
 	if (!translation) {
-		console.warn('Adding translation for: ' + key);
+		// console.warn('Adding translation for: ' + key);
 		App.property.set({
 			title: 'Label for ' + str.replace(/\./gi, ' '),
 			key: key, 

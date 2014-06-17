@@ -1,5 +1,5 @@
 <template name="header">
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header brand-wrapper hidden-xs">
@@ -19,14 +19,18 @@
 				{{/if}}
 			</ul>
 			<div class="search navbar-form navbar-left">
-				{{#constant}}
 				<div class="form-group">
 					<i class="fa fa-search search-icon"></i>
+					{{#constant}}
 					<input type="text" placeholder="Keywords" class="form-control search-field" value="{{searchString}}">
-					<!-- <span class="go btn btn-default">{{ i18n 'header.search.button'}}</span> -->
+					{{/constant}}
+					{{#if searchString}}
+					<button class="clear btn">
+						<span class="fa fa-times"></span>
+					</button>
+					{{/if}}
 				</div>
 				<!-- <div class="visible-xs clearfix"></div> -->
-				{{/constant}}
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<ul class="nav navbar-nav navbar-right hidden-xs">

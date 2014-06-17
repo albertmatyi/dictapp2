@@ -43,6 +43,18 @@
 			padding-left: @navbar-padding-horizontal * 2;
 			border-radius: @border-radius;
 		}
+		.clear.btn {
+			background-color: transparent;
+			@bs: none !important;
+			.box-shadow(@bs);
+			outline: none;
+			border: none;
+			color: @brand-danger;
+
+			position: absolute;
+			top: @navbar-top;
+			right: 0;
+		}
 		.go.btn {
 			position: absolute;
 			border-radius: 0 @border-radius @border-radius 0;

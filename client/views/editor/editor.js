@@ -14,7 +14,7 @@ var closeEditor = function () {
 var clean = function (str) {
 	var cstr = App.string.replaceSpecialChars(str);
 	cstr = cstr.replace(/<[^>]*>/gi, '');
-	console.log(cstr);
+	// console.log(cstr);
 	return cstr;
 };
 
