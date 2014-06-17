@@ -4,11 +4,11 @@ DONE
 * user mgmt
 * static i18n strs
 * prop mgmt
+* Impresszum licence n stuff
+* editable
 
 IDEAS
 
-* Licence n stuff
-* editable
 * highlight
 
 * results ranking (title match more important)

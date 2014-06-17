@@ -20,13 +20,13 @@
     @left: 20%;
     .transition(.5s);
     position: absolute;
-    background: rgba(255, 255, 255, .9);
+    background: #fff;
     left: @left;
     height: 100%;
     width: 100% - @left;
     overflow: auto;
     .body{
-      padding: 100px 2em;
+      padding: 60px 2em;
       label {
         small {
           font-weight: 100;
@@ -38,12 +38,15 @@
       left: @left;
       width: 100% - @left;
       padding: 10px;
-      background-color: fade(@gray-light, 70%);
+      background-color: @gray-lighter;
       font-weight: bold;
     }
     .header {
       text-align: center;
       top: 0;
+      .close.btn {
+        opacity: 1;
+      }
     }
     .footer {
       bottom: 0;

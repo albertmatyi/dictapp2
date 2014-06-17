@@ -16,3 +16,5 @@
 
 
 @navbar-default-link-color: #fff;
+@bg-text-shadow: -1px -1px 1px @gray-light,  1px 1px 1px #fff;
+@bg-text-shadow-dark: -1px -1px 1px @gray-darker,  1px 1px 1px @gray-light;

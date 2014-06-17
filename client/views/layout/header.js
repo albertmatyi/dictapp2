@@ -4,9 +4,9 @@ var clear = function () {
 	Router.go('home');
 };
 
-var search = function () {
+var search = function (instant) {
 	var string = $('.search-field').val().trim();
-	App.search.search(string);
+	App.search.search(string, instant);
 };
 
 Template.header.events({
@@ -14,6 +14,8 @@ Template.header.events({
 		if (ev.keyCode === 27) { // ESC
 			clear();
 		} else if (ev.keyCode === 13) { // ENTER
+			search(true);
+		} else {
 			search();
 		}
 	},
@@ -31,6 +33,10 @@ Template.header.events({
 	'click .add.btn': function (e) {
 		e.preventDefault();
 		App.editor.create();
+	},
+	'click .help.btn': function (e) {
+		e.preventDefault();
+		App.about.show();
 	}
 });
 

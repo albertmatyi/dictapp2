@@ -3,6 +3,16 @@
 	<div class="row results">
 		{{#each results}}
 		{{> searchItem}}
+		{{else}}
+		<div class="empty col-xs-12">
+			<p>
+				{{ i18n 'results.empty' }}
+			</p>
+			<button class="add btn btn-primary">
+				<span class="fa fa-plus"></span>
+				{{ i18n 'item.new'}}
+			</button>
+		</div>
 		{{/each}}
 	</div>
 </template>

@@ -2,14 +2,14 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header brand-wrapper">
+			<div class="navbar-header brand-wrapper hidden-xs">
 				
 				<a class="navbar-brand" href="{{ pathFor 'home' }}">
 					<span class="logo fa fa-gavel"></span>
 					{{ i18n 'app.title' }}
 				</a>
 			</div>
-			<ul class="nav navbar-nav navbar-left">
+			<ul class="nav navbar-nav navbar-left hidden-xs">
 				{{#if canEdit}}
 				<li>
 					<a href="" class="add btn" title="{{ i18n 'header.new.title' }}">
@@ -18,13 +18,15 @@
 				</li>
 				{{/if}}
 			</ul>
-			<div class="search navbar-form">
-				<div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-2 col-lg-6 col-lg-offset-2">
+			<div class="search navbar-form navbar-left">
+				{{#constant}}
+				<div class="form-group">
 					<i class="fa fa-search search-icon"></i>
 					<input type="text" placeholder="Keywords" class="form-control search-field" value="{{searchString}}">
-					<span class="go btn btn-default">{{ i18n 'header.search.button'}}</span>
+					<!-- <span class="go btn btn-default">{{ i18n 'header.search.button'}}</span> -->
 				</div>
-				<div class="visible-xs clearfix"></div>
+				<!-- <div class="visible-xs clearfix"></div> -->
+				{{/constant}}
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<ul class="nav navbar-nav navbar-right hidden-xs">
@@ -51,6 +53,11 @@
 				</li>
 				{{/if}}
 				{{loginButtons align="right"}}
+				<li>
+					<a href="" class="help btn">
+						<span class="fa fa-question-circle"></span>
+					</a>
+				</li>
 			</ul>
 		</div><!-- /.container-fluid -->
 	</nav>

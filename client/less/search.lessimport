@@ -1,9 +1,21 @@
 .search {
 	@controls-height: 30px;
 	.results.row {
-		margin: 0;
+		@media (min-width: @screen-sm) {
+			margin: 0;
+		}
+		.empty {
+			text-align: center;
+			color: @gray-lighter;
+			text-shadow: @bg-text-shadow;
+			font-size: 3em;
+		}
 	}
 	.item-wrapper {
+		@media (max-width: @screen-sm) {
+			padding: 0;
+		}
+		
 		.item {
 			padding-bottom: 1em;
 			margin-bottom: @controls-height + @padding-base-vertical;
@@ -14,6 +26,7 @@
 			}
 			.description {
 				padding-left: .5em;
+				word-wrap: break-word;
 			}
 		}		
 		.controls {

@@ -31,6 +31,7 @@ var defaults = {
 	'default': 1,
 	title: '',
 	description: '',
+	editable: true,
 	postProcessor: function (prop) {
 		console.log(prop);
 		return prop.value;
@@ -82,7 +83,7 @@ if (Meteor.isServer) {
 } else if (Meteor.isClient) {
 	Template.appPropertyEditor.helpers({
 		props: function () {
-			return PropertiesCollection.find();
+			return PropertiesCollection.find({editable: {$ne: false}});
 		}
 	});
 	Template.appPropertyEditorField.events({

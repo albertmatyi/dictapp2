@@ -11,15 +11,31 @@
 		@navbar-top: (@navbar-padding-vertical / 2);
 		@border-radius: 16px;
 		margin: 0;
+		padding: 0;
 		border: none;
+		min-width: 100%;
+		position: relative;
+		@media (min-width: @screen-sm) {
+			min-width: 50%;
+		}
+		@media (min-width: @screen-md) {
+			min-width: 40%;
+		}
+		@media (min-width: @screen-lg-min) {
+			min-width: 30%;
+		}
 		.box-shadow(none);
 		.search-icon {
 			position: absolute;
 			z-index: 1;
 			font-size: 1.5em;
 			color: @gray-light;
+
 			top: @navbar-top + @padding-base-vertical;
-			left: @padding-base-horizontal * 2;
+			left: @padding-base-horizontal *.7;
+		}
+		.form-group {
+			width: 100%;
 		}
 		.search-field {
 			position: relative;
