@@ -46,12 +46,8 @@ var closePanel = function () {
 
 Template.panel.events({
     'click .close': closePanel,
-    'click .panel': function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-    },
     'click .panel-wrapper': function (e) {
-        if (!e.isDefaultPrevented()) {
+        if (e.target === $('.panel-wrapper')[0]) {
             closePanel.call(this);
         }
     }

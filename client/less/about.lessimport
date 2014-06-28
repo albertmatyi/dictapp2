@@ -1,4 +1,4 @@
 .about.editor-textarea {
-	height: 60vh;
+	min-height: 60vh;
 	margin-bottom: 1em;
 }

@@ -19,34 +19,41 @@
 
 <template name="searchItem">
 	<div class="item-wrapper col-xs-12">
-		<div class="thumbnail item left col-xs-12 col-sm-6">
-			<h4 class="title">{{{titleLeft}}}</h4>
+		<div class="item left col-xs-12 col-sm-6">
+			<div class="title">{{{titleLeft}}}</div>
 			<div class="description">{{{descriptionLeft}}}</div>
 		</div>
-		<div class="separator">&#x00a7;</div>
-		<div class="thumbnail item right col-xs-12 col-sm-6">
-			<h4 class="title">{{{titleRight}}}</h4>
+		<div class="item right col-xs-12 col-sm-6">
+			<div class="title">{{{titleRight}}}</div>
 			<div class="description">{{{descriptionRight}}}</div>
 		</div>
 		<div class="controls">
 			<button class="more btn btn-link">
 				<span class="fa fa-chevron-down"></span>
-				{{ translate "more.button" }}
+				<span class="hidden-xs">
+					{{ translate "more.button" }}
+				</span>
 			</button>
 			<button class="less btn btn-link">
 				<span class="fa fa-chevron-up"></span>
-				{{ translate "less.button" }}
+				<span class="hidden-xs">
+					{{ translate "less.button" }}
+				</span>
 			</button>
-		{{#if canEdit}}
+			{{#if canEdit}}
 			<button class="edit btn btn-link">
 				<span class="fa fa-pencil"></span>
-				{{ translate "edit.button" }}
+				<span class="hidden-xs">
+					{{ translate "edit.button" }}
+				</span>
 			</button>
 			<button class="delete btn btn-link">
 				<span class="fa fa-trash-o"></span>
-				{{ translate "delete.button" }}
+				<span class="hidden-xs">
+					{{ translate "delete.button" }}
+				</span>
 			</button>
-		{{/if}}
+			{{/if}}
 		</div>
 	</div> 
 </template>
