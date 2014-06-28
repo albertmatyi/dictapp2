@@ -6,11 +6,11 @@
 		{{else}}
 		<div class="empty col-xs-12">
 			<p>
-				{{ i18n 'results.empty' }}
+				{{ translate 'results.empty' }}
 			</p>
 			<button class="add btn btn-primary">
 				<span class="fa fa-plus"></span>
-				{{ i18n 'item.new'}}
+				{{ translate 'item.new'}}
 			</button>
 		</div>
 		{{/each}}
@@ -18,20 +18,35 @@
 </template>
 
 <template name="searchItem">
-	<div class="item-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3">
-		<div class="thumbnail item">
-			<h4 class="title">{{{title}}}</h4>
-			<div class="description">{{{description}}}</div>
+	<div class="item-wrapper col-xs-12">
+		<div class="thumbnail item left col-xs-12 col-sm-6">
+			<h4 class="title">{{{titleLeft}}}</h4>
+			<div class="description">{{{descriptionLeft}}}</div>
 		</div>
-		{{#if canEdit}}
+		<div class="separator">&#x00a7;</div>
+		<div class="thumbnail item right col-xs-12 col-sm-6">
+			<h4 class="title">{{{titleRight}}}</h4>
+			<div class="description">{{{descriptionRight}}}</div>
+		</div>
 		<div class="controls">
-			<button class="edit btn btn-primary">
+			<button class="more btn btn-link">
+				<span class="fa fa-chevron-down"></span>
+				{{ translate "more.button" }}
+			</button>
+			<button class="less btn btn-link">
+				<span class="fa fa-chevron-up"></span>
+				{{ translate "less.button" }}
+			</button>
+		{{#if canEdit}}
+			<button class="edit btn btn-link">
 				<span class="fa fa-pencil"></span>
+				{{ translate "edit.button" }}
 			</button>
-			<button class="delete btn btn-warning">
+			<button class="delete btn btn-link">
 				<span class="fa fa-trash-o"></span>
+				{{ translate "delete.button" }}
 			</button>
-		</div>
 		{{/if}}
+		</div>
 	</div> 
 </template>

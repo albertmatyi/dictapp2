@@ -6,14 +6,17 @@
 				
 				<a class="navbar-brand" href="{{ pathFor 'home' }}">
 					<span class="logo fa fa-gavel"></span>
-					{{ i18n 'app.title' }}
+					{{ translate 'app.title' }}
 				</a>
 			</div>
 			<ul class="nav navbar-nav navbar-left hidden-xs">
 				{{#if canEdit}}
 				<li>
-					<a href="" class="add btn" title="{{ i18n 'header.new.title' }}">
+					<a href="" class="add btn" title="{{ translate 'header.new.title' }}">
 						<span class="fa fa-plus"></span>
+						<span class="sm-hidden">
+							{{ translate 'header.new.title'}}
+						</span>
 					</a>
 				</li>
 				{{/if}}
@@ -44,13 +47,13 @@
 						<li>
 							<a href="" class="users">
 								<span class="fa fa-users"></span>
-								{{ i18n 'header.user.button' }}
+								{{ translate 'header.user.button' }}
 							</a>
 						</li>
 						<li>
 							<a href="" class="app-properties">
 								<span class="fa fa-cog"></span>
-								{{ i18n 'header.app-properties.button' }}
+								{{ translate 'header.app-properties.button' }}
 							</a>
 						</li>
 					</ul>

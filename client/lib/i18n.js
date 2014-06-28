@@ -14,7 +14,7 @@ var getString = function (str) {
 	return translation || str;
 };
 
-Handlebars.registerHelper('i18n', getString);
+Handlebars.registerHelper('translate', getString);
 
 App.component('i18n').expose({
 	getString: getString

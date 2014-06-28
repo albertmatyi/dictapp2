@@ -6,7 +6,7 @@
 @border-radius-base: 0;
 @item-border-size: 2px;
 @thumbnail-padding: 8px;
-@thumbnail-shadow: 0 @item-border-size/2 0 #ccc, 0 @item-border-size 0 #fff;
+@item-shadow: 0 @item-border-size/2 0 #ccc, 0 @item-border-size 0 #fff;
 @thumbnail-border: none;
 
 @z-background: 10;

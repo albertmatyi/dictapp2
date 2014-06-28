@@ -2,25 +2,36 @@
 	{{#with data}}
 	<div class="editor-overlay">
 		<div class="editor-modal row">
+			<h2 class="col-xs-12 editor-title">{{ translate 'editor.title' }}</h2>
 			<div class="editor-wrapper col-sm-6">
-				<div class="editor-toolbar" id="toolbar-title" data-role="editor-toolbar" data-target="#editor-title">
+				<div class="form-group">
+					<label for="title-left">{{ translate 'title.left' }}</label>
+					<input type="text" class="form-control" name="title-left" id="title-left" placeholder="" value="{{titleLeft}}">
+				</div>
+
+				<div class="editor-toolbar" id="toolbar-description-left" data-role="editor-toolbar" data-target="#editor-description-left">
 					{{> editorToolbarIcons}}
 				</div>
-				<div class="editor-textarea title" id="editor-title">{{{title}}}</div>
+				<div class="editor-textarea description-left" id="editor-description-left">{{{descriptionLeft}}}
+				</div>
 			</div>
 			<div class="editor-wrapper col-sm-6">
-				<div class="editor-toolbar" id="toolbar-description" data-role="editor-toolbar" data-target="#editor-description">
-					{{> editorToolbarIcons}}
+				<div class="form-group">
+					<label for="title-right">{{ translate 'title.right' }}</label>
+					<input type="text" class="form-control" name="title-right" id="title-right" placeholder="" value="{{titleRight}}">
 				</div>
-				<div class="editor-textarea description" id="editor-description">{{{description}}}</div>
+				<div class="editor-toolbar" id="toolbar-description-right" data-role="editor-toolbar" data-target="#editor-description-right">
+					{{> editorToolbarIcons }}
+				</div>
+				<div class="editor-textarea description-right" id="editor-description-right">{{{descriptionRight}}}</div>
 			</div>
 		</div>
 		<div class="row footer">
 			<button class="save btn btn-primary col-md-3 col-md-offset-4 col-sm-4 col-sm-offset-3 col-xs-8">
 				<span class="fa fa-save"></span>
-				{{ i18n 'save.button' }}
+				{{ translate 'save.button' }}
 			</button>
-			<button class="cancel btn btn-link col-md-1 col-sm-2 col-xs-4">{{ i18n 'cancel.button' }}</button>
+			<button class="cancel btn btn-link col-md-1 col-sm-2 col-xs-4">{{ translate 'cancel.button' }}</button>
 		</div>
 	</div>
 	{{/with}}

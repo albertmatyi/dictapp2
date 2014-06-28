@@ -3,6 +3,10 @@ var initial = function () {
 	return true;
 };
 
+var downgrade = function () {
+	return 'downgrade';
+};
+
 var fillWithDummyData = function () {
 	console.log('Filling with fixieData');
 	ItemsCollection.remove({});
@@ -28,12 +32,33 @@ var addAdminUser = function () {
 	return true;
 };
 
+var resetItemData = function () {
+	console.log('Resetting fixie data');
+	ItemsCollection.remove({});
+	for (var i = 1000; i >= 0; i--) {
+		var ttlL = fixie.fetchPhrase();
+		var ttlR = fixie.fetchPhrase();
+		var descL = fixie.fetchParagraph();
+		var descR = fixie.fetchParagraph();
+		var data = {
+			titleLeft: ttlL,
+			descriptionLeft: descL,
+			titleRight: ttlR,
+			descriptionRight: descR,
+			searchable: [ttlL, ttlR, descL, descR].join(' ')
+		};
+		ItemsCollection.insert(data);
+	}
+	return true;	
+};
+
 // =========================================================
 
 var migrations = [
 initial,
 fillWithDummyData,
-addAdminUser
+addAdminUser,
+resetItemData
 ];
 
 // =========================================================
@@ -46,7 +71,7 @@ var migrateDb = function () {
 	} else {
 		ver = ver.value;
 	}
-
+	ver = parseInt(ver);
 	for (var i = ver + 1; i < migrations.length; i++) {
 		console.log('Migrating from version ' + (i-1) + ' to ' + i);
 		var ret = migrations[i](i);
@@ -59,7 +84,7 @@ var migrateDb = function () {
 			App.property.PropertiesCollection.update({_id: 'dbversion'}, {$set: {value: tver}}, {multi: true});
 		}
 	}
-	console.log('Migraton done');
+	console.log('Migration done. Db.ver: ', ver);
 };
 
 Meteor.startup(migrateDb);

@@ -32,6 +32,12 @@ Template.search.events({
 	}
 });
 Template.searchItem.events({
+	'click .more.btn': function (e) {
+		$(e.currentTarget).parents('.item-wrapper').addClass('open');
+	},
+	'click .less.btn': function (e) {
+		$(e.currentTarget).parents('.item-wrapper').removeClass('open');
+	},
 	'click .edit.btn': function () {
 		App.editor.edit(this);
 	},
@@ -44,17 +50,6 @@ Template.searchItem.events({
 		});
 	}
 });
-var $masonry;
-Template.search.rendered = function () {
-	if (!$masonry) {
-		$masonry = $(this.find('.results'));
-		$masonry.masonry({
-			itemSelector: '.item-wrapper'
-		});
-	} else {
-		$masonry.masonry('reload');
-	}
-};
 
 App.component('search').expose({
 	getString: function () {
@@ -76,7 +71,3 @@ App.component('search').expose({
 		}
 	}
 });
-
-Router.unload(function () {
-	$masonry =null;
-}, {only: ['search']});

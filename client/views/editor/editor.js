@@ -1,9 +1,9 @@
 Template.editor.rendered = function () {
-	var $editorTitle = $(this.find('#editor-title'));
-	$editorTitle.wysiwyg({toolbarSelector: '#toolbar-title'});
+	var $editorLeft = $(this.find('#editor-description-left'));
+	$editorLeft.wysiwyg({toolbarSelector: '#toolbar-description-left'});
 
-	var $editorDescription = $(this.find('#editor-description'));
-	$editorDescription.wysiwyg({toolbarSelector: '#toolbar-description'});
+	var $editorRight = $(this.find('#editor-description-right'));
+	$editorRight.wysiwyg({toolbarSelector: '#toolbar-description-right'});
 };
 
 var closeEditor = function () {
@@ -20,11 +20,17 @@ var clean = function (str) {
 
 Template.editor.events({
 	'click .save.btn': function () {
-		var title = $('.title.editor-textarea').html();
-		var description = $('.description.editor-textarea').html();
+		var titleL =  $('#title-left').val();
+		var titleR =  $('#title-right').val();
+		var descriptionL = $('.description-left.editor-textarea').html();
+		var descriptionR = $('.description-right.editor-textarea').html();
 		var id = Session.get('editor.itemId');
-		var data = {title: title, description: description, searchable: clean(title + ' ' + description)};
-		// console.log(data);
+		var data = {
+			titleL: titleL,
+			titleR: titleR,
+			descriptionL: descriptionL,
+			descriptionR: descriptionR,
+			searchable: clean(titleL + ' ' + titleR + ' ' + descriptionL + ' ' + descriptionR)};
 		if (id === -1) {
 			ItemsCollection.insert(data);
 		} else {
