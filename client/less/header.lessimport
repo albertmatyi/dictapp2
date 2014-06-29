@@ -42,6 +42,7 @@
 			top: @navbar-top;
 			padding-left: @navbar-padding-horizontal * 2;
 			border-radius: @border-radius;
+			width: 100%;
 		}
 		.clear.btn {
 			background-color: transparent;

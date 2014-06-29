@@ -29,7 +29,7 @@ Template.panel.helpers({
     content: function () {
         var opts = Panels[this._id];
         var tpl = opts ? opts.template:Template.panelInvalid;
-        return tpl(opts.data);
+        return tpl;
     }
 });
 

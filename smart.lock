@@ -2,55 +2,28 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "bootstrap3-less": {
-        "git": "https://github.com/eprochasson/bootstrap3-less",
-        "tag": "v0.1.8"
-      },
-      "iron-router": {
-        "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.4"
-      },
-      "font-awesome-4-less": {
-        "git": "https://github.com/svub/fontawesome4-less.git",
-        "tag": "v4.0.3.5"
-      },
-      "accounts-ui-bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.2.6"
-      },
-      "marked": {
-        "git": "https://github.com/chuangbo/meteor-marked.git",
-        "tag": "v0.3.1"
-      },
+      "bootstrap3-less": {},
+      "iron-router": {},
+      "accounts-ui-bootstrap-3": {},
       "bootstrap-wysiwyg": {},
       "GAnalytics": {},
-      "jquery-masonry": {}
+      "font-awesome-4-less": {}
     },
     "packages": {
       "bootstrap3-less": {
         "git": "https://github.com/eprochasson/bootstrap3-less",
-        "tag": "v0.1.8",
-        "commit": "48b6db4435d9f01a1fcfe694a180b38e8e38835b"
+        "tag": "v0.1.9",
+        "commit": "5c812c4d7ce72917a065f0424c3cf54e5ff2d16a"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.4",
-        "commit": "927bbaed1b87894fb6fb70807f74ff3a5bd89f29"
-      },
-      "font-awesome-4-less": {
-        "git": "https://github.com/svub/fontawesome4-less.git",
-        "tag": "v4.0.3.5",
-        "commit": "62b328080771eac322ee4d639189b75ced51ebe0"
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.2.6",
-        "commit": "f3ee0ef6bc506314e19585550b4f9f5620c4ada6"
-      },
-      "marked": {
-        "git": "https://github.com/chuangbo/meteor-marked.git",
-        "tag": "v0.3.1",
-        "commit": "3d9a9c94793b20e1ee7c807931cb536010d6f820"
+        "tag": "v0.3.0-1",
+        "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
       },
       "bootstrap-wysiwyg": {
         "git": "https://github.com/mcrider/meteor-bootstrap-wysiwyg.git",
@@ -62,10 +35,15 @@
         "tag": "v0.2.0",
         "commit": "2d5e48d5cc4c2f88edd40c0b2341d378bd4a702b"
       },
-      "jquery-masonry": {
-        "git": "https://github.com/waltyuyu/meteor-jquery-masonry.git",
-        "tag": "v0.1.0",
-        "commit": "ec514fa4440f3cd77f5f567f25be27dc38ab57fa"
+      "font-awesome-4-less": {
+        "git": "https://github.com/svub/fontawesome4-less.git",
+        "tag": "v4.3.9",
+        "commit": "45e5d416d85ad8216ac17066492dddb67ad4acb4"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       }
     }
   }

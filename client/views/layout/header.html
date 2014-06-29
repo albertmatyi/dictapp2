@@ -24,9 +24,7 @@
 			<div class="search navbar-form navbar-left">
 				<div class="form-group">
 					<i class="fa fa-search search-icon"></i>
-					{{#constant}}
 					<input type="text" placeholder="Keywords" class="form-control search-field" value="{{searchString}}">
-					{{/constant}}
 					{{#if searchString}}
 					<button class="clear btn">
 						<span class="fa fa-times"></span>
@@ -59,7 +57,7 @@
 					</ul>
 				</li>
 				{{/if}}
-				{{loginButtons align="right"}}
+				{{> loginButtons align="right"}}
 				<li>
 					<a href="" class="help btn">
 						<span class="fa fa-question-circle"></span>
