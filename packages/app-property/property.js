@@ -81,6 +81,28 @@ if (Meteor.isServer) {
 		remove: App.property.authorized
 	});
 } else if (Meteor.isClient) {
+	var save = function ($form) {
+		var err = false;
+		$form.find('input').each(function () {
+			var val = $(this).val();
+			var id = this.id;
+			var validate = validators[id];
+			if (validate) {
+				var prop = PropertiesCollection.findOne(id);
+				prop.value = val;
+				try {
+					validate(prop);
+				} catch (e) {
+					alert('Invalid value for ' + this.id + '\n' + e);
+					err = true;
+				}
+			}
+			PropertiesCollection.update(id, {$set: {value: val}});
+		});
+		if (!err && App.property.editFinished) {
+			App.property.editFinished(true);
+		}
+	};
 	Template.appPropertyEditor.helpers({
 		props: function () {
 			return PropertiesCollection.find({editable: {$ne: false}});
@@ -104,26 +126,12 @@ if (Meteor.isServer) {
 	Template.appPropertyEditor.events({
 		'click .save.btn': function (e) {
 			e.preventDefault();
-			var err = false;
-			$(e.currentTarget).parents('form').find('input').each(function () {
-				var val = $(this).val();
-				var id = this.id;
-				var validate = validators[id];
-				if (validate) {
-					var prop = PropertiesCollection.findOne(id);
-					prop.value = val;
-					try {
-						validate(prop);
-					} catch (e) {
-						alert('Invalid value for ' + this.id + '\n' + e);
-						err = true;
-					}
-				}
-				PropertiesCollection.update(id, {$set: {value: val}});
-			});
-			if (!err && App.property.editFinished) {
-				App.property.editFinished(true);
-			}
+			var $form = $(e.currentTarget).parents('form');
+			save($form);
+		},
+		'submit form': function (e) {
+			e.preventDefault();
+			save($(e.currentTarget));
 		},
 		'click .cancel.btn': function () {
 			if (App.property.editFinished) {

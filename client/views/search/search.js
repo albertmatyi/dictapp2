@@ -1,16 +1,6 @@
 var BOTTOM_THRESHOLD = 100;
 var timeout;
 
-App.property.set({
-	key: 'search.timeout',
-	default: 800,
-	title: 'Search timeout',
-	description: 'Time in milliseconds after the last keypress when the app begins searching',
-	postProcess: function (prop) {
-		return parseInt(prop.value, 10);
-	}
-});
-
 var bottomReached = function () {
 	var val = $(document).height() -
 	(window.innerHeight + window.scrollY);
@@ -25,6 +15,25 @@ Meteor.startup(function () {
 			Meteor.subscribe('items', string, limit);
 		}
 	});
+});
+
+Template.searchItem.rendered = function () {
+	var $el = $(this.firstNode);
+	var str = Session.get('search.string');
+	console.log('higlighting', str);
+	_.each(str.split(' '), function (word) {
+		console.log('higlighting', word);
+		$el.highlight(word);
+	});
+};
+
+Template.searchItem.helpers({
+	titleLeftAlignment: function () {
+		return App.property('item.title.left.align');
+	},
+	titleRightAlignment: function () {
+		return App.property('item.title.right.align');
+	}
 });
 Template.search.events({
 	'click .add.btn': function () {

@@ -1,3 +1,9 @@
+App.property.set({
+	key: 'app.icon',
+	default: 'fa-graduation-cap',
+	title: 'Icon of the application',
+	description: 'Choose one of the icon names from http://fontawesome.io/icons/'
+});
 
 var clear = function () {
 	$('.search-field').val('').focus();
@@ -46,6 +52,9 @@ Template.header.events({
 Template.header.helpers({
 	searchString: function () {
 		return App.search.getString();
+	},
+	appIcon: function () {
+		return App.property('app.icon');
 	}
 });
 

@@ -1,9 +1,5 @@
-Template.editor.rendered = function () {
-	var $editorLeft = $(this.find('#editor-description-left'));
-	$editorLeft.wysiwyg({toolbarSelector: '#toolbar-description-left'});
-
-	var $editorRight = $(this.find('#editor-description-right'));
-	$editorRight.wysiwyg({toolbarSelector: '#toolbar-description-right'});
+Template.wysiwygTextarea.rendered = function () {
+	$(this.firstNode).wysiwyg({toolbarSelector: this.data.toolbarSelector});
 };
 
 var closeEditor = function () {
@@ -26,10 +22,10 @@ Template.editor.events({
 		var descriptionR = $('.description-right.editor-textarea').html();
 		var id = Session.get('editor.itemId');
 		var data = {
-			titleL: titleL,
-			titleR: titleR,
-			descriptionL: descriptionL,
-			descriptionR: descriptionR,
+			titleLeft: titleL,
+			titleRight: titleR,
+			descriptionLeft: descriptionL,
+			descriptionRight: descriptionR,
 			searchable: clean(titleL + ' ' + titleR + ' ' + descriptionL + ' ' + descriptionR)};
 		if (id === -1) {
 			ItemsCollection.insert(data);

@@ -12,8 +12,7 @@
 				<div class="editor-toolbar" id="toolbar-description-left" data-role="editor-toolbar" data-target="#editor-description-left">
 					{{> editorToolbarIcons}}
 				</div>
-				<div class="editor-textarea description-left" id="editor-description-left">{{{descriptionLeft}}}
-				</div>
+				{{> wysiwygTextarea text=this.descriptionLeft toolbarSelector='#toolbar-description-left' id='left'}}
 			</div>
 			<div class="editor-wrapper col-sm-6">
 				<div class="form-group">
@@ -23,7 +22,7 @@
 				<div class="editor-toolbar" id="toolbar-description-right" data-role="editor-toolbar" data-target="#editor-description-right">
 					{{> editorToolbarIcons }}
 				</div>
-				<div class="editor-textarea description-right" id="editor-description-right">{{{descriptionRight}}}</div>
+				{{> wysiwygTextarea text=this.descriptionRight toolbarSelector='#toolbar-description-right' id='right'}}
 			</div>
 		</div>
 		<div class="row footer">
@@ -35,6 +34,10 @@
 		</div>
 	</div>
 	{{/with}}
+</template>
+
+<template name="wysiwygTextarea">
+	<div class="editor-textarea description-{{id}}" id="editor-description-{{id}}">{{{text}}}</div>
 </template>
 
 <template name="editorToolbarIcons">

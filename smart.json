@@ -5,6 +5,7 @@
     "accounts-ui-bootstrap-3": {},
     "bootstrap-wysiwyg": {},
     "GAnalytics": {},
-    "font-awesome-4-less": {}
+    "font-awesome-4-less": {},
+    "highlight": {}
   }
 }

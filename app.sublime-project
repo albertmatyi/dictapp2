@@ -11,6 +11,7 @@
 				"packages/fast-render", 
 				// "packages/font-awesome-4-less", 
 				"packages/hammer", 
+				"packages/blaze-layout", 
 				"packages/iron-router", 
 				"public/fontawesome", 
 				"packages/marked", 

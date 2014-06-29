@@ -1,14 +1,7 @@
-body.no-scroll {
-	overflow: hidden;
-}
-
-.background {
-	.position(0,0,0,0,fixed);
-	z-index: @z-background;
+body {
 	background-image: url(/imgs/paper.png);
-	.overlay {
-		.position(0,0,0,0, absolute);
-		#gradient.radial(rgba(255,255,255, .9), rgba(255,255,255, .7));
+	&.no-scroll {
+		overflow: hidden;
 	}
 }
 .container.main {
