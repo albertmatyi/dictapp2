@@ -6,11 +6,11 @@ APPNAME=dictapp2
 
 git add . --all
 git commit -a
-git push origin master 
+git push origin
 
 rm ./.demeteorized -R
 
-demeteorizer -n 0.10.5 -r 0.6.5
+demeteorizer -n 0.10.25 -r 0.8.2
 
 rm ./.rhc_app/$APPNAME/programs -rf
 rm ./.rhc_app/$APPNAME/server -rf
