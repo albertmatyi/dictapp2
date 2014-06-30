@@ -20,9 +20,7 @@ Meteor.startup(function () {
 Template.searchItem.rendered = function () {
 	var $el = $(this.firstNode);
 	var str = Session.get('search.string');
-	console.log('higlighting', str);
 	_.each(str.split(' '), function (word) {
-		console.log('higlighting', word);
 		$el.highlight(word);
 	});
 };
@@ -33,6 +31,9 @@ Template.searchItem.helpers({
 	},
 	titleRightAlignment: function () {
 		return App.property('item.title.right.align');
+	},
+	openClass: function () {
+		return Session.get('search.expanded') ? 'open':'';
 	}
 });
 Template.search.events({
@@ -78,5 +79,13 @@ App.component('search').expose({
 		} else {
 			Router.go('search', {string: string});
 		}
+	},
+	expandAll: function () {
+		Session.set('search.expanded', true);
+		$('.item-wrapper').addClass('open');
+	},
+	contractAll: function () {
+		Session.set('search.expanded', false);
+		$('.item-wrapper').removeClass('open');
 	}
 });

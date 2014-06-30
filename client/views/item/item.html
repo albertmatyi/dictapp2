@@ -1,0 +1,40 @@
+<template name="item">
+	{{#with item}}
+	<div class="item-wrapper col-xs-12 open">
+		<div class="item left col-xs-12 col-sm-6">
+			<div class="title" style="text-align: {{titleLeftAlignment}}">
+				{{titleLeft}}
+			</div>
+			<div class="description">{{{descriptionLeft}}}</div>
+		</div>
+		<div class="item right col-xs-12 col-sm-6">
+			<div class="title" style="text-align: {{titleRightAlignment}}">
+				{{titleRight}}
+			</div>
+			<div class="description">{{{descriptionRight}}}</div>
+		</div>
+		<div class="controls">
+			<button class="back btn btn-link">
+				<span class="fa fa-chevron-left"></span>
+				<span class="hidden-xs">
+					{{ translate "back.button" }}
+				</span>
+			</button>
+			{{#if canEdit}}
+			<button class="edit btn btn-link">
+				<span class="fa fa-pencil"></span>
+				<span class="hidden-xs">
+					{{ translate "edit.button" }}
+				</span>
+			</button>
+			<button class="delete btn btn-link">
+				<span class="fa fa-trash-o"></span>
+				<span class="hidden-xs">
+					{{ translate "delete.button" }}
+				</span>
+			</button>
+			{{/if}}
+		</div>
+	</div> 
+	{{/ with}}
+</template>

@@ -5,14 +5,15 @@ App.property.set({
 	description: 'Choose one of the icon names from http://fontawesome.io/icons/'
 });
 
-var clear = function () {
-	$('.search-field').val('').focus();
-	search(true);
-};
 
 var search = function (instant) {
 	var string = $('.search-field').val().trim();
 	App.search.search(string, instant);
+};
+
+var clear = function () {
+	$('.search-field').val('').focus();
+	search(true);
 };
 
 Template.header.events({
@@ -43,6 +44,14 @@ Template.header.events({
 		e.preventDefault();
 		App.editor.create();
 	},
+	'click .expand-all.btn': function (e) {
+		e.preventDefault();
+		App.search.expandAll();
+	},
+	'click .contract-all.btn': function (e) {
+		e.preventDefault();
+		App.search.contractAll();
+	},
 	'click .help.btn': function (e) {
 		e.preventDefault();
 		App.about.show();
@@ -57,7 +66,3 @@ Template.header.helpers({
 		return App.property('app.icon');
 	}
 });
-
-Template.header.rendered = function () {
-	$(this.find('.search-field')).focus();
-};

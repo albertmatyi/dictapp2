@@ -57,12 +57,22 @@
 					</ul>
 				</li>
 				{{/if}}
-				{{> loginButtons align="right"}}
+				<li>
+					<a href="" class="expand-all btn" title="{{ translate 'header.expandAll'}}">
+						<span class="fa fa-angle-double-down"></span>
+					</a>
+				</li>
+				<li>
+					<a href="" class="contract-all btn" title="{{ translate 'header.contractAll'}}">
+						<span class="fa fa-angle-double-up"></span>
+					</a>
+				</li>
 				<li>
 					<a href="" class="help btn">
 						<span class="fa fa-question-circle"></span>
 					</a>
 				</li>
+				{{> loginButtons align="right"}}
 			</ul>
 		</div><!-- /.container-fluid -->
 	</nav>
