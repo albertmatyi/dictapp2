@@ -28,10 +28,11 @@
     // meteor
         "Template",
         "Meteor",
-        "Handlebars",
+        "UI",
         "Session",
         "Deps",
         "HTTP",
+        "Package",
         "WebApp",
         "Npm",
     // mrt packages

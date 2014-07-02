@@ -9,12 +9,11 @@ accounts-ui-bootstrap-3
 iron-router
 bootstrap3-less
 accounts-password
-fixie
 bootstrap-wysiwyg
-app-component
-app-property
 GAnalytics
-bootbox
-panels
 font-awesome-4-less
 highlight
+man-panels
+man-editor
+man-app-component
+man-app-property
