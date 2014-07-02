@@ -6,6 +6,7 @@
 			"path": ".",
 			"file_exclude_patterns": [
 				".meteor/*", 
+				".assets/*", 
 				"packages/GAnalytics", 
 				"packages/accounts-ui-bootstrap-3", 
 				"packages/fast-render", 

@@ -1,13 +1,22 @@
+Template.item.helpers({
+	titleLeftAlignment: function() {
+		return App.property('item.title.left.align');
+	},
+	titleRightAlignment: function() {
+		return App.property('item.title.right.align');
+	}
+});
+
 Template.item.events({
-	'click .back.btn': function () {
+	'click .back.btn': function() {
 		history.go(-1);
 	},
-	'click .edit.btn': function () {
+	'click .edit.btn': function() {
 		App.editor.edit(this);
 	},
-	'click .delete.btn': function () {
+	'click .delete.btn': function() {
 		var self = this;
-		bootbox.confirm(App.i18n.getString('confirm.delete'), function (result) {
+		bootbox.confirm(App.i18n.getString('confirm.delete'), function(result) {
 			if (result) {
 				ItemsCollection.remove(self._id);
 				if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
