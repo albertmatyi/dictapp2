@@ -2,6 +2,41 @@
 	{{#with data}}
 	<div class="editor-overlay">
 		<div class="editor-modal row">
+			<h3 class="col-xs-12 editor-title">{{ translate 'editor.title' }}</h3>
+			<div class="col-sm-6">
+				<div class="row">
+					{{#with leftFormOptions }}
+					{{> appEditorForm}}
+					{{/with}}
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row">
+					{{#with rightFormOptions }}
+					{{> appEditorForm}}
+					{{/with}}
+				</div>
+			</div>
+		</div>
+		{{> editorFooter }}
+	</div>
+	{{/with}}
+</template>
+
+<template name="editorFooter">
+	<div class="row footer">
+		<button class="save btn btn-primary col-md-3 col-md-offset-4 col-sm-4 col-sm-offset-3 col-xs-8">
+			<span class="fa fa-save"></span>
+			{{ translate 'save.button' }}
+		</button>
+		<button class="cancel btn btn-link col-md-1 col-sm-2 col-xs-4">{{ translate 'cancel.button' }}</button>
+	</div>
+</template>
+
+<template name="oldeditor">
+	{{#with data}}
+	<div class="editor-overlay">
+		<div class="editor-modal row">
 			<h2 class="col-xs-12 editor-title">{{ translate 'editor.title' }}</h2>
 			<div class="editor-wrapper col-sm-6">
 				<div class="form-group">
@@ -25,13 +60,7 @@
 				{{> wysiwygTextarea text=this.descriptionRight toolbarSelector='#toolbar-description-right' id='right'}}
 			</div>
 		</div>
-		<div class="row footer">
-			<button class="save btn btn-primary col-md-3 col-md-offset-4 col-sm-4 col-sm-offset-3 col-xs-8">
-				<span class="fa fa-save"></span>
-				{{ translate 'save.button' }}
-			</button>
-			<button class="cancel btn btn-link col-md-1 col-sm-2 col-xs-4">{{ translate 'cancel.button' }}</button>
-		</div>
+		{{> editorFooter}}
 	</div>
 	{{/with}}
 </template>

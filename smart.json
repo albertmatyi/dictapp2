@@ -6,6 +6,7 @@
     "bootstrap-wysiwyg": {},
     "GAnalytics": {},
     "font-awesome-4-less": {},
-    "highlight": {}
+    "highlight": {},
+    "bootboxjs": {}
   }
 }
