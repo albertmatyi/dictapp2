@@ -14,8 +14,8 @@ GAnalytics
 font-awesome-4-less
 highlight
 man-panels
-man-editor
 man-app-component
 man-app-property
 man-fixie
 bootboxjs
+man-app-editor

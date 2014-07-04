@@ -3,16 +3,23 @@
 	<div class="editor-overlay">
 		<div class="editor-modal row">
 			<h3 class="col-xs-12 editor-title">{{ translate 'editor.title' }}</h3>
-			<div class="col-sm-6 editor-left-side">
+			<div class="col-sm-6 editor-left-word">
 				<div class="row">
-					{{#with leftFormOptions }}
+					{{#with leftWordFormData }}
 					{{> appEditorForm}}
 					{{/with}}
 				</div>
 			</div>
-			<div class="col-sm-6 editor-right-side">
+			<div class="col-sm-6 editor-right-word">
 				<div class="row">
-					{{#with rightFormOptions }}
+					{{#with rightWordFormData }}
+					{{> appEditorForm}}
+					{{/with}}
+				</div>
+			</div>
+			<div class="col-sm-12 editor-senses">
+				<div class="row">
+					{{#with sensesFormData }}
 					{{> appEditorForm}}
 					{{/with}}
 				</div>
