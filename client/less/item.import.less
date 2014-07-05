@@ -1,57 +1,89 @@
 .item {
-	.item-wrapper {
-		.box-shadow(@item-shadow);
-		margin-bottom: @padding-base-vertical;		
+	.box-shadow(@item-shadow);
+	margin-bottom: @padding-base-vertical;		
+	padding-bottom: @item-controls-height;
+	font-family: @font-family-serif;
 
-		.item {
-			font-family: @font-family-serif;
-			padding: 0;
-			margin: 0;
-			&.right {
-				margin-bottom: @item-controls-height;
-			}
-			@media (min-width: @screen-sm) {
-			}
-			.title {
-				font-family: @font-family-serif;
-				font-size: 1.3em;
-			}
-			.description {
-				display: none;
-				padding-left: .5em;
-				word-wrap: break-word;
-			}
+	.title {
+		@font-size: 1.3em;
+		.left {
+			font-size: @font-size;
 		}
-		.less.btn {
-			display: none;
-		}
-		&.open {
-			// background-image: url(/imgs/item_bg.png);
-			// background-size: contain;
-			// background-position: center;
-			// background-repeat: no-repeat;
-			.item {
-				padding-bottom: 1em;
-				margin-bottom: @line-height-computed;
-				.description {
-					display: block;
+		.right {
+			.alternatives {
+				.clearfix();
+				margin: 0;
+				padding: 0;
+				li {
+					// display: inline;
+					float: left;
+					margin: 0;
+					padding: 0;
+					margin-left: 1.5em;
+					font-size: @font-size;	
+					.category {
+						// font-size: @font-size - .2em;	
+					}
+					.wordRight, .meaning {
+					}
+					&:after {
+						// font-size: @font-size -.2em;	
+						content: '; |'
+					}
+					&:last-child {
+						&:after {
+							// no ; | at the end
+							display: none; 
+						}
+						&:first-child {
+							display: inline; // no number
+							margin-left: 0;
+						}
+					}
 				}
-			}
-			.less.btn {
-				display: inline-block;
-			}
-			.more.btn {
-				display: none;
-			}
-		}
-		.controls {
-			.position(auto, 0, 0, 0);
-			text-align: center;
-			height: @item-controls-height;
-			overflow: hidden;
-			.btn {
-				position: relative;
 			}
 		}
 	}
+
+	.controls {
+		.position(auto, 0, 0, 0);
+		text-align: center;
+		height: @item-controls-height;
+		overflow: hidden;
+		.btn {
+			position: relative;
+			&.less {
+				display: none;
+			}
+		}
+	}
+	.senses {
+		display: none;
+	}
+	&.open {
+		.senses {
+			display: block;
+			.sense {
+				padding: @padding-base-vertical 0;
+				.phrase {
+				// margin-left: -@padding-base-horizontal;
+				font-weight: bold;
+				font-style: italic;
+			}
+			.example {
+				padding-top: @padding-base-vertical;
+				font-style: italic;
+				.lbl {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	.less.btn {
+		display: inline-block;
+	}
+	.more.btn {
+		display: none;
+	}
+}
 }

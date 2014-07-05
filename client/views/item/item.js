@@ -1,9 +1,15 @@
 Template.item.helpers({
-	titleLeftAlignment: function() {
-		return App.property('item.title.left.align');
+	separatorLeft: function () {
+		return (this.endingLeft || this.typeLeft) && this.wordLeft ? '|':'';
+	}
+});
+Template.sense.helpers({
+	separatorLeft: function () {
+		console.log(this.phraseLeft, this.descriptionLeft);
+		return this.phraseLeft && this.descriptionLeft ? ':':'';
 	},
-	titleRightAlignment: function() {
-		return App.property('item.title.right.align');
+	separatorRight: function () {
+		return this.phraseRight && this.descriptionRight ? ':':'';
 	}
 });
 

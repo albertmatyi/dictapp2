@@ -1,40 +1,85 @@
-<template name="item">
+<template name="itemWrapper">
 	{{#with item}}
-	<div class="item-wrapper col-xs-12 open">
-		<div class="item left col-xs-12 col-sm-6">
-			<div class="title" style="text-align: {{titleLeftAlignment}}">
-				{{titleLeft}}
-			</div>
-			<div class="description">{{{descriptionLeft}}}</div>
-		</div>
-		<div class="item right col-xs-12 col-sm-6">
-			<div class="title" style="text-align: {{titleRightAlignment}}">
-				{{titleRight}}
-			</div>
-			<div class="description">{{{descriptionRight}}}</div>
-		</div>
-		<div class="controls">
-			<button class="back btn btn-link">
-				<span class="fa fa-chevron-left"></span>
-				<span class="hidden-xs">
-					{{ translate "back.button" }}
-				</span>
-			</button>
-			{{#if canEdit}}
-			<button class="edit btn btn-link">
-				<span class="fa fa-pencil"></span>
-				<span class="hidden-xs">
-					{{ translate "edit.button" }}
-				</span>
-			</button>
-			<button class="delete btn btn-link">
-				<span class="fa fa-trash-o"></span>
-				<span class="hidden-xs">
-					{{ translate "delete.button" }}
-				</span>
-			</button>
-			{{/if}}
-		</div>
-	</div> 
+	<div class="item col-xs-12 open">
+		{{> item}}	
+		{{> itemControls}}
+	</div>
 	{{/ with}}
+</template>
+
+<template name="item">
+	<div class="row title">
+		<div class="left col-xs-12 col-sm-6">
+			<span class="wordLeft">{{wordLeft}}</span>{{separatorLeft}}{{#with endingLeft}}<span class="endingLeft">{{this}}</span>{{/with}}{{#with typeLeft}}<span class="typeLeft"> {{this}}</span>{{/with}}
+		</div>
+		<div class="right col-xs-12 col-sm-6">
+			<ol class="alternatives">
+				<li><span class="wordRight">{{wordRight}}</span></li>
+				{{#each alternatives}}
+				<li>{{#with category}}<span class="category">({{this}})</span>
+					{{/with}}
+					<span class="meaning">{{meaning}}</span>
+				</li>
+				{{/each}}
+			</ol>
+		</div>
+	</div>
+	{{> senses}}
+</template>
+
+<template name="senses">
+	<div class="senses">
+		{{#each senses}}
+		{{> sense}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="sense">
+	<div class="row sense">
+		<div class="col-xs-12 col-sm-6 left">
+			<span class="phrase">
+				{{phraseLeft}}{{separatorLeft}}
+			</span>
+			<span class="description">{{descriptionLeft}}</span>
+			{{#with exampleLeft}}
+			<p class="example"><span class="lbl">{{ translate 'Ex:' }}</span> {{this}}</p>
+			{{/with}}
+		</div>
+		<div class="col-xs-12 col-sm-6 right">
+			<span class="phrase">
+				{{phraseRight}}{{separatorRight}}
+			</span>
+			<span class="description">{{descriptionRight}}</span>
+			{{#with exampleRight}}
+			<p class="example"><span class="lbl">{{ translate 'Ex:' }}</span> {{this}}</p>
+			{{/with}}
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</template>
+
+<template name="itemControls">
+	<div class="controls">
+		<button class="back btn btn-link">
+			<span class="fa fa-chevron-left"></span>
+			<span class="hidden-xs">
+				{{ translate "back.button" }}
+			</span>
+		</button>
+		{{#if canEdit}}
+		<button class="edit btn btn-link">
+			<span class="fa fa-pencil"></span>
+			<span class="hidden-xs">
+				{{ translate "edit.button" }}
+			</span>
+		</button>
+		<button class="delete btn btn-link">
+			<span class="fa fa-trash-o"></span>
+			<span class="hidden-xs">
+				{{ translate "delete.button" }}
+			</span>
+		</button>
+		{{/if}}
+	</div>
 </template>

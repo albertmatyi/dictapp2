@@ -18,50 +18,39 @@
 </template>
 
 <template name="searchItem">
-	<div class="item-wrapper col-xs-12 {{openClass}}">
-		<div class="item left col-xs-12 col-sm-6">
-			<div class="title" style="text-align: {{titleLeftAlignment}}">
-				<a href="{{ pathFor 'item' }}">
-				{{titleLeft}}
-				</a>
-			</div>
-			<div class="description">{{{descriptionLeft}}}</div>
-		</div>
-		<div class="item right col-xs-12 col-sm-6">
-			<div class="title" style="text-align: {{titleRightAlignment}}">
-				<a href="{{ pathFor 'item' }}">
-				{{titleRight}}
-				</a>
-			</div>
-			<div class="description">{{{descriptionRight}}}</div>
-		</div>
-		<div class="controls">
-			<button class="more btn btn-link">
-				<span class="fa fa-chevron-down"></span>
-				<span class="hidden-xs">
-					{{ translate "more.button" }}
-				</span>
-			</button>
-			<button class="less btn btn-link">
-				<span class="fa fa-chevron-up"></span>
-				<span class="hidden-xs">
-					{{ translate "less.button" }}
-				</span>
-			</button>
-			{{#if canEdit}}
-			<button class="edit btn btn-link">
-				<span class="fa fa-pencil"></span>
-				<span class="hidden-xs">
-					{{ translate "edit.button" }}
-				</span>
-			</button>
-			<button class="delete btn btn-link">
-				<span class="fa fa-trash-o"></span>
-				<span class="hidden-xs">
-					{{ translate "delete.button" }}
-				</span>
-			</button>
-			{{/if}}
-		</div>
-	</div> 
+	<div class="item col-xs-12 open">
+		{{> item}}	
+		{{> searchItemControls}}
+	</div>
+</template>
+
+<template name="searchItemControls">
+	<div class="controls">
+		<button class="more btn btn-link">
+			<span class="fa fa-chevron-down"></span>
+			<span class="hidden-xs">
+				{{ translate "more.button" }}
+			</span>
+		</button>
+		<button class="less btn btn-link">
+			<span class="fa fa-chevron-up"></span>
+			<span class="hidden-xs">
+				{{ translate "less.button" }}
+			</span>
+		</button>
+		{{#if canEdit}}
+		<button class="edit btn btn-link">
+			<span class="fa fa-pencil"></span>
+			<span class="hidden-xs">
+				{{ translate "edit.button" }}
+			</span>
+		</button>
+		<button class="delete btn btn-link">
+			<span class="fa fa-trash-o"></span>
+			<span class="hidden-xs">
+				{{ translate "delete.button" }}
+			</span>
+		</button>
+		{{/if}}
+	</div>
 </template>

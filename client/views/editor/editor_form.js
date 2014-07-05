@@ -71,7 +71,7 @@ var SENSES_FIELDS = {
 			},
 			phraseRight: {
 				'class': 'col-xs-12 col-sm-6',
-				placeholder: 'Acţiune pauliană (acţiune revocatorie)'
+				placeholder: 'Frazis'
 			},
 			descriptionLeft: {
 				'class': 'col-xs-12 col-sm-6',
@@ -79,15 +79,15 @@ var SENSES_FIELDS = {
 			},
 			descriptionRight: {
 				'class': 'col-xs-12 col-sm-6',
-				placeholder: 'Este acea acţiune prin care creditorul atacă actul de înstrăinare a bunului de către debitor, dacă acesta din urmă îşi are intenţia de a-l înşela sau de a ocoli pe creditor.'
+				placeholder: 'Leiras'
 			},
 			exampleLeft: {
 				'class': 'col-xs-12 col-sm-6',
-				placeholder: '...'
+				placeholder: 'Exemplu'
 			},
 			exampleRight: {
 				'class': 'col-xs-12 col-sm-6',
-				placeholder: '...'
+				placeholder: 'Pelda'
 			},
 			removeSense: {
 				type: 'button',

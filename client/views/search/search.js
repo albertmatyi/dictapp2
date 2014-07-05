@@ -43,10 +43,10 @@ Template.search.events({
 });
 Template.searchItem.events({
 	'click .more.btn': function (e) {
-		$(e.currentTarget).parents('.item-wrapper').addClass('open');
+		$(e.currentTarget).parents('.item').addClass('open');
 	},
 	'click .less.btn': function (e) {
-		$(e.currentTarget).parents('.item-wrapper').removeClass('open');
+		$(e.currentTarget).parents('.item').removeClass('open');
 	},
 	'click .edit.btn': function () {
 		App.editor.edit(this);
@@ -82,10 +82,10 @@ App.component('search').expose({
 	},
 	expandAll: function () {
 		Session.set('search.expanded', true);
-		$('.item-wrapper').addClass('open');
+		$('.item').addClass('open');
 	},
 	contractAll: function () {
 		Session.set('search.expanded', false);
-		$('.item-wrapper').removeClass('open');
+		$('.item').removeClass('open');
 	}
 });
