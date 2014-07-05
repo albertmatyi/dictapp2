@@ -33,9 +33,14 @@ var addAdminUser = function() {
 	return true;
 };
 
+var clearDb = function () {
+	ItemsCollection.remove({});
+	return true;
+};
+
 var resetItemData = function() {
 	console.log('Resetting fixie data');
-	ItemsCollection.remove({});
+	clearDb();
 	for (var i = 1000; i >= 0; i--) {
 		var ttlL = fixie.fetchPhrase();
 		var ttlR = fixie.fetchPhrase();
@@ -68,11 +73,12 @@ var lowerCaseSearchData = function() {
 // =========================================================
 
 var migrations = [
-	initial,
-	fillWithDummyData,
-	addAdminUser,
-	resetItemData,
-	lowerCaseSearchData
+initial,
+fillWithDummyData,
+addAdminUser,
+resetItemData,
+lowerCaseSearchData,
+clearDb
 ];
 
 // =========================================================
