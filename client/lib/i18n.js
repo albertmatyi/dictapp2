@@ -1,5 +1,8 @@
 var setAlready = {};
 var getString = function (str) {
+	if (!str) {
+		return str;
+	}
 	var lang = Session.get('i18n.lang') || 'en';
 	var key = 'i18n.' + lang + '.' + str;
 	var translation = App.property(key);

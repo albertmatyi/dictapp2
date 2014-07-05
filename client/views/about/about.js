@@ -3,7 +3,7 @@ var panel;
 App.property.set({
 	key: 'about',
 	default: 'About the application...',
-	editable: false
+	readOnly: true
 });
 
 Template.about.helpers({

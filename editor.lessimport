@@ -20,18 +20,10 @@
 		.editor-title {
 			text-align: center;
 		}
-		.editor-wrapper {
-			height: 100%;
-			.editor-textarea {
-				min-height: 20vh;
-				height: ~'calc(100% - @{toolbar-height} - @{padding-base-vertical})';
-				border: solid 1px lighten(@gray, 60%);
-				.form-control-focus();
-			}
-			.editor-toolbar {
-				margin-top: @padding-base-vertical;
-				height: @toolbar-height;
-			}
+		
+		textarea {
+			max-width: 100%;
+			height: 20vh;
 		}
 	}
 	.footer { 

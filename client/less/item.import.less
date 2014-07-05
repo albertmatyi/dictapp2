@@ -3,7 +3,8 @@
 	margin-bottom: @padding-base-vertical;		
 	padding-bottom: @item-controls-height;
 	font-family: @font-family-serif;
-
+	word-wrap: break-word;
+	
 	.title {
 		@font-size: 1.3em;
 		.left {
@@ -22,7 +23,7 @@
 					margin-left: 1.5em;
 					font-size: @font-size;	
 					.category {
-						// font-size: @font-size - .2em;	
+						font-style: italic;
 					}
 					.wordRight, .meaning {
 					}
@@ -44,6 +45,9 @@
 			}
 		}
 	}
+	.senses {
+		display: none;
+	}
 
 	.controls {
 		.position(auto, 0, 0, 0);
@@ -57,12 +61,10 @@
 			}
 		}
 	}
-	.senses {
-		display: none;
-	}
 	&.open {
 		.senses {
 			display: block;
+			text-align: justify;
 			.sense {
 				padding: @padding-base-vertical 0;
 				.phrase {
@@ -70,8 +72,12 @@
 				font-weight: bold;
 				font-style: italic;
 			}
+			.description {
+			}
 			.example {
 				padding-top: @padding-base-vertical;
+				padding-left: @padding-base-horizontal * 2;
+				padding-right: @padding-base-horizontal * 2;
 				font-style: italic;
 				.lbl {
 					font-weight: bold;

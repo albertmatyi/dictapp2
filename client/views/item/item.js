@@ -5,7 +5,7 @@ Template.item.helpers({
 });
 Template.sense.helpers({
 	separatorLeft: function () {
-		console.log(this.phraseLeft, this.descriptionLeft);
+		// console.log(this.phraseLeft, this.descriptionLeft);
 		return this.phraseLeft && this.descriptionLeft ? ':':'';
 	},
 	separatorRight: function () {
