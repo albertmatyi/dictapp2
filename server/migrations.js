@@ -33,7 +33,7 @@ var addAdminUser = function() {
 	return true;
 };
 
-var clearDb = function () {
+var clearDb = function() {
 	ItemsCollection.remove({});
 	return true;
 };
@@ -69,16 +69,57 @@ var lowerCaseSearchData = function() {
 	});
 	return true;
 };
+var PROB = {
+	word: 0.02,
+	phrase: 0.04,
+	description: 0.8,
+	example: 0.8
+};
+var getSense = function() {
+	return {
+		phraseRight: fixie.fetchPhrase() + (Math.random() < PROB.phrase ? 'RightMBF140AP' : ''),
+		descriptionRight: fixie.fetchParagraph() + (Math.random() < PROB.description ? 'RightMBF140APD' : ''),
+		exampleRight: fixie.fetchParagraph() + (Math.random() < PROB.example ? 'RightMBF140APDE' : ''),
+		phraseLeft: fixie.fetchPhrase() + (Math.random() < PROB.phrase ? 'LeftMBF140AP' : ''),
+		descriptionLeft: fixie.fetchParagraph() + (Math.random() < PROB.description ? 'LeftMBF140APD' : ''),
+		exampleLeft: fixie.fetchParagraph() + (Math.random() < PROB.example ? 'LeftMBF140APDE' : '')
+	};
+};
+
+var getAlternative = function() {
+	return {
+		meaning: fixie.fetchPhrase() + (Math.random() < PROB.word ? 'RightMBF140A' : '')
+	};
+};
+
+var fillWithDummyData2 = function() {
+	ItemsCollection.remove({});
+	for (var i = 1000; i >= 0; i--) {
+		var data = {
+			wordLeft: fixie.fetchPhrase() + (Math.random() < PROB.word ? 'LeftMBF140' : ''),
+			wordRight: fixie.fetchPhrase() + (Math.random() < PROB.word ? 'RightMBF140' : ''),
+			alternatives: [getAlternative(i), getAlternative(i), getAlternative(i), getAlternative(i)],
+			senses: [getSense(i), getSense(i), getSense(i)]
+		};
+		// console.log(data);
+		App.item.addSearchableDataTo(data);
+		ItemsCollection.insert(data);
+	}
+	console.log('added 1000 dummy data');
+	return true;
+};
 
 // =========================================================
 
 var migrations = [
-initial,
-fillWithDummyData,
-addAdminUser,
-resetItemData,
-lowerCaseSearchData,
-clearDb
+	initial,
+	fillWithDummyData,
+	addAdminUser,
+	resetItemData,
+	lowerCaseSearchData,
+	clearDb,
+	fillWithDummyData2
+	// ,downgrade
 ];
 
 // =========================================================

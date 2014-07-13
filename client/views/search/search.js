@@ -11,18 +11,22 @@ Meteor.startup(function () {
 	$(window).on('scroll', function () {
 		if (bottomReached()) {
 			var string = App.search.getString();
-			var limit = App.items.find(string, -1).count() + 10;
+			var limit = App.item.find(string, -1).count() + 10;
+			console.log(string, limit);
 			Meteor.subscribe('items', string, limit);
 		}
 	});
 });
 
 Template.searchItem.rendered = function () {
-	var $el = $(this.firstNode);
+	var $vel = $(this.firstNode);
 	var str = Session.get('search.string');
-	_.each(str.split(' '), function (word) {
-		$el.highlight(word);
+	$.highlight(document.body, App.search.getRegexFor(str), 'span', null, function () {
+		console.log('open desc');
 	});
+	// _.each(str.split(' '), function (word) {
+		// $el.highlight(word);
+	// });
 };
 
 Template.searchItem.helpers({
@@ -62,6 +66,14 @@ Template.searchItem.events({
 });
 
 App.component('search').expose({
+	getRegexFor: function (str) {
+		// for (var i = str.length - 1; i >= 0; i--) {
+		// 	var c = str[i];
+		// 	// App.string.charmap[c]
+		// 	if () {}
+		// };
+		return str;
+	},
 	getString: function () {
 		return Session.get('search.string');
 	},
