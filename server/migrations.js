@@ -109,6 +109,16 @@ var fillWithDummyData2 = function() {
 	return true;
 };
 
+var mergeData = function () {
+	ItemsCollection.find({}).forEach(function (item) {
+		ItemsCollection.update(item._id, {$set: {
+			searchableAll: [item.searchableWord, item.searchablePhrase, item.searchableDescription, item.searchableExample].join(' ')
+		}});
+	});
+	return true;
+};
+
+
 // =========================================================
 
 var migrations = [
@@ -118,7 +128,8 @@ var migrations = [
 	resetItemData,
 	lowerCaseSearchData,
 	clearDb,
-	fillWithDummyData2
+	fillWithDummyData2,
+	mergeData,
 	// ,downgrade
 ];
 

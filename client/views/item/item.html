@@ -8,8 +8,16 @@
 </template>
 
 <template name="item">
-	<div class="row title">
+	<div class="row title" id="{{_id}}">
 		<div class="left col-xs-12 col-sm-6">
+			<!-- <em>[
+				w: {{wordRank}}
+				p: {{phraseRank}}
+				d: {{descriptionRank}}
+				e: {{exampleRank}}
+				r: {{rank}}
+				]
+			</em> -->
 			<span class="wordLeft">{{wordLeft}}</span>{{separatorLeft}}{{#with endingLeft}}<span class="endingLeft">{{this}}</span>{{/with}}{{#with typeLeft}}<span class="typeLeft"> {{this}}</span>{{/with}}
 		</div>
 		<div class="right col-xs-12 col-sm-6">

@@ -8,7 +8,8 @@
       "bootstrap-wysiwyg": {},
       "GAnalytics": {},
       "font-awesome-4-less": {},
-      "bootboxjs": {}
+      "bootboxjs": {},
+      "publish-cache": {}
     },
     "packages": {
       "bootstrap3-less": {
@@ -43,18 +44,18 @@
       },
       "bootboxjs": {
         "git": "https://github.com/TimHeckel/meteor-bootboxjs.git",
-        "tag": "v4.2.0",
-        "commit": "2b7d18ad028d9e7b37238ecf2a8a7970735cebd1"
+        "tag": "v4.2.1-master.1",
+        "commit": "c125969c1f3aef30e2a2ff20252bd3b2e4014b2f"
+      },
+      "publish-cache": {
+        "git": "https://github.com/yubozhao/meteor-publish-cache.git",
+        "tag": "v0.1.1",
+        "commit": "e9d0330af7453a656f230cf4d5d236aae83375c8"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
-      },
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.2.0-1",
-        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
       }
     }
   }

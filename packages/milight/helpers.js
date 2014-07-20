@@ -1,7 +1,7 @@
 
 if (typeof Handlebars !== 'undefined' && typeof UI !== 'undefined' && typeof Spacebars !== 'undefined') {
 
-  Handlebars.registerHelper('highlight', function () {
+  UI.registerHelper('highlight', function () {
     var dependency = new Deps.Dependency(),
         keywords = '',
         options = this;

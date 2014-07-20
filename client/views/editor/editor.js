@@ -20,6 +20,7 @@ Template.editor.events({
 		var data = _.extend({}, ldata, rdata, sensesData);
 		delete editorData[id];
 		data.searchable = App.item.addSearchableDataTo(data);
+		console.log(data);
 		if (id === -1) {
 			ItemsCollection.insert(data);
 		} else {

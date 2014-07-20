@@ -1,14 +1,50 @@
 var BOTTOM_THRESHOLD = 100;
 var timeout;
 
-var bottomReached = function () {
+var _searchStringRegex;
+var getRegexFor = function(str) {
+	str = App.string.removeNonWordChars(str.trim());
+	var re = ['(?:'];
+	for (var i = 0; i < str.length; i++) {
+		var c = str[i];
+		if (/\s/.test(c)) {
+			re.push(')|(?:');
+			continue;
+		}
+		var mapping = App.string.charmapInv[c];
+		if (mapping) {
+			re.push('[');
+			re.push(c);
+			re.push(mapping.join(''));
+			re.push(']');
+		} else {
+			re.push(c);
+		}
+	}
+	re.push(')');
+	return new RegExp(re.join(''), 'i');
+};
+var getSearhStringRegex = function() {
+	// Session.get('search.regex');
+	if (!_searchStringRegex) {
+		var searchString = Session.get('search.string');
+		_searchStringRegex = getRegexFor(searchString);
+	}
+	return _searchStringRegex;
+};
+var setSearhStringRegex = function(string) {
+	// Session.set('search.regex', +new Date());
+	_searchStringRegex = getRegexFor(string);
+};
+
+var bottomReached = function() {
 	var val = $(document).height() -
-	(window.innerHeight + window.scrollY);
+		(window.innerHeight + window.scrollY);
 	return val < BOTTOM_THRESHOLD;
 };
 
-Meteor.startup(function () {
-	$(window).on('scroll', function () {
+Meteor.startup(function() {
+	$(window).on('scroll', function() {
 		if (bottomReached()) {
 			var string = App.search.getString();
 			var limit = App.item.find(string, -1).count() + 10;
@@ -18,46 +54,37 @@ Meteor.startup(function () {
 	});
 });
 
-Template.searchItem.rendered = function () {
-	var $vel = $(this.firstNode);
-	var str = Session.get('search.string');
-	$.highlight(document.body, App.search.getRegexFor(str), 'span', null, function () {
-		console.log('open desc');
-	});
-	// _.each(str.split(' '), function (word) {
-		// $el.highlight(word);
-	// });
+Template.searchItem.rendered = function() {
+	$.highlight(this.firstNode, getSearhStringRegex(), 'span', null);
 };
 
 Template.searchItem.helpers({
-	titleLeftAlignment: function () {
-		return App.property('item.title.left.align');
-	},
-	titleRightAlignment: function () {
-		return App.property('item.title.right.align');
-	},
-	openClass: function () {
-		return Session.get('search.expanded') ? 'open':'';
+	openClass: function() {
+		var cls = 'item col-xs-12';
+		if (Session.get('search.expanded') || getSearhStringRegex().test(this.searchableAll.replace(this.searchableWord))) {
+			cls += ' open';
+		}
+		return cls;
 	}
 });
 Template.search.events({
-	'click .add.btn': function () {
+	'click .add.btn': function() {
 		App.editor.create();
 	}
 });
 Template.searchItem.events({
-	'click .more.btn': function (e) {
+	'click .more.btn': function(e) {
 		$(e.currentTarget).parents('.item').addClass('open');
 	},
-	'click .less.btn': function (e) {
+	'click .less.btn': function(e) {
 		$(e.currentTarget).parents('.item').removeClass('open');
 	},
-	'click .edit.btn': function () {
+	'click .edit.btn': function() {
 		App.editor.edit(this);
 	},
-	'click .delete.btn': function () {
+	'click .delete.btn': function() {
 		var self = this;
-		bootbox.confirm(App.i18n.getString('confirm.delete'), function (result) {
+		bootbox.confirm(App.i18n.getString('confirm.delete'), function(result) {
 			if (result) {
 				ItemsCollection.remove(self._id);
 			}
@@ -66,18 +93,10 @@ Template.searchItem.events({
 });
 
 App.component('search').expose({
-	getRegexFor: function (str) {
-		// for (var i = str.length - 1; i >= 0; i--) {
-		// 	var c = str[i];
-		// 	// App.string.charmap[c]
-		// 	if () {}
-		// };
-		return str;
-	},
-	getString: function () {
+	getString: function() {
 		return Session.get('search.string');
 	},
-	search: function (string, instant) {
+	search: function(string, instant) {
 		if (string === Session.get('search.string')) {
 			return;
 		}
@@ -86,17 +105,22 @@ App.component('search').expose({
 			Router.go('home');
 		} else if (!instant) {
 			timeout = setTimeout(function() {
-				Router.go('search', {string: string});
+				setSearhStringRegex(string);
+				Router.go('search', {
+					string: string
+				});
 			}, App.property('search.timeout'));
 		} else {
-			Router.go('search', {string: string});
+			Router.go('search', {
+				string: string
+			});
 		}
 	},
-	expandAll: function () {
+	expandAll: function() {
 		Session.set('search.expanded', true);
 		$('.item').addClass('open');
 	},
-	contractAll: function () {
+	contractAll: function() {
 		Session.set('search.expanded', false);
 		$('.item').removeClass('open');
 	}
