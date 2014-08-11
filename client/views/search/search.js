@@ -48,7 +48,7 @@ Meteor.startup(function() {
 		if (bottomReached()) {
 			var string = App.search.getString();
 			var limit = App.item.find(string, -1).count() + 10;
-			console.log(string, limit);
+			// console.log(string, limit);
 			Meteor.subscribe('items', string, limit);
 		}
 	});
