@@ -64,5 +64,8 @@ Template.header.helpers({
 	},
 	appIcon: function () {
 		return App.property('app.icon');
+	},
+	loginFlag: function () {
+		return Meteor.user() || Session.get('loginFlag');
 	}
 });

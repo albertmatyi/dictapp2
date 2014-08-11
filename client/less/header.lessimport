@@ -7,6 +7,11 @@
 	.navbar-brand {
 		text-transform: uppercase;
 	}
+	.navbar-nav > li > a:hover,
+	.navbar-nav > li > a:focus {
+		color: #fff;
+		background-color: rgba(255,255,255,.3);
+	}
 	.search {
 		@navbar-top: (@navbar-padding-vertical / 2);
 		@border-radius: 16px;
@@ -55,6 +60,10 @@
 			position: absolute;
 			top: @navbar-top;
 			right: 0;
+		}
+		.btn:hover {
+			color: #fff;
+			background-color: rgba(255,255,255,.3);
 		}
 		.go.btn {
 			position: absolute;
