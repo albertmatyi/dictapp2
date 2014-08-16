@@ -91,14 +91,14 @@ var rankItem = function(words, item) {
 var query = function(words, opts) {
 	var startTime = +new Date();
 	var results = ItemsCollection.find(App.search.buildCondition('searchableAll', words), opts);
-	console.log('\nQuery time: ', +new Date() - startTime, 'ms');
+	// console.log('\nQuery time: ', +new Date() - startTime, 'ms');
 	return results;
 };
 
 var fetch = function(results) {
 	var startTime = +new Date();
 	results = results.fetch();
-	console.log('Fetch time: ', +new Date() - startTime, 'ms (', results.length, ')');
+	// console.log('Fetch time: ', +new Date() - startTime, 'ms (', results.length, ')');
 	return results;
 };
 
@@ -107,7 +107,7 @@ var rank = function(words, items) {
 	_.each(items, function(item) {
 		rankItem(words, item);
 	});
-	console.log('Rank time: ', +new Date() - startTime, 'ms');
+	// console.log('Rank time: ', +new Date() - startTime, 'ms');
 };
 
 var sort = function(items) {
@@ -115,7 +115,7 @@ var sort = function(items) {
 	items.sort(function(a, b) {
 		return b.rank - a.rank;
 	});
-	console.log('Sort time: ', +new Date() - startTime, 'ms');
+	// console.log('Sort time: ', +new Date() - startTime, 'ms');
 };
 var publish = function(subscription, items, limit) {
 	var startTime = +new Date();
@@ -133,7 +133,7 @@ var publish = function(subscription, items, limit) {
 		}
 	});
 	subscription.ready();
-	console.log('Publish time: ', +new Date() - startTime, 'ms');
+	// console.log('Publish time: ', +new Date() - startTime, 'ms');
 };
 var searchRanked = function(searchString, limit) {
 	if (!searchString) {
@@ -150,24 +150,24 @@ var searchRanked = function(searchString, limit) {
 	// };
 	// opts.limit = limit;
 	var words = App.search.getWordsFor(searchString);
-	console.log(+new Date() - startTime, 'ms');
+	// console.log(+new Date() - startTime, 'ms');
 
 	var items = query(words, opts);
-	console.log(+new Date() - startTime, 'ms');
+	// console.log(+new Date() - startTime, 'ms');
 
 	items = fetch(items);
-	console.log(+new Date() - startTime, 'ms');
+	// console.log(+new Date() - startTime, 'ms');
 
 	rank(words, items);
-	console.log(+new Date() - startTime, 'ms');
+	// console.log(+new Date() - startTime, 'ms');
 
 	sort(items);
-	console.log(+new Date() - startTime, 'ms');
+	// console.log(+new Date() - startTime, 'ms');
 
 	var subscription = this;
 	publish(subscription, items, limit);
 
-	console.log('Totaltime:', +new Date() - startTime, 'ms');
+	// console.log('Totaltime:', +new Date() - startTime, 'ms');
 };
 
 App.component('search').expose({
