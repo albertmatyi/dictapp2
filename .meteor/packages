@@ -12,11 +12,10 @@ accounts-password
 bootstrap-wysiwyg
 GAnalytics
 font-awesome-4-less
-man-panels
-man-app-component
-man-app-property
-man-fixie
 bootboxjs
-man-app-editor
 milight
 publish-cache
+app-editor
+panels
+app-property
+npm

@@ -34,6 +34,6 @@ Template.user.helpers({
 	checked: function (role) {
 		role = role || 'normal';
 		var prole = this.profile.role || 'normal';
-		return prole === role ? 'checked="checked"':'';
+		return prole === role ? 'checked':'';
 	}
 });

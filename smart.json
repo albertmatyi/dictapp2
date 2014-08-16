@@ -1,5 +1,14 @@
 {
   "packages": {
+    "app-property": {
+      "path": "./.meteorite_private/app-property"
+    },
+    "app-editor": {
+      "path": "./.meteorite_private/app-editor"
+    },
+    "fixie": {
+      "path": "./.meteorite_private/fixie"
+    },
     "bootstrap3-less": {},
     "iron-router": {},
     "accounts-ui-bootstrap-3": {},
@@ -7,6 +16,7 @@
     "GAnalytics": {},
     "font-awesome-4-less": {},
     "bootboxjs": {},
-    "publish-cache": {}
+    "publish-cache": {},
+    "npm": {}
   }
 }

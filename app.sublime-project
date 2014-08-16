@@ -4,9 +4,9 @@
 		{
 			"follow_symlinks": true,
 			"path": ".",
-			"file_exclude_patterns": [
-				".meteor/*", 
-				".assets/*", 
+			"folder_exclude_patterns": [
+				".meteor/local", 
+				".assets", 
 				"packages/GAnalytics", 
 				"packages/accounts-ui-bootstrap-3", 
 				"packages/fast-render", 
@@ -17,9 +17,10 @@
 				"public/fontawesome", 
 				"packages/marked", 
 				"packages/jquery-masonry", 
-				".demeteorized/*", 
-				".build/*", 
-				".rhc_app/*"]
+				".demeteorized", 
+				".meteorite_private", 
+				".build", 
+				".rhc_app"]
 		}
 	]
 }

@@ -1,4 +1,5 @@
 .openshift/
+.meteorite_private
 .demeteorized/
 app.sublime-workspace
 !.assets/
