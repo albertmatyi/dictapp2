@@ -26,6 +26,7 @@ mv ./.demeteorized/server ./.rhc_app/$APPNAME/server -f
 # echo "Copy Analytics code (view src of publi.sh) and Press enter to continue"
 read 
 
+cp ./.rhc_app/newrelic.js ./.rhc_app/$APPNAME/programs/server/newrelic.js
 cd ./.rhc_app/$APPNAME
 
 git add . --all
