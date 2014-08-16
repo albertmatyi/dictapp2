@@ -36,16 +36,17 @@ __meteor_runtime_config__ = { meteorRelease: configJson.meteorRelease };
 // considers 'development' to be the default mode, but that's less safe than
 // assuming 'production' to be the default. If you really want development mode,
 // set it in your wrapper script (eg, run-app.js).
-if (!process.env.NODE_ENV)
+if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = 'production';
+}
 
 if (!process.env.METEOR_SETTINGS){
     process.env.METEOR_SETTINGS = '{"public":{"ga":{"account":"UA-51899110-1"}}}'; 
 }
 //for http
-process.env.DDP_DEFAULT_CONNECTION_URL = 'http://' + process.env.OPENSHIFT_APP_DNS + ':8000'
+process.env.DDP_DEFAULT_CONNECTION_URL = 'http://' + process.env.OPENSHIFT_APP_DNS + ':8000';
 //for ssl
-process.env.DDP_DEFAULT_CONNECTION_URL = 'https://' + process.env.OPENSHIFT_APP_DNS + ':8443'
+process.env.DDP_DEFAULT_CONNECTION_URL = 'https://' + process.env.OPENSHIFT_APP_DNS + ':8443';
 
 // Map from load path to its source map.
 var parsedSourceMaps = {};
@@ -72,8 +73,9 @@ _.each(serverJson.load, function (fileInfo) {
 });
 
 var retrieveSourceMap = function (pathForSourceMap) {
-  if (_.has(parsedSourceMaps, pathForSourceMap))
+  if (_.has(parsedSourceMaps, pathForSourceMap)) {
     return { map: parsedSourceMaps[pathForSourceMap] };
+  }
   return null;
 };
 
@@ -203,6 +205,7 @@ Fiber(function () {
   }
   var exitCode = mains[0].call({}, process.argv.slice(3));
   // XXX hack, needs a better way to keep alive
-  if (exitCode !== 'DAEMON')
+  if (exitCode !== 'DAEMON') {
     process.exit(exitCode);
+  }
 }).run();
