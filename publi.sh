@@ -10,7 +10,7 @@ git push origin
 
 rm ./.demeteorized -R
 
-demeteorizer -n 0.10.25 -r 0.8.2
+demeteorizer -n 0.10.25 -r 0.8.3
 
 rm ./.rhc_app/$APPNAME/programs -rf
 rm ./.rhc_app/$APPNAME/server -rf
