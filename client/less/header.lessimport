@@ -72,4 +72,18 @@
 			top: @navbar-top;
 		}
 	}
+	.admin-menu {
+		.import {
+			position: relative;
+			input[type="file"] {
+				opacity: 0;
+				background-color: #f00;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+		}
+	}
 }

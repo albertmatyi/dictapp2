@@ -17,6 +17,8 @@
     "font-awesome-4-less": {},
     "bootboxjs": {},
     "publish-cache": {},
-    "npm": {}
+    "npm": {},
+    "moment": {},
+    "bootstrap-alerts": {}
   }
 }

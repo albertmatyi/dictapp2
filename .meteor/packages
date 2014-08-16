@@ -19,3 +19,5 @@ app-editor
 panels
 app-property
 npm
+moment
+bootstrap-alerts

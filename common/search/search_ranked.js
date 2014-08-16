@@ -163,7 +163,7 @@ var searchRanked = function(searchString, limit) {
 
 	sort(items);
 	// console.log(+new Date() - startTime, 'ms');
-
+	// return [];
 	var subscription = this;
 	publish(subscription, items, limit);
 

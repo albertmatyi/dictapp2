@@ -36,7 +36,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<ul class="nav navbar-nav navbar-right hidden-xs">
 				{{#if isAdmin}}
-				<li class="dropdown">
+				<li class="dropdown admin-menu">
 					<a class="dropdown-toggle" data-toggle="dropdown" data-target="languageMenu">
 						<span class="fa fa-cogs"></span>
 						<span class="caret"></span>
@@ -52,6 +52,19 @@
 							<a href="" class="app-properties">
 								<span class="fa fa-cog"></span>
 								{{ translate 'header.app-properties.button' }}
+							</a>
+						</li>
+						<li>
+							<a href="/export" class="export">
+								<span class="fa fa-cloud-download"></span>
+								{{ translate 'header.export.button' }}
+							</a>
+						</li>
+						<li>
+							<a href="" class="import">
+								<span class="fa fa-cloud-upload"></span>
+								{{ translate 'header.import.button' }}
+								<input type="file">
 							</a>
 						</li>
 					</ul>
