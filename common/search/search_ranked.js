@@ -81,11 +81,11 @@ var rankItem = function(words, item) {
 	item.wordRank = score(item.searchableWord, words, 64);
 	item.rank += item.wordRank;
 	item.phraseRank = score(item.searchablePhrase, words, 16);
-	// item.rank += item.phraseRank;
+	item.rank += item.phraseRank;
 	item.descriptionRank = score(item.searchableDescription, words, 12);
-	// item.rank += item.descriptionRank;
+	item.rank += item.descriptionRank;
 	item.exampleRank = score(item.searchableExample, words, 4);
-	// item.rank += item.exampleRank;
+	item.rank += item.exampleRank;
 };
 
 var query = function(words, opts) {
@@ -117,7 +117,7 @@ var sort = function(items) {
 	});
 	// console.log('Sort time: ', +new Date() - startTime, 'ms');
 };
-var publish = function(subscription, items, limit) {
+var publish = function(subscription, items, limit, searchString) {
 	var startTime = +new Date();
 	// console.log('publishing', items.length, 'items');
 	var prevRank = -1,
@@ -128,6 +128,7 @@ var publish = function(subscription, items, limit) {
 			prevRank = item.rank;
 		}
 		if (limit) {
+			item.searchString = searchString;
 			subscription.added('items', item._id, item);
 			limit--;
 		}
@@ -165,7 +166,7 @@ var searchRanked = function(searchString, limit) {
 	// console.log(+new Date() - startTime, 'ms');
 	// return [];
 	var subscription = this;
-	publish(subscription, items, limit);
+	publish(subscription, items, limit, searchString);
 
 	// console.log('Totaltime:', +new Date() - startTime, 'ms');
 };

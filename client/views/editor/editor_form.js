@@ -62,7 +62,7 @@ var RIGHT_FIELDS = {
 					fields: this.parentContext.fields[1].fields,
 					data: [{}]
 				};
-				var comp = UI.renderWithData(Template.appEditorArrayWrapper, data);
+				var comp = UI.renderWithData(Template.appEditorArray, data);
 				UI.insert(comp, $('.array-wrapper.alternatives')[0]);
 			}
 		}
@@ -135,7 +135,7 @@ var SENSES_FIELDS = {
 					fields: this.parentContext.fields[0].fields,
 					data: [{}]
 				};
-				var comp = UI.renderWithData(Template.appEditorArrayWrapper, data);
+				var comp = UI.renderWithData(Template.appEditorArray, data);
 				UI.insert(comp, $('.array-wrapper.senses')[0]);
 			}
 		}

@@ -27,7 +27,7 @@ App.component('item').expose({
   },
   saveItem: function(data, id) {
     App.item.addSearchableDataTo(data);
-    console.log(data);
+    // console.log(data);
     if (!id || id === -1) {
       return ItemsCollection.insert(data);
     } else {
