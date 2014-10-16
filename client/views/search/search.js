@@ -55,7 +55,7 @@ Meteor.startup(function() {
 });
 
 Template.searchItem.rendered = function() {
-	$.highlight(this.firstNode, getSearhStringRegex(), 'span', null);
+	// $.highlight(this.firstNode, getSearhStringRegex(), 'span', null);
 };
 
 Template.searchItem.helpers({
