@@ -9,11 +9,11 @@ var downgrade = function() {
 
 var fillWithDummyData = function() {
 	console.log('Filling with fixieData');
-	ItemsCollection.remove({});
+	App.item.collection.remove({});
 	for (var i = 1000; i >= 0; i--) {
 		var ttl = fixie.fetchPhrase();
 		var desc = fixie.fetchParagraph();
-		ItemsCollection.insert({
+		App.item.collection.insert({
 			title: ttl,
 			description: desc,
 			searchable: [ttl, desc].join(' ')
@@ -34,7 +34,7 @@ var addAdminUser = function() {
 };
 
 var clearDb = function() {
-	ItemsCollection.remove({});
+	App.item.collection.remove({});
 	return true;
 };
 
@@ -53,15 +53,15 @@ var resetItemData = function() {
 			descriptionRight: descR,
 			searchable: [ttlL, ttlR, descL, descR].join(' ')
 		};
-		ItemsCollection.insert(data);
+		App.item.collection.insert(data);
 	}
 	return true;
 };
 
 var lowerCaseSearchData = function() {
-	ItemsCollection.find({}).forEach(function(item) {
+	App.item.collection.find({}).forEach(function(item) {
 		var str = item.searchable.toLowerCase();
-		ItemsCollection.update(item._id, {
+		App.item.collection.update(item._id, {
 			$set: {
 				searchable: str
 			}
@@ -93,7 +93,7 @@ var getAlternative = function() {
 };
 
 var fillWithDummyData2 = function() {
-	ItemsCollection.remove({});
+	App.item.collection.remove({});
 	for (var i = 1000; i >= 0; i--) {
 		var data = {
 			wordLeft: fixie.fetchPhrase() + (Math.random() < PROB.word ? 'LeftMBF140' : ''),
@@ -103,15 +103,15 @@ var fillWithDummyData2 = function() {
 		};
 		// console.log(data);
 		App.item.addSearchableDataTo(data);
-		ItemsCollection.insert(data);
+		App.item.collection.insert(data);
 	}
 	console.log('added 1000 dummy data');
 	return true;
 };
 
 var mergeData = function () {
-	ItemsCollection.find({}).forEach(function (item) {
-		ItemsCollection.update(item._id, {$set: {
+	App.item.collection.find({}).forEach(function (item) {
+		App.item.collection.update(item._id, {$set: {
 			searchableAll: [item.searchableWord, item.searchablePhrase, item.searchableDescription, item.searchableExample].join(' ')
 		}});
 	});

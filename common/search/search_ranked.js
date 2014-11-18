@@ -91,7 +91,7 @@ var rankItem = function(words, item) {
 
 var query = function(words, opts) {
   var startTime = +new Date();
-  var results = ItemsCollection.find(App.search.buildCondition('searchableAll', words), opts);
+  var results = App.item.collection.find(App.search.buildCondition('searchableAll', words), opts);
   // console.log('\nQuery time: ', +new Date() - startTime, 'ms');
   return results;
 };

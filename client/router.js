@@ -6,7 +6,8 @@ Meteor.startup(function() {
 		loadingTemplate: 'loading',
 		waitOn: function() {
 			return Meteor.subscribe('properties');
-		}
+		},
+		trackPageView: true
 	});
 
 	Router.map(function() {
@@ -14,24 +15,26 @@ Meteor.startup(function() {
 			path: '/',
 			onBeforeAction: function() {
 				Session.set('search.string', '');
+				this.next();
 			},
 			data: function() {
 				return {
 					page: 'home'
 				};
 			},
-			onAfterAction: function() {
-				GAnalytics.pageview();
-			}
+			// onAfterAction: function() {
+			// GAnalytics.pageview();
+			// }
 		});
 		this.route('search', {
 			path: '/search/:string',
 			waitOn: function() {
-				return [Meteor.subscribe('properties'), Meteor.subscribe('items', this.params.string)];
+				return [Meteor.subscribe('properties'), Meteor.subscribe('searched-items', this.params.string)];
 			},
 			onBeforeAction: function() {
 				var self = this;
 				Session.set('search.string', self.params.string);
+				this.next();
 			},
 			data: function() {
 				return {
@@ -40,7 +43,6 @@ Meteor.startup(function() {
 				};
 			},
 			onAfterAction: function() {
-				GAnalytics.pageview();
 				$('.search-field').focus();
 			}
 		});
@@ -53,11 +55,8 @@ Meteor.startup(function() {
 			data: function() {
 				return {
 					page: 'item',
-					item: ItemsCollection.findOne(this.params._id)
+					item: App.item.collection.findOne(this.params._id)
 				};
-			},
-			onAfterAction: function() {
-				GAnalytics.pageview();
 			}
 		});
 		this.route('login', {

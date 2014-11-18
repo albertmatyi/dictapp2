@@ -52,9 +52,13 @@ Template.header.events({
     e.preventDefault();
     App.search.contractAll();
   },
-  'click .help.btn': function(e) {
+  'click .about.btn': function(e) {
     e.preventDefault();
     App.about.show();
+  },
+  'click .bibliography.btn': function(e) {
+    e.preventDefault();
+    App.bibliography.show();
   },
   'click .import input': function(e) {
     e.stopPropagation();

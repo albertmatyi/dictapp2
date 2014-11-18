@@ -24,7 +24,7 @@ Template.item.events({
 		var self = this;
 		bootbox.confirm(App.i18n.getString('confirm.delete'), function(result) {
 			if (result) {
-				ItemsCollection.remove(self._id);
+				App.item.collection.remove(self._id);
 				if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
 					history.go(-1);
 				}

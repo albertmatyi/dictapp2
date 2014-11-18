@@ -1,7 +1,7 @@
 Meteor.methods({
   import: function(definitions) {
-    ItemsCollection.find({}).forEach(function(item) {
-      ItemsCollection.remove(item._id);
+    App.item.collection.find({}).forEach(function(item) {
+      App.item.collection.remove(item._id);
     });
     var idx = 0;
     _.each(definitions, function(definition) {

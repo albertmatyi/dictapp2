@@ -37,7 +37,7 @@ Template.editor.events({
 Template.editor.helpers({
   data: function() {
     var id = Session.get('editor.itemId');
-    var data = id === -1 ? {} : ItemsCollection.findOne(id);
+    var data = id === -1 ? {} : App.item.collection.findOne(id);
     if (data) {
       var fd = App.editor.buildFormData(data);
       editorData[id] = {

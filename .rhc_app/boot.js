@@ -41,8 +41,9 @@ if (!process.env.NODE_ENV) {
 }
 
 if (!process.env.METEOR_SETTINGS){
-    process.env.METEOR_SETTINGS = '{"public":{"ga":{"account":"UA-51899110-1"}}}'; 
+    process.env.METEOR_SETTINGS = '{"public":{"ga":{"account":"UA-51899110-1"}}}';
 }
+process.env.DISABLE_WEBSOCKETS = 1;
 //for http
 process.env.DDP_DEFAULT_CONNECTION_URL = 'http://' + process.env.OPENSHIFT_APP_DNS + ':8000';
 //for ssl

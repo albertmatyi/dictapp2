@@ -86,7 +86,7 @@ Template.searchItem.events({
 		var self = this;
 		bootbox.confirm(App.i18n.getString('confirm.delete'), function(result) {
 			if (result) {
-				ItemsCollection.remove(self._id);
+				App.item.collection.remove(self._id);
 			}
 		});
 	}

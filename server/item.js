@@ -29,9 +29,9 @@ App.component('item').expose({
     App.item.addSearchableDataTo(data);
     // console.log(data);
     if (!id || id === -1) {
-      return ItemsCollection.insert(data);
+      return App.item.collection.insert(data);
     } else {
-      ItemsCollection.update(id, {
+      App.item.collection.update(id, {
         $set: data
       });
       return id;
@@ -40,20 +40,20 @@ App.component('item').expose({
 });
 
 Meteor.publish('all-items', function() {
-  return ItemsCollection.find({});
+  return App.item.collection.find({});
 });
 
-Meteor.publish('items', function(searchString, limit) {
+Meteor.publish('searched-items', function(searchString, limit) {
   // App.search.searchFields.call(this, searchString, limit);
   return App.search.searchRanked.call(this, searchString, limit);
 });
-Meteor.publish('item', function(id) {
-  return ItemsCollection.find({
-    _id: id
-  });
-});
+// Meteor.publish('item', function(id) {
+//   return App.item.collection.find({
+//     _id: id
+//   });
+// });
 console.log(App.auth.canEdit);
-ItemsCollection.allow({
+App.item.collection.allow({
   insert: App.auth.canEdit,
   update: App.auth.canEdit,
   remove: App.auth.canEdit

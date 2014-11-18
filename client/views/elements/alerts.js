@@ -17,4 +17,4 @@ Alerts.defaultOptions = {
     alertsLimit: 3
 };
 
-Router.onBeforeAction(function () { Alerts.removeSeen(); });
+Router.onBeforeAction(function () { Alerts.removeSeen(); this.next(); });

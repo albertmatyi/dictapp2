@@ -11,7 +11,7 @@ Router.map(function() {
 
       response.writeHead(200, headers);
       response.write('[{}');
-      ItemsCollection.find({}).forEach(function(item) {
+      App.item.collection.find({}).forEach(function(item) {
         response.write(',' + JSON.stringify(_.omit(item, '_id', 'searchableAll', 'searchableWord', 'searchablePhrase', 'searchableDescription', 'searchableExample')));
       });
       response.write(']');

@@ -8,10 +8,12 @@
 			<p>
 				{{ translate 'results.empty' }}
 			</p>
+			{{#if isAdmin}}
 			<button class="add btn btn-primary">
 				<span class="fa fa-plus"></span>
 				{{ translate 'item.new'}}
 			</button>
+			{{/if}}
 		</div>
 		{{/each}}
 	</div>
@@ -19,7 +21,7 @@
 
 <template name="searchItem">
 	<div class="{{openClass}}">
-		{{> item}}	
+		{{> item}}
 		{{> searchItemControls}}
 	</div>
 </template>
