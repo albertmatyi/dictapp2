@@ -1,0 +1,53 @@
+@z-panel: 100;
+.app-panel-wrapper {
+  .position(0,0,0,0,fixed);
+  z-index: @z-panel;
+  .overlay {
+    .position(0,0,0,0,fixed);
+    background: rgba(0, 0, 0, .5);
+    .transition(all .5s ease-out);
+  }
+  .app-panel {
+    .position(0, 0, 0, 20%);
+    background: rgba(255, 255, 255, 1);
+    overflow: auto;
+    .transition(all .5s ease-out);
+    .translate(0, 0);
+    .body{
+      padding: 1em 2em;
+    }
+    .header, .footer {
+      .translate(0, 0);
+      position: fixed;
+      left: 0;
+      width: 100%;
+      padding: 10/14em;
+      font-weight: bold;
+      z-index: 1;
+    }
+    .header {
+      text-align: left;
+      top: 0;
+    }
+    .footer {
+      bottom: 0;
+      text-align: right;
+    }
+  }
+  &.off-screen {
+    .overlay {
+      .transition(all .5s ease-in);
+      background: rgba(0, 0, 0, 0);
+    }
+    .panel {
+      .transition(all .5s ease-in);
+      .translate(100%, 0);
+      .footer, .header {
+        opacity: 0;
+        .translate(100%, 0);
+        right: 0;
+      }
+    }
+  }
+}
+

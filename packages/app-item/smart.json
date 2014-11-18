@@ -1,0 +1,13 @@
+{
+	"name": "app-item",
+	"description": "It provides DB storage access and utility functions for generic items.",
+	"homepage": "http://www.geniuxconsulting.de",
+	"author": "Matyas Albert Nagy <matyas.albert@geniuxconsulting.de>",
+	"version": "0.0.1",
+	"packages": {
+		"moment": {},
+		"app-component": {
+			"path": "../../.meteorite_private/app-component"
+		}
+	}
+}

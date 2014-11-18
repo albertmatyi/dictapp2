@@ -1,0 +1,8 @@
+{
+  "name": "panels",
+  "description": "A component that lets you easily create panels.",
+  "homepage": "http://www.geniuxconsulting.de",
+  "author": "Matyas Albert Nagy <matyas.albert@geniuxconsulting.de>",
+  "version": "0.0.1",
+  "packages": {}
+}

@@ -1,0 +1,33 @@
+<template name="appPanels">
+    {{#each panels}}
+    {{> appPanel}}
+    {{/each}}
+</template>
+<template name="appPanel">
+    <div class="app-panel-wrapper {{offScreen}} {{panelClass}}">
+        <div class="overlay"></div>
+        <div class="app-panel">
+            {{#if title }}
+            <div class="header">
+                {{ title }}
+                <a href="" class="close">
+                    <span class="fa fa-times"></span>
+                </a>
+            </div>
+            {{/if}}
+            <div class="body">
+                {{> content contentData}}
+            </div>
+            {{#if footer }}
+            <div class="footer">
+                {{footer}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+
+<template name="appPanelInvalid">
+    Wrong or no template defined for the panel
+</template>

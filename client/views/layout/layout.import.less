@@ -1,0 +1,14 @@
+body {
+	background-image: url(/imgs/paper.png);
+	&.no-scroll {
+		overflow: hidden;
+	}
+}
+.container.main {
+	position: relative;
+	margin-top: 4em;
+	z-index: @z-content;
+}
+.navbar {
+	z-index: @z-header;
+}

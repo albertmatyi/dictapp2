@@ -1,0 +1,21 @@
+{
+  "name": "app-i18n",
+  "description": "It provides templates and js with the `translate` method using which  one can internationalize the static part of the app",
+  "homepage": "http://www.geniuxconsulting.de",
+  "author": "Matyas Albert Nagy <matyas.albert@geniuxconsulting.de>",
+  "version": "0.0.1",
+  "packages": {
+    "app-component": {
+      "path": "../../.meteorite_private/app-component"
+    },
+    "app-property": {
+      "path": "../../.meteorite_private/app-property"
+    },
+    "app-acl": {
+      "path": "../../.meteorite_private/app-acl"
+    },
+    "panels": {
+      "path": "../../.meteorite_private/panels"
+    }
+  }
+}

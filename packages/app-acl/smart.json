@@ -1,0 +1,12 @@
+{
+  "name": "app-menu",
+  "description": "It is a generic menu component which lets an app register `title-icon-action` triplets to it which will be displayed as a menu on the UI",
+  "homepage": "http://www.geniuxconsulting.de",
+  "author": "Matyas Albert Nagy <matyas.albert@geniuxconsulting.de>",
+  "version": "0.0.1",
+  "packages": {
+  	"app-component": {
+  		"path": "../../.meteorite_private/app-component"
+  	}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "app-event-bus",
+  "description": "It provides the application a generic eventing system.",
+  "homepage": "http://www.geniuxconsulting.de",
+  "author": "Matyas Albert Nagy <matyas.albert@geniuxconsulting.de>",
+  "version": "0.0.1",
+  "packages": {
+  	"app-component": {
+      "path": "../../.meteorite_private/app-component"
+    },
+    "emitter": {
+  		"path": "../../.meteorite_private/emitter"
+    }
+  }
+}

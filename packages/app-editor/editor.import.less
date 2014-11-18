@@ -1,0 +1,75 @@
+@z-editor: 100;
+.app-editor-form-group {
+  &.short {
+  }
+  .short + &:not(.short) {
+    clear: left;
+  }
+}
+
+.editor-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: @z-editor;
+
+  .transition(@time: 1s, @ease: ease){
+    -webkit-transition: all @time @ease;
+    -moz-transition: all @time @ease;
+    -ms-transition: all @time @ease;
+    -o-transition: all @time @ease;
+    transition: all @time @ease;
+  }
+
+  .transition(.5s);
+  .editor {
+    @left: 20%;
+    .transition(.5s);
+    position: absolute;
+    background: rgba(255, 255, 255, .9);
+    left: @left;
+    height: 100%;
+    width: 80%;
+    overflow: auto;
+    .body{
+      padding: 2em;
+      padding-bottom: 100px;
+      .tab-pane{
+        padding-top: 1em;
+      }
+      label {
+        small {
+          font-weight: 100;
+        }
+      }
+      textarea{
+        min-height: 5em;
+      }
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: @left;
+      right: 0;
+      padding: 20px 0;
+      text-align: center;
+      & > *{
+        display: inline-block;
+      }
+    }
+  }
+}
+
+
+
+.editor-wrapper.init {
+  background: rgba(0, 0, 0, 0);
+  .editor {
+    left: 100%;
+    .footer {
+      position: absolute;
+    }
+  }
+}

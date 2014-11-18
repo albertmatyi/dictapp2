@@ -1,0 +1,19 @@
+<template name="bibliography">
+	{{#if isAdmin}}
+	<div class="editor-toolbar" id="toolbar-bibliography" data-role="editor-toolbar" data-target="#editor-bibliography">
+		{{> editorToolbarIcons}}
+	</div>
+	<div class="editor-textarea bibliography" id="editor-bibliography">{{{bibliography}}}</div>
+	<button class="save btn btn-primary">
+		<span class="fa fa-save"></span>
+		{{ translate 'save.button'}}
+	</button>
+	<button class="cancel btn btn-link">
+		<span class="fa fa-times"></span>
+		{{ translate 'cancel.button'}}
+	</button>
+	{{else}}
+		{{{bibliography}}}
+	{{/if}}
+
+</template>

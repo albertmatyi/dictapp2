@@ -1,0 +1,15 @@
+{
+  "name": "app-editor",
+  "description": "It is a generic editor component which lets an app quickly define forms",
+  "homepage": "http://www.geniuxconsulting.de",
+  "author": "Matyas Albert Nagy <matyas.albert@geniuxconsulting.de>",
+  "version": "0.0.1",
+  "packages": {
+    "app-component": {
+      "path": "../../.meteorite_private/app-component"
+    },
+    "app-i18n": {
+      "path": "../../.meteorite_private/app-i18n"
+    }
+  }
+}
