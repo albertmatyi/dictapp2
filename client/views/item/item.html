@@ -1,7 +1,7 @@
 <template name="itemWrapper">
 	{{#with item}}
 	<div class="item col-xs-12 open">
-		{{> item}}	
+		{{> item}}
 		{{> itemControls}}
 	</div>
 	{{/ with}}
@@ -10,7 +10,7 @@
 <template name="item">
 	<div class="row title" id="{{_id}}">
 		<div class="left col-xs-12 col-sm-6">
-			<em class="hiddenn">[
+			<em class="hidden">[
 				w: {{wordRank}}
 				p: {{phraseRank}}
 				d: {{descriptionRank}}

@@ -63,6 +63,10 @@ Template.header.events({
   'click .import input': function(e) {
     e.stopPropagation();
   },
+  'click .export': function(e) {
+    e.preventDefault();
+    window.open(window.location.origin + '/export');
+  },
   'change .import input': function(e) {
     App.import(e.currentTarget.files[0]);
   }

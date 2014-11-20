@@ -5,26 +5,26 @@ var _searchStringRegex;
 var getRegexFor = function(str) {
 	str = App.string.removeNonWordChars(str.trim());
 	var re = ['(?:'];
-	for (var i = 0; i < str.length; i++) {
-		var c = str[i];
-		if (/\s/.test(c)) {
-			re.push(')|(?:');
-			continue;
+		for (var i = 0; i < str.length; i++) {
+			var c = str[i];
+			if (/\s/.test(c)) {
+				re.push(')|(?:');
+				continue;
+			}
+			var mapping = App.string.charmapInv[c];
+			if (mapping) {
+				re.push('[');
+				re.push(c);
+				re.push(mapping.join(''));
+				re.push(']');
+			} else {
+				re.push(c);
+			}
 		}
-		var mapping = App.string.charmapInv[c];
-		if (mapping) {
-			re.push('[');
-			re.push(c);
-			re.push(mapping.join(''));
-			re.push(']');
-		} else {
-			re.push(c);
-		}
-	}
-	re.push(')');
-	return new RegExp(re.join(''), 'i');
-};
-var getSearhStringRegex = function() {
+		re.push(')');
+		return new RegExp(re.join(''), 'i');
+	};
+	var getSearhStringRegex = function() {
 	// Session.get('search.regex');
 	if (!_searchStringRegex) {
 		var searchString = Session.get('search.string');
@@ -39,7 +39,7 @@ var setSearhStringRegex = function(string) {
 
 var bottomReached = function() {
 	var val = $(document).height() -
-		(window.innerHeight + window.scrollY);
+	(window.innerHeight + window.scrollY);
 	return val < BOTTOM_THRESHOLD;
 };
 
@@ -70,6 +70,22 @@ Template.searchItem.helpers({
 Template.search.events({
 	'click .add.btn': function() {
 		App.editor.create();
+	},
+	'click .request.btn': function() {
+		var word = Router.current().params.string;
+		bootbox.confirm(
+			App.i18n.translate('Send a mail requesting the definition of: ') + word, function (result) {
+				if(result) {
+					Meteor.call('sendNotification', word, function (err) {
+						// console.log(arguments);
+						if (!err) {
+							bootbox.alert('Mail sent successfully!');
+						} else {
+							bootbox.alert('Something went wrong.' + err);
+						}
+					});
+				}
+			});
 	}
 });
 Template.searchItem.events({

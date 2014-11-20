@@ -32,6 +32,7 @@ fixie@1.0.0
 follower-livedata@1.0.2
 font-awesome-4-less@0.0.0
 geojson-utils@1.0.1
+gfk:mailgun-api@1.0.0
 handlebars@1.0.1
 html-tools@1.0.2
 htmljs@1.0.2
@@ -73,6 +74,7 @@ reload@1.1.1
 retry@1.0.1
 reywood:iron-router-ga@0.4.0
 routepolicy@1.0.2
+rzymek:moment@2.8.3_10
 service-configuration@1.0.2
 session@1.0.4
 sha@1.0.1

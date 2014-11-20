@@ -38,4 +38,6 @@ app-editor
 mizzao:bootboxjs
 bootstrap-wysiwyg
 app-item
+rzymek:moment
+gfk:mailgun-api
 

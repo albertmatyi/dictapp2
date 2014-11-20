@@ -1,7 +1,7 @@
 Router.map(function() {
   this.route('export', {
     where: 'server',
-    path: 'export',
+    path: '/export',
     action: function() {
       var response = this.response;
       var headers = {

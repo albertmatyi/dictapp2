@@ -3,7 +3,7 @@ var SHORT_CLASS = 'short col-sm-3';
 var LEFT_FIELDS = {
 	wordLeft: {
 		'class': 'col-xs-12',
-		placeholder: 'acţiun',
+		placeholder: 'acţiune',
 		label: App.i18n.getString
 	},
 	endingLeft: {

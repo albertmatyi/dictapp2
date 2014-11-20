@@ -13,6 +13,11 @@
 				<span class="fa fa-plus"></span>
 				{{ translate 'item.new'}}
 			</button>
+			{{else}}
+			<button class="request btn btn-primary">
+				<span class="fa fa-envelope"></span>
+				{{ translate 'item.request'}}
+			</button>
 			{{/if}}
 		</div>
 		{{/each}}
