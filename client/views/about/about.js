@@ -35,5 +35,6 @@ App.component('about').expose({
 			title: App.i18n.getString('about.title'),
 			template: Template.about
 		});
+		panel.show();
 	}
 });

@@ -1,19 +1,21 @@
 @z-panel: 100;
+@header-height: 2em;
 .app-panel-wrapper {
   .position(0,0,0,0,fixed);
   z-index: @z-panel;
   .overlay {
     .position(0,0,0,0,fixed);
     background: rgba(0, 0, 0, .5);
-    .transition(all .5s ease-out);
+    .transition(all .15s ease-out);
   }
   .app-panel {
     .position(0, 0, 0, 20%);
     background: rgba(255, 255, 255, 1);
     overflow: auto;
-    .transition(all .5s ease-out);
+    .transition(all .15s ease-out);
     .translate(0, 0);
     .body{
+      margin-top: @header-height;
       padding: 1em 2em;
     }
     .header, .footer {
@@ -35,19 +37,19 @@
     }
   }
   &.off-screen {
-    .overlay {
-      .transition(all .5s ease-in);
-      background: rgba(0, 0, 0, 0);
-    }
-    .panel {
-      .transition(all .5s ease-in);
-      .translate(100%, 0);
-      .footer, .header {
-        opacity: 0;
-        .translate(100%, 0);
-        right: 0;
+
+      .overlay {
+        .transition(all .15s ease-in);
+        background: rgba(0, 0, 0, 0);
       }
+      .app-panel {
+        .transition(all .15s ease-in);
+        .translate(100%, 0);
+        .footer, .header {
+          opacity: 0;
+          .translate(100%, 0);
+          right: 0;
+        }
     }
   }
 }
-

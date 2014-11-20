@@ -35,5 +35,6 @@ App.component('bibliography').expose({
 			title: App.i18n.getString('bibliography.title'),
 			template: Template.bibliography
 		});
+		panel.show();
 	}
 });

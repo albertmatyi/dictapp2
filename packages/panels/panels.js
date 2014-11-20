@@ -51,7 +51,9 @@ var setupOptions = function (options) {
 
 Template.appPanel.helpers({
     offScreen: function () {
-        return PanelCollection.findOne(this._id).offScreen ? 'off-screen' : '';
+        var oc = PanelCollection.findOne(this._id).offScreen;
+        console.log('recalc', oc);
+        return oc ? 'off-screen' : '';
     },
     content: function () {
         var opts = Panels[this.parentContext._id];
