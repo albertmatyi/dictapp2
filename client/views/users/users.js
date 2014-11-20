@@ -21,7 +21,7 @@ Template.user.events({
 			return;
 		}
 		Meteor.users.remove(this._id);
-	}, 
+	},
 	'change input': function (e) {
 		var role = $(e.currentTarget).parents('tr').find('input:checked').val();
 		if (role) {

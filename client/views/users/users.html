@@ -20,9 +20,9 @@
 <template name="user">
 	<tr>
 		<td>{{username}}</td>
-		<td><input type="radio" name="role-{{username}}" checked="{{checked "normal"}}" value="normal" class="role"></td>
-		<td><input type="radio" name="role-{{username}}" checked="{{checked "editor"}}" value="editor" class="role"></td>
-		<td><input type="radio" name="role-{{username}}" checked="{{checked "admin"}}" value="admin" class="role"></td>
+		<td><input type="radio" name="role-{{username}}" {{checked "normal"}} value="normal" class="role"></td>
+		<td><input type="radio" name="role-{{username}}" {{checked "editor"}} value="editor" class="role"></td>
+		<td><input type="radio" name="role-{{username}}" {{checked "admin"}} value="admin" class="role"></td>
 		<td>
 			<button class="remove btn btn-danger">
 				<span class="fa fa-trash-o"></span>
