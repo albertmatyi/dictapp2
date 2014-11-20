@@ -6,6 +6,7 @@ App.component('users').expose({
 			title: App.i18n.getString('Edit users'),
 			template: Template.usersTable
 		});
+		panel.show();
 	}
 });
 
