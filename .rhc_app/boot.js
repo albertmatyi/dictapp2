@@ -1,5 +1,3 @@
-require('newrelic');
-
 var Fiber = require("fibers");
 var fs = require("fs");
 var path = require("path");
@@ -74,9 +72,8 @@ _.each(serverJson.load, function (fileInfo) {
 });
 
 var retrieveSourceMap = function (pathForSourceMap) {
-  if (_.has(parsedSourceMaps, pathForSourceMap)) {
+  if (_.has(parsedSourceMaps, pathForSourceMap))
     return { map: parsedSourceMaps[pathForSourceMap] };
-  }
   return null;
 };
 
@@ -96,6 +93,13 @@ Fiber(function () {
     var code = fs.readFileSync(path.resolve(serverDir, fileInfo.path));
 
     var Npm = {
+      /**
+       * @summary Require a package that was specified using
+       * `Npm.depends()`.
+       * @param  {String} name The name of the package to require.
+       * @locus Server
+       * @memberOf Npm
+       */
       require: function (name) {
         if (! fileInfo.node_modules) {
           return require(name);
@@ -191,7 +195,7 @@ Fiber(function () {
     mains.push(main);
     globalMain = main;
   }
-  _.each(Package, function (p, n) {
+  typeof Package !== 'undefined' && _.each(Package, function (p, n) {
     if ('main' in p && p.main !== globalMain) {
       mains.push(p.main);
     }
@@ -206,7 +210,6 @@ Fiber(function () {
   }
   var exitCode = mains[0].call({}, process.argv.slice(3));
   // XXX hack, needs a better way to keep alive
-  if (exitCode !== 'DAEMON') {
+  if (exitCode !== 'DAEMON')
     process.exit(exitCode);
-  }
 }).run();
