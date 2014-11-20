@@ -8,7 +8,7 @@ git add . --all
 git commit -a
 git push origin
 
-rm ./.demeteorized -R
+rm ./.demeteorized -rf
 
 demeteorizer #-n 0.10.25 #-r 1.0.0
 
