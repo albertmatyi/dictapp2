@@ -43,9 +43,9 @@ if (!process.env.METEOR_SETTINGS){
 }
 process.env.DISABLE_WEBSOCKETS = 1;
 //for http
-# process.env.DDP_DEFAULT_CONNECTION_URL = 'http://' + process.env.OPENSHIFT_APP_DNS + ':8000';
+//process.env.DDP_DEFAULT_CONNECTION_URL = 'http://' + process.env.OPENSHIFT_APP_DNS + ':8000';
 //for ssl
-# process.env.DDP_DEFAULT_CONNECTION_URL = 'https://' + process.env.OPENSHIFT_APP_DNS + ':8443';
+//process.env.DDP_DEFAULT_CONNECTION_URL = 'https://' + process.env.OPENSHIFT_APP_DNS + ':8443';
 
 // Map from load path to its source map.
 var parsedSourceMaps = {};
