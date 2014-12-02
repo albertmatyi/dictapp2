@@ -1,9 +1,6 @@
 .navbar {
 	background-image: url(/imgs/header.png);
 	background-repeat: repeat;
-	// a {
-	// 	color: #fff;
-	// }
 	.navbar-brand {
 		text-transform: uppercase;
 	}
@@ -70,6 +67,24 @@
 			border-radius: 0 @border-radius @border-radius 0;
 			right: 0;
 			top: @navbar-top;
+		}
+	}
+	#login-dropdown-list {
+		.dropdown-toggle {
+			width: 30px;
+			white-space: nowrap;
+			overflow: hidden;
+			content: '' !important;			
+			&:before {
+				display: inline-block;
+				font-family: FontAwesome;
+				font-style: normal;
+				font-weight: normal;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				content: @fa-var-user;
+			}
 		}
 	}
 	.admin-menu {

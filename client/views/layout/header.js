@@ -32,14 +32,6 @@ Template.header.events({
   'click .clear.btn': function() {
     clear();
   },
-  'click .users': function(e) {
-    e.preventDefault();
-    App.users.show();
-  },
-  'click .app-properties': function(e) {
-    e.preventDefault();
-    App.property.edit();
-  },
   'click .add.btn': function(e) {
     e.preventDefault();
     App.editor.create();
@@ -59,6 +51,17 @@ Template.header.events({
   'click .bibliography.btn': function(e) {
     e.preventDefault();
     App.bibliography.show();
+  }
+});
+
+Template.adminMenu.helpers({
+  'click .users': function(e) {
+    e.preventDefault();
+    App.users.show();
+  },
+  'click .app-properties': function(e) {
+    e.preventDefault();
+    App.property.edit();
   },
   'click .import input': function(e) {
     e.stopPropagation();
