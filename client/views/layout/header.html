@@ -35,61 +35,40 @@
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<ul class="nav navbar-nav navbar-right hidden-xs">
-				{{#if isAdmin}}
-				<li class="dropdown admin-menu">
-					<a class="dropdown-toggle" data-toggle="dropdown" data-target="languageMenu">
-						<span class="fa fa-cogs"></span>
-						<span class="caret"></span>
+				{{> adminMenu}}
+				<li class="hidden-sm hidden-xs">
+					<a href="" class="highlight btn" title="{{ translate 'highlight'}}">
+						<span class="fa fa-flash"></span>
 					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="" class="users">
-								<span class="fa fa-users"></span>
-								{{ translate 'header.user.button' }}
-							</a>
-						</li>
-						<li>
-							<a href="" class="app-properties">
-								<span class="fa fa-cog"></span>
-								{{ translate 'header.app-properties.button' }}
-							</a>
-						</li>
-						<li>
-							<a href="/export" class="export">
-								<span class="fa fa-cloud-download"></span>
-								{{ translate 'header.export.button' }}
-							</a>
-						</li>
-						<li>
-							<a href="" class="import">
-								<span class="fa fa-cloud-upload"></span>
-								{{ translate 'header.import.button' }}
-								<input type="file">
-							</a>
-						</li>
-					</ul>
 				</li>
-				{{/if}}
-				<li>
+				<li class="hidden-sm hidden-xs">
 					<a href="" class="expand-all btn" title="{{ translate 'header.expandAll'}}">
 						<span class="fa fa-angle-double-down"></span>
 					</a>
 				</li>
-				<li>
+				<li class="hidden-sm hidden-xs">
 					<a href="" class="contract-all btn" title="{{ translate 'header.contractAll'}}">
 						<span class="fa fa-angle-double-up"></span>
 					</a>
 				</li>
 				<li>
 					<a href="" class="about btn">
-						<!-- <span class="fa fa-question-circle"></span> -->
-						{{ translate 'header.about' }}
+						<span class="fa fa-info-circle"
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+						title="{{ translate 'header.about' }}">
+						</span>
+						
 					</a>
 				</li>
 				<li>
 					<a href="" class="bibliography btn">
-						<!-- <span class="fa fa-question-circle"></span> -->
-						{{ translate 'header.bibliography' }}
+						<span class="fa fa-book" 
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+						title="{{translate 'header.bibliography'}}">
+						</span>
+						
 					</a>
 				</li>
 				{{#if loginFlag}}
@@ -98,4 +77,43 @@
 			</ul>
 		</div><!-- /.container-fluid -->
 	</nav>
+</template>
+
+
+<template name="adminMenu">
+	{{#if isAdmin}}
+	<li class="dropdown admin-menu">
+		<a class="dropdown-toggle" data-toggle="dropdown" data-target="languageMenu">
+			<span class="fa fa-cogs"></span>
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li>
+				<a href="" class="users">
+					<span class="fa fa-users"></span>
+					{{ translate 'header.user.button' }}
+				</a>
+			</li>
+			<li>
+				<a href="" class="app-properties">
+					<span class="fa fa-cog"></span>
+					{{ translate 'header.app-properties.button' }}
+				</a>
+			</li>
+			<li>
+				<a href="/export" class="export">
+					<span class="fa fa-cloud-download"></span>
+					{{ translate 'header.export.button' }}
+				</a>
+			</li>
+			<li>
+				<a href="" class="import">
+					<span class="fa fa-cloud-upload"></span>
+					{{ translate 'header.import.button' }}
+					<input type="file">
+				</a>
+			</li>
+		</ul>
+	</li>
+	{{/if}}
 </template>
