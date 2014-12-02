@@ -14,5 +14,6 @@ App.component('property').expose({
 			title: App.i18n.getString('panel.app-properties.title'),
 			template: Template.appPropertyEditor
 		});
+		panel.show();
 	}
 });

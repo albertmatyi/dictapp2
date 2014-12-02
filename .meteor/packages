@@ -4,18 +4,40 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-less
-accounts-ui-bootstrap-3
-iron-router
-bootstrap3-less
+# less
+# accounts-ui-bootstrap-3
+# iron-router
+# bootstrap3-less
+# accounts-password
+# bootstrap-wysiwyg
+# ganalytics
+# font-awesome-4-less
+# bootboxjs
+# milight
+# publish-cache
+# app-editor
+# panels
+# app-property
+# npm
+# moment
+# bootstrap-alerts
+# fixie
+app-component
+iron:router
 accounts-password
-bootstrap-wysiwyg
-GAnalytics
+app-property
+fixie
+ian:accounts-ui-bootstrap-3
+mrt:bootstrap-alerts
+panels
+reywood:iron-router-ga
+bootstrap3-less
 font-awesome-4-less
-highlight
-man-panels
-man-app-component
-man-app-property
-man-fixie
-bootboxjs
-man-app-editor
+less
+app-editor
+mizzao:bootboxjs
+bootstrap-wysiwyg
+app-item
+rzymek:moment
+gfk:mailgun-api
+

@@ -1,0 +1,8 @@
+{
+	"name": "app-component",
+	"description": "This is a base package that creates the `App` global variable and where all other components/modules register themselves.",
+	"homepage": "http://www.geniuxconsulting.de",
+	"author": "Matyas Albert Nagy <matyas.albert@geniuxconsulting.de>",
+	"version": "0.0.1",
+	"packages": {}
+}

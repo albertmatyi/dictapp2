@@ -6,6 +6,7 @@ App.component('users').expose({
 			title: App.i18n.getString('Edit users'),
 			template: Template.usersTable
 		});
+		panel.show();
 	}
 });
 
@@ -21,7 +22,7 @@ Template.user.events({
 			return;
 		}
 		Meteor.users.remove(this._id);
-	}, 
+	},
 	'change input': function (e) {
 		var role = $(e.currentTarget).parents('tr').find('input:checked').val();
 		if (role) {
@@ -34,6 +35,6 @@ Template.user.helpers({
 	checked: function (role) {
 		role = role || 'normal';
 		var prole = this.profile.role || 'normal';
-		return prole === role ? 'checked="checked"':'';
+		return prole === role ? 'checked':'';
 	}
 });

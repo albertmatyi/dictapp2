@@ -1,0 +1,149 @@
+<template name="appEditors">
+    {{#each editors}}
+    {{> appEditor}}
+    {{/each}}
+</template>
+<template name="appEditor" role="form">
+    <div class="editor-wrapper init">
+        <form class="editor">
+            <div class="header"></div>
+            <div class="body">
+                {{> appEditorForm}}
+            </div>
+            <div class="footer">
+                <button type="submit" class="btn btn-primary save">
+                    <span class="fa fa-save"></span>
+                    {{translate 'editor.save' 'Save'}}
+                </button>
+                <button type="button" class="btn btn-link discard">
+                    <span class="fa fa-times"></span>
+                    {{translate 'editor.discard' 'Discard'}}
+                </button>
+            </div>
+        </form>
+    </div>
+</template>
+
+<template name="appEditorForm">
+    {{#if i18nEnabled}}
+    {{> appEditorI18nForm}}
+    {{/if}}
+    {{# each fields }}
+    <div class="app-editor-form-group form-group {{class}} {{name}}">
+        {{> field currentContext=this parentContext=.. }}
+    </div>
+    {{/ each}}
+</template>
+
+<template name="appEditorI18nForm">
+    <ul class="language-tab nav nav-tabs" role="tablist">
+        {{#each languages}}
+        <li class="{{active}}">
+            <a href="#{{panelId .. title}}" role="tab" data-toggle="tab">{{title}}</a>
+        </li>
+        {{/each}}
+    </ul>
+    <div class="tab-content">
+        {{#each languages}}
+        <div class="tab-pane i18n-editor-tab {{active}}" id="{{panelId .. title}}">
+            {{#each i18nFields .. title}}
+            <div class="form-group">
+                {{> field currentContext=this parentContext=../..}}
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="appEditorArrayWrapper">
+    {{#with data}}
+    {{> appEditorArray}}
+    {{/with}}
+</template>
+
+<template name="appEditorArray">
+    <div class="array-wrapper {{name}} {{class}}">
+        <label class="{{labelClass}}">{{ translate label }}
+            <small>{{hint}}</small>
+        </label>
+        {{# each data }}
+        <div class="array-element">
+            {{#each ../fields}}
+            {{#with mergedContext ..}}
+            <div class="app-editor-form-group form-group {{class}} {{name}}">
+                {{> field currentContext=this parentContext=../../.. }}
+            </div>
+            {{/with}}
+            {{/each}}
+        </div>
+        {{/ each}}
+    </div>
+</template>
+
+<template name="aet">
+    {{#each data}}
+    <label>Name: {{name}}</label>
+    {{/each}}
+</template>
+
+<template name="appEditorText">
+    <label for="editor-{{ name }}">{{ translate label }}
+        <small>{{hint}}</small>
+    </label>
+    <input type="text" name="{{name}}" id="editor-{{name}}" class="form-control {{name}}" value="{{value}}" placeholder="{{placeholder}}">
+</template>
+
+<template name="appEditorTextarea">
+    <label for="editor-{{ name }}">{{ translate label }}
+        <small>{{hint}}</small>
+    </label>
+    <textarea name="{{name}}" id="editor-{{name}}" class="form-control {{name}}">{{value}}</textarea>
+</template>
+
+<template name="appEditorFile">
+    <label for="editor-{{ name }}">{{ translate label }}
+        <small>{{hint}}</small>
+    </label>
+    <input type="file" name="{{name}}" id="editor-{{name}}" class="form-control {{name}}" value="">
+</template>
+
+<template name="appEditorHidden">
+    <input type="hidden" name="{{name}}" id="editor-{{name}}" class="form-control {{name}}" value="{{value}}">
+</template>
+
+<template name="appEditorPlaceholder">
+    <div class="{{class}} {{name}}"></div>
+</template>
+
+<template name="appEditorCheckbox">
+    <label for="editor-{{ name }}">
+        <input type="checkbox" class="{{name}}" name="{{name}}" id="editor-{{name}}" {{checked}}>
+        {{ translate label }}
+        <small>{{hint}}</small>
+    </label>
+</template>
+
+<template name="appEditorSelect">
+    <label for="editor-{{ name }}">{{ translate label }}
+        <small>{{hint}}</small>
+    </label>
+    <select name="{{name}}" id="editor-{{name}}" class="form-control {{name}}">
+        {{# each options }}
+        <option value="{{ value }}"
+        {{selected}}>{{name}}</option>
+        {{/ each }}
+    </select>
+</template>
+
+<template name="appEditorButton">
+    <button class="btn btn-{{btnType}} {{name}}">{{label}}</button>
+</template>
+
+<template name="appEditorSeparator">
+    <hr>
+</template>
+
+<template name="appEditorInvalid">
+    Invalid template for {{type}}
+</template>

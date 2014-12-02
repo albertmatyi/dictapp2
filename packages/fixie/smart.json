@@ -1,0 +1,8 @@
+{
+	"name": "fixie",
+	"description": "Automagically adds filler content.",
+	"homepage": "http://www.geniuxconsulting.de",
+	"author": "Matyas Albert Nagy <matyas.albert@geniuxconsulting.de>",
+	"version": "0.0.1",
+	"packages": {}
+}

@@ -3,7 +3,7 @@
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header brand-wrapper hidden-xs">
-				
+
 				<a class="navbar-brand" href="{{ pathFor 'home' }}">
 					<span class="logo fa {{appIcon}}"></span>
 					{{ translate 'app.title' }}
@@ -36,7 +36,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<ul class="nav navbar-nav navbar-right hidden-xs">
 				{{#if isAdmin}}
-				<li class="dropdown">
+				<li class="dropdown admin-menu">
 					<a class="dropdown-toggle" data-toggle="dropdown" data-target="languageMenu">
 						<span class="fa fa-cogs"></span>
 						<span class="caret"></span>
@@ -54,6 +54,19 @@
 								{{ translate 'header.app-properties.button' }}
 							</a>
 						</li>
+						<li>
+							<a href="/export" class="export">
+								<span class="fa fa-cloud-download"></span>
+								{{ translate 'header.export.button' }}
+							</a>
+						</li>
+						<li>
+							<a href="" class="import">
+								<span class="fa fa-cloud-upload"></span>
+								{{ translate 'header.import.button' }}
+								<input type="file">
+							</a>
+						</li>
 					</ul>
 				</li>
 				{{/if}}
@@ -68,11 +81,20 @@
 					</a>
 				</li>
 				<li>
-					<a href="" class="help btn">
-						<span class="fa fa-question-circle"></span>
+					<a href="" class="about btn">
+						<!-- <span class="fa fa-question-circle"></span> -->
+						{{ translate 'header.about' }}
 					</a>
 				</li>
+				<li>
+					<a href="" class="bibliography btn">
+						<!-- <span class="fa fa-question-circle"></span> -->
+						{{ translate 'header.bibliography' }}
+					</a>
+				</li>
+				{{#if loginFlag}}
 				{{> loginButtons align="right"}}
+				{{/if}}
 			</ul>
 		</div><!-- /.container-fluid -->
 	</nav>

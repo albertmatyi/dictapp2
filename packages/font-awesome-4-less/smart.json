@@ -1,0 +1,9 @@
+{
+  "name": "font-awesome-4-less",
+  "description": "Font Awesome 4.1's LESS sources. Using this package will give you all mixins and variables of Font Awesome's original LESS code. Just import '/packages/font-awesome-4-less/font-awesome.lessimport'",
+  "homepage": "https://github.com/svub/fontawesome4-less",
+  "author": "Sven Buschbeck (http://svenbuschbeck.net)",
+  "version": "4.4.0",
+  "git": "https://github.com/svub/fontawesome4-less.git",
+  "packages": {}
+}

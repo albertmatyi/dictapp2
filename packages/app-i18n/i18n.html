@@ -1,0 +1,12 @@
+<template name="i18nLanguageSelector">
+	<ul class="i18n language-selector">
+		{{#each languages}}
+		{{> i18nLanguage }}
+		{{/each}}
+	</ul>
+</template>
+<template name="i18nLanguage">
+	<li class="language {{selected}}">
+		<a href="#">{{title}}</a>
+	</li>
+</template>

@@ -8,18 +8,25 @@
 			<p>
 				{{ translate 'results.empty' }}
 			</p>
+			{{#if canEdit}}
 			<button class="add btn btn-primary">
 				<span class="fa fa-plus"></span>
 				{{ translate 'item.new'}}
 			</button>
+			{{else}}
+			<button class="request btn btn-primary">
+				<span class="fa fa-envelope"></span>
+				{{ translate 'item.request'}}
+			</button>
+			{{/if}}
 		</div>
 		{{/each}}
 	</div>
 </template>
 
 <template name="searchItem">
-	<div class="item col-xs-12 open">
-		{{> item}}	
+	<div class="{{openClass}}">
+		{{> item}}
 		{{> searchItemControls}}
 	</div>
 </template>
