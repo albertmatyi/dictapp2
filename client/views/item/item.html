@@ -18,15 +18,15 @@
 				r: {{rank}}
 				]
 			</em>
-			<span class="wordLeft">{{wordLeft}}</span>{{separatorLeft}}{{#with endingLeft}}<span class="endingLeft">{{this}}</span>{{/with}}{{#with typeLeft}}<span class="typeLeft"> {{this}}</span>{{/with}}
+			<span class="wordLeft p-inline">{{#markdown}}{{wordLeft}}{{/markdown}}</span>{{separatorLeft}}{{#with endingLeft}}<span class="endingLeft">{{this}}</span>{{/with}}{{#with typeLeft}}<span class="typeLeft"> {{this}}</span>{{/with}}
 		</div>
 		<div class="right col-xs-12 col-sm-6">
 			<ol class="alternatives">
-				<li><span class="wordRight">{{wordRight}}</span></li>
+				<li><span class="wordRight p-inline">{{#markdown}}{{wordRight}}{{/markdown}}</span></li>
 				{{#each alternatives}}
 				<li>{{#with category}}<span class="category">({{this}})</span>
 					{{/with}}
-					<span class="meaning">{{meaning}}</span>
+					<span class="meaning p-inline">{{#markdown}}{{meaning}}{{/markdown}}</span>
 				</li>
 				{{/each}}
 			</ol>
@@ -46,21 +46,21 @@
 <template name="sense">
 	<div class="row sense">
 		<div class="col-xs-12 col-sm-6 left">
-			<span class="phrase">
-				{{phraseLeft}}{{separatorLeft}}
+			<span class="phrase p-inline">
+				{{#markdown}}{{phraseLeft}}{{/markdown}}{{separatorLeft}}
 			</span>
-			<span class="description">{{descriptionLeft}}</span>
+			<span class="description p-inline">{{#markdown}}{{descriptionLeft}}{{/markdown}}</span>
 			{{#with exampleLeft}}
-			<p class="example">{{this}}</p>
+			<p class="example p-inline">{{#markdown}}{{this}}{{/markdown}}</p>
 			{{/with}}
 		</div>
 		<div class="col-xs-12 col-sm-6 right">
-			<span class="phrase">
-				{{phraseRight}}{{separatorRight}}
+			<span class="phrase p-inline">
+				{{#markdown}}{{phraseRight}}{{/markdown}}{{separatorRight}}
 			</span>
-			<span class="description">{{descriptionRight}}</span>
+			<span class="description p-inline">{{#markdown}}{{descriptionRight}}{{/markdown}}</span>
 			{{#with exampleRight}}
-			<p class="example">{{this}}</p>
+			<p class="example p-inline">{{#markdown}}{{this}}{{/markdown}}</p>
 			{{/with}}
 		</div>
 		<div class="clearfix"></div>

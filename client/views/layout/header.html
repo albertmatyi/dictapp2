@@ -82,14 +82,22 @@
 				</li>
 				<li>
 					<a href="" class="about btn">
-						<!-- <span class="fa fa-question-circle"></span> -->
-						{{ translate 'header.about' }}
+						<span class="fa fa-info-circle"
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+						title="{{ translate 'header.about' }}">
+						</span>
+						
 					</a>
 				</li>
 				<li>
 					<a href="" class="bibliography btn">
-						<!-- <span class="fa fa-question-circle"></span> -->
-						{{ translate 'header.bibliography' }}
+						<span class="fa fa-book" 
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+						title="{{translate 'header.bibliography'}}">
+						</span>
+						
 					</a>
 				</li>
 				{{#if loginFlag}}
