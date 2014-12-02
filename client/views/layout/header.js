@@ -36,6 +36,9 @@ Template.header.events({
     e.preventDefault();
     App.editor.create();
   },
+  'click .highlight-all.btn': function(e) {
+    App.highlight.toggle();
+  },
   'click .expand-all.btn': function(e) {
     e.preventDefault();
     App.search.expandAll();

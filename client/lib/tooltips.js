@@ -1,3 +1,3 @@
-Meteor.startup(function () {
+Template.header.rendered = function () {
 	$('[data-toggle="tooltip"]').tooltip();
-});
+};

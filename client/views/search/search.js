@@ -5,33 +5,33 @@ var _searchStringRegex;
 var getRegexFor = function(str) {
 	str = App.string.removeNonWordChars(str.trim());
 	var re = ['(?:'];
-		for (var i = 0; i < str.length; i++) {
-			var c = str[i];
-			if (/\s/.test(c)) {
-				re.push(')|(?:');
-				continue;
-			}
-			var mapping = App.string.charmapInv[c];
-			if (mapping) {
-				re.push('[');
-				re.push(c);
-				re.push(mapping.join(''));
-				re.push(']');
-			} else {
-				re.push(c);
-			}
+	for (var i = 0; i < str.length; i++) {
+		var c = str[i];
+		if (/\s/.test(c)) {
+			re.push(')|(?:');
+			continue;
 		}
-		re.push(')');
-		return new RegExp(re.join(''), 'i');
-	};
-	var getSearhStringRegex = function() {
-	// Session.get('search.regex');
+		var mapping = App.string.charmapInv[c];
+		if (mapping) {
+			re.push('[');
+			re.push(c);
+			re.push(mapping.join(''));
+			re.push(']');
+		} else {
+			re.push(c);
+		}
+	}
+	re.push(')');
+	return new RegExp(re.join(''), 'i');
+};
+var getSearhStringRegex = function() {
 	if (!_searchStringRegex) {
 		var searchString = Session.get('search.string');
 		_searchStringRegex = getRegexFor(searchString);
 	}
 	return _searchStringRegex;
 };
+
 var setSearhStringRegex = function(string) {
 	// Session.set('search.regex', +new Date());
 	_searchStringRegex = getRegexFor(string);
@@ -53,10 +53,6 @@ Meteor.startup(function() {
 		}
 	});
 });
-
-Template.searchItem.rendered = function() {
-	// $.highlight(this.firstNode, getSearhStringRegex(), 'span', null);
-};
 
 Template.searchItem.helpers({
 	openClass: function() {
@@ -108,7 +104,15 @@ Template.searchItem.events({
 	}
 });
 
+Template.searchItem.rendered = function() {
+	if (App.highlight.enabled()) {
+		App.highlight.apply(this.firstNode);
+	}
+};
+
+
 App.component('search').expose({
+	getRegex: getSearhStringRegex,
 	getString: function() {
 		return Session.get('search.string');
 	},
