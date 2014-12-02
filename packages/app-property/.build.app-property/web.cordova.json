@@ -1,0 +1,48 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "App",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "app-component"
+    },
+    {
+      "package": "random"
+    },
+    {
+      "package": "standard-app-packages"
+    },
+    {
+      "package": "minimongo"
+    },
+    {
+      "package": "mongo-livedata"
+    },
+    {
+      "package": "templating"
+    },
+    {
+      "package": "underscore"
+    },
+    {
+      "package": "iron:router"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.cordova/packages/app-property.js",
+      "length": 22746,
+      "offset": 0,
+      "servePath": "/packages/app-property.js",
+      "sourceMap": "web.cordova/packages/app-property.js.map"
+    }
+  ]
+}

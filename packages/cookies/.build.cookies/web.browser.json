@@ -1,0 +1,27 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "Cookie",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "deps"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.browser/packages/cookies.js",
+      "length": 12415,
+      "offset": 0,
+      "servePath": "/packages/cookies.js",
+      "sourceMap": "web.browser/packages/cookies.js.map"
+    }
+  ]
+}

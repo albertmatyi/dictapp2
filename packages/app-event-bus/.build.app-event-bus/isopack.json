@@ -1,0 +1,24 @@
+{
+  "isopack-1": {
+    "name": "app-event-bus",
+    "summary": "It provides the application a generic eventing system.",
+    "version": "1.0.0+408caad593d8c5bda4db16fc74aa7f1367047bd9",
+    "earliestCompatibleVersion": "1.0.0",
+    "isTest": false,
+    "builds": [
+      {
+        "arch": "os",
+        "path": "os.json"
+      },
+      {
+        "arch": "web.browser",
+        "path": "web.browser.json"
+      },
+      {
+        "arch": "web.cordova",
+        "path": "web.cordova.json"
+      }
+    ],
+    "plugins": []
+  }
+}

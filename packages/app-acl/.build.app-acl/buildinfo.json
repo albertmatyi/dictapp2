@@ -1,0 +1,40 @@
+{
+  "builtBy": "meteor/14",
+  "buildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/package.js": "d39940d34dbf7fdfc7f5ad8abb98e9b87e8d5190",
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "fb98ef83fd108b0f6d34898f0cc3aa8961e65a05"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/package.js": "d39940d34dbf7fdfc7f5ad8abb98e9b87e8d5190",
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "fb98ef83fd108b0f6d34898f0cc3aa8961e65a05"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/package.js": "d39940d34dbf7fdfc7f5ad8abb98e9b87e8d5190",
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "fb98ef83fd108b0f6d34898f0cc3aa8961e65a05"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/albertmatyi/work/js/dictapp/packages/app-acl/package.js": "d39940d34dbf7fdfc7f5ad8abb98e9b87e8d5190"
+    },
+    "directories": []
+  },
+  "source": "/home/albertmatyi/work/js/dictapp/packages/app-acl",
+  "buildTimeDirectDependencies": {
+    "underscore": "1.0.1",
+    "meteor": "1.1.3",
+    "app-component": "1.0.0+97defc8d76de09447173bbebd816bf740b11fec1"
+  },
+  "buildTimePluginDependencies": {},
+  "cordovaDependencies": null
+}

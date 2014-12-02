@@ -1,0 +1,23 @@
+{
+  "name": "cookies",
+  "summary": "Basic cookies support for client",
+  "version": "0.0.0+7d9eb247019eed9404c99741d3813ddf6864555f",
+  "earliestCompatibleVersion": "0.0.0",
+  "isTest": false,
+  "plugins": [],
+  "unibuilds": [
+    {
+      "arch": "os",
+      "path": "os.json"
+    },
+    {
+      "arch": "web.browser",
+      "path": "web.browser.json"
+    },
+    {
+      "arch": "web.cordova",
+      "path": "web.cordova.json"
+    }
+  ],
+  "format": "unipackage-pre2"
+}

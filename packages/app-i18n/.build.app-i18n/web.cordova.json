@@ -1,0 +1,45 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "App",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "app-component"
+    },
+    {
+      "package": "app-property"
+    },
+    {
+      "package": "app-acl"
+    },
+    {
+      "package": "app-event-bus"
+    },
+    {
+      "package": "templating"
+    },
+    {
+      "package": "cookies"
+    },
+    {
+      "package": "session"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.cordova/packages/app-i18n.js",
+      "length": 18122,
+      "offset": 0,
+      "servePath": "/packages/app-i18n.js",
+      "sourceMap": "web.cordova/packages/app-i18n.js.map"
+    }
+  ]
+}

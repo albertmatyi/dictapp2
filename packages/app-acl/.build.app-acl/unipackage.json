@@ -1,0 +1,23 @@
+{
+  "name": "app-acl",
+  "summary": "Adds access control functionality to your app.",
+  "version": "1.0.0+0fcc5a87d82db4021d46578941251eacd90282f2",
+  "earliestCompatibleVersion": "1.0.0",
+  "isTest": false,
+  "plugins": [],
+  "unibuilds": [
+    {
+      "arch": "os",
+      "path": "os.json"
+    },
+    {
+      "arch": "web.browser",
+      "path": "web.browser.json"
+    },
+    {
+      "arch": "web.cordova",
+      "path": "web.cordova.json"
+    }
+  ],
+  "format": "unipackage-pre2"
+}

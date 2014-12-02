@@ -1,0 +1,53 @@
+{
+  "builtBy": "meteor/14",
+  "buildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/package.js": "1b2e7cf229a918d1144b1ff6a110d39f318cb982",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/acl_actions.js": "327546522e09b1236fc820eb0b6b49cf6208953d",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/i18n_server.js": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/properties.js": "011c3ca78ced5d5cd09bce72b78c2d5aa2221ddd"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/package.js": "1b2e7cf229a918d1144b1ff6a110d39f318cb982",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/i18n.html": "5f19ddf85703cdfb30c9c12855248753e63c30b9",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/i18n_ui.js": "e47cf14a87c3446b3ee873ff2e45b438841fa91d",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/i18n_client.js": "e3503dede28d4da49ae2e507f10dfc08d58d27a1",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/properties.js": "011c3ca78ced5d5cd09bce72b78c2d5aa2221ddd"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/package.js": "1b2e7cf229a918d1144b1ff6a110d39f318cb982",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/i18n.html": "5f19ddf85703cdfb30c9c12855248753e63c30b9",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/i18n_ui.js": "e47cf14a87c3446b3ee873ff2e45b438841fa91d",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/i18n_client.js": "e3503dede28d4da49ae2e507f10dfc08d58d27a1",
+        "/home/albertmatyi/work/js/dictapp/packages/app-i18n/properties.js": "011c3ca78ced5d5cd09bce72b78c2d5aa2221ddd"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/albertmatyi/work/js/dictapp/packages/app-i18n/package.js": "1b2e7cf229a918d1144b1ff6a110d39f318cb982"
+    },
+    "directories": []
+  },
+  "source": "/home/albertmatyi/work/js/dictapp/packages/app-i18n",
+  "buildTimeDirectDependencies": {
+    "app-property": "1.0.0+4946a9b6225112c6860c76fe240745a1055027d6",
+    "app-event-bus": "1.0.0+408caad593d8c5bda4db16fc74aa7f1367047bd9",
+    "session": "1.0.4",
+    "templating": "1.0.9",
+    "app-acl": "1.0.0+0fcc5a87d82db4021d46578941251eacd90282f2",
+    "meteor": "1.1.3",
+    "cookies": "0.0.0+7d9eb247019eed9404c99741d3813ddf6864555f",
+    "app-component": "1.0.0+97defc8d76de09447173bbebd816bf740b11fec1"
+  },
+  "buildTimePluginDependencies": {},
+  "cordovaDependencies": null
+}

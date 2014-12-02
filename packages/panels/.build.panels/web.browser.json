@@ -1,0 +1,36 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "Panel",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "random"
+    },
+    {
+      "package": "minimongo"
+    },
+    {
+      "package": "mongo-livedata"
+    },
+    {
+      "package": "templating"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.browser/packages/panels.js",
+      "length": 19483,
+      "offset": 0,
+      "servePath": "/packages/panels.js",
+      "sourceMap": "web.browser/packages/panels.js.map"
+    }
+  ]
+}

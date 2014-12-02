@@ -1,0 +1,24 @@
+{
+  "isopack-1": {
+    "name": "emitter",
+    "summary": "A server and client event package.",
+    "version": "0.0.0+7dd2bbbdaa9ed50f3a170d8d0305004cd540f2e7",
+    "earliestCompatibleVersion": "0.0.0",
+    "isTest": false,
+    "builds": [
+      {
+        "arch": "os",
+        "path": "os.json"
+      },
+      {
+        "arch": "web.browser",
+        "path": "web.browser.json"
+      },
+      {
+        "arch": "web.cordova",
+        "path": "web.cordova.json"
+      }
+    ],
+    "plugins": []
+  }
+}

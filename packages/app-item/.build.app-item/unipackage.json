@@ -1,0 +1,23 @@
+{
+  "name": "app-item",
+  "summary": "It provides DB storage access and utility functions for generic items.",
+  "version": "1.0.0+8cd4916c94cd83456e923adc27c3baf8c48eb40c",
+  "earliestCompatibleVersion": "1.0.0",
+  "isTest": false,
+  "plugins": [],
+  "unibuilds": [
+    {
+      "arch": "os",
+      "path": "os.json"
+    },
+    {
+      "arch": "web.browser",
+      "path": "web.browser.json"
+    },
+    {
+      "arch": "web.cordova",
+      "path": "web.cordova.json"
+    }
+  ],
+  "format": "unipackage-pre2"
+}

@@ -1,0 +1,40 @@
+{
+  "builtBy": "meteor/14",
+  "buildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-event-bus/package.js": "50f1f4a4531dc5fc9e69127924baef5fd91044e3",
+        "/home/albertmatyi/work/js/dictapp/packages/app-event-bus/event_bus_common.js": "d168ba544e622fc77a2c896d52f88b4de10616e1"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-event-bus/package.js": "50f1f4a4531dc5fc9e69127924baef5fd91044e3",
+        "/home/albertmatyi/work/js/dictapp/packages/app-event-bus/event_bus_common.js": "d168ba544e622fc77a2c896d52f88b4de10616e1"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-event-bus/package.js": "50f1f4a4531dc5fc9e69127924baef5fd91044e3",
+        "/home/albertmatyi/work/js/dictapp/packages/app-event-bus/event_bus_common.js": "d168ba544e622fc77a2c896d52f88b4de10616e1"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/albertmatyi/work/js/dictapp/packages/app-event-bus/package.js": "50f1f4a4531dc5fc9e69127924baef5fd91044e3"
+    },
+    "directories": []
+  },
+  "source": "/home/albertmatyi/work/js/dictapp/packages/app-event-bus",
+  "buildTimeDirectDependencies": {
+    "meteor": "1.1.3",
+    "emitter": "0.0.0+7dd2bbbdaa9ed50f3a170d8d0305004cd540f2e7",
+    "app-component": "1.0.0+97defc8d76de09447173bbebd816bf740b11fec1"
+  },
+  "buildTimePluginDependencies": {},
+  "cordovaDependencies": null
+}

@@ -1,0 +1,45 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "App",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "app-component"
+    },
+    {
+      "package": "app-i18n"
+    },
+    {
+      "package": "less"
+    },
+    {
+      "package": "minimongo"
+    },
+    {
+      "package": "mongo-livedata"
+    },
+    {
+      "package": "templating"
+    },
+    {
+      "package": "less"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.browser/packages/app-editor.js",
+      "length": 89056,
+      "offset": 0,
+      "servePath": "/packages/app-editor.js",
+      "sourceMap": "web.browser/packages/app-editor.js.map"
+    }
+  ]
+}

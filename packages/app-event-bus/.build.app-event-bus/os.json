@@ -1,0 +1,34 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "App",
+      "export": true
+    },
+    {
+      "name": "EventEmitter",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "app-component"
+    },
+    {
+      "package": "emitter"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "os/packages/app-event-bus.js",
+      "length": 758,
+      "offset": 0,
+      "servePath": "/packages/app-event-bus.js",
+      "sourceMap": "os/packages/app-event-bus.js.map"
+    }
+  ]
+}

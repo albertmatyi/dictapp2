@@ -1,0 +1,44 @@
+{
+  "builtBy": "meteor/14",
+  "buildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/package.js": "450410b8ec87da529486108216608c06af787253",
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/item_common.js": "4e1616ae0191f878b310950f775661aed51d39a6",
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/item_server.js": "b2e8acaabddf94256dc7e2771c6149da017e8722"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/package.js": "450410b8ec87da529486108216608c06af787253",
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/item_common.js": "4e1616ae0191f878b310950f775661aed51d39a6",
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/item_client.js": "7f5a67721a68757549a09829a1780c7a368f2d43"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/package.js": "450410b8ec87da529486108216608c06af787253",
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/item_common.js": "4e1616ae0191f878b310950f775661aed51d39a6",
+        "/home/albertmatyi/work/js/dictapp/packages/app-item/item_client.js": "7f5a67721a68757549a09829a1780c7a368f2d43"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/albertmatyi/work/js/dictapp/packages/app-item/package.js": "450410b8ec87da529486108216608c06af787253"
+    },
+    "directories": []
+  },
+  "source": "/home/albertmatyi/work/js/dictapp/packages/app-item",
+  "buildTimeDirectDependencies": {
+    "standard-app-packages": "1.0.3",
+    "app-acl": "1.0.0+0fcc5a87d82db4021d46578941251eacd90282f2",
+    "meteor": "1.1.3",
+    "app-component": "1.0.0+97defc8d76de09447173bbebd816bf740b11fec1"
+  },
+  "buildTimePluginDependencies": {},
+  "cordovaDependencies": null
+}

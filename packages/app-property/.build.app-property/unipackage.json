@@ -1,0 +1,23 @@
+{
+  "name": "app-property",
+  "summary": "Provides the application with a property store for App cfg values. + UI controls for editing them",
+  "version": "1.0.0+4946a9b6225112c6860c76fe240745a1055027d6",
+  "earliestCompatibleVersion": "1.0.0",
+  "isTest": false,
+  "plugins": [],
+  "unibuilds": [
+    {
+      "arch": "os",
+      "path": "os.json"
+    },
+    {
+      "arch": "web.browser",
+      "path": "web.browser.json"
+    },
+    {
+      "arch": "web.cordova",
+      "path": "web.cordova.json"
+    }
+  ],
+  "format": "unipackage-pre2"
+}

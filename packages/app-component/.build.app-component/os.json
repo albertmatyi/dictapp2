@@ -1,0 +1,31 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "App",
+      "export": true
+    },
+    {
+      "name": "_App",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "underscore"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "os/packages/app-component.js",
+      "length": 4052,
+      "offset": 0,
+      "servePath": "/packages/app-component.js",
+      "sourceMap": "os/packages/app-component.js.map"
+    }
+  ]
+}

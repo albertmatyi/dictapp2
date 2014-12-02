@@ -1,0 +1,39 @@
+{
+  "builtBy": "meteor/14",
+  "buildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/emitter/package.js": "94a6b48d74af108c9329c8f1d5a2013cb147800d",
+        "/home/albertmatyi/work/js/dictapp/packages/emitter/emitter.server.js": "bf21634543d985575ab27f8889737fda3648eab0"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/emitter/package.js": "94a6b48d74af108c9329c8f1d5a2013cb147800d",
+        "/home/albertmatyi/work/js/dictapp/packages/emitter/emitter.client.js": "7671d60e7764470803266854dd8a8499a65f4806"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/emitter/package.js": "94a6b48d74af108c9329c8f1d5a2013cb147800d",
+        "/home/albertmatyi/work/js/dictapp/packages/emitter/emitter.client.js": "7671d60e7764470803266854dd8a8499a65f4806"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/albertmatyi/work/js/dictapp/packages/emitter/package.js": "94a6b48d74af108c9329c8f1d5a2013cb147800d"
+    },
+    "directories": []
+  },
+  "source": "/home/albertmatyi/work/js/dictapp/packages/emitter",
+  "buildTimeDirectDependencies": {
+    "jquery": "1.0.1",
+    "meteor": "1.1.3"
+  },
+  "buildTimePluginDependencies": {},
+  "cordovaDependencies": null
+}

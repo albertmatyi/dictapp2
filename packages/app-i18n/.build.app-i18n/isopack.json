@@ -1,0 +1,24 @@
+{
+  "isopack-1": {
+    "name": "app-i18n",
+    "summary": "Adds i18n support to the app",
+    "version": "1.0.0+eacb89f13d3e740d64ef2e9960fb151bfa2703c7",
+    "earliestCompatibleVersion": "1.0.0",
+    "isTest": false,
+    "builds": [
+      {
+        "arch": "os",
+        "path": "os.json"
+      },
+      {
+        "arch": "web.browser",
+        "path": "web.browser.json"
+      },
+      {
+        "arch": "web.cordova",
+        "path": "web.cordova.json"
+      }
+    ],
+    "plugins": []
+  }
+}

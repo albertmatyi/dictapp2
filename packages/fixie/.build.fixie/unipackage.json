@@ -1,0 +1,23 @@
+{
+  "name": "fixie",
+  "summary": "Fixiejs provides mock content for fast prototyping UI",
+  "version": "1.0.0+2d0f196190208820a43c93d9f18295a5d0cb2f13",
+  "earliestCompatibleVersion": "1.0.0",
+  "isTest": false,
+  "plugins": [],
+  "unibuilds": [
+    {
+      "arch": "os",
+      "path": "os.json"
+    },
+    {
+      "arch": "web.browser",
+      "path": "web.browser.json"
+    },
+    {
+      "arch": "web.cordova",
+      "path": "web.cordova.json"
+    }
+  ],
+  "format": "unipackage-pre2"
+}

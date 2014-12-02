@@ -1,0 +1,51 @@
+{
+  "builtBy": "meteor/10",
+  "sliceDependencies": {
+    "browser.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/milight/package.js": "e856aba5a3f76adf98fc201419bafc35b9c7d14f",
+        "/home/albertmatyi/work/js/dictapp/packages/milight/highlight.css": "2d05c9e2bd8abc69558b4e540cd223d6bb30e0e1",
+        "/home/albertmatyi/work/js/dictapp/packages/milight/highlight.js": "a1110fb1214317d242146a378e6ec04da7652ebf",
+        "/home/albertmatyi/work/js/dictapp/packages/milight/helpers.js": "ea74ce081a4394b5961cf2850c88e41fa9d9dfbb"
+      },
+      "directories": []
+    },
+    "os.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/milight/package.js": "e856aba5a3f76adf98fc201419bafc35b9c7d14f"
+      },
+      "directories": []
+    },
+    "tests.browser.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/milight/package.js": "e856aba5a3f76adf98fc201419bafc35b9c7d14f"
+      },
+      "directories": []
+    },
+    "tests.os.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/milight/package.js": "e856aba5a3f76adf98fc201419bafc35b9c7d14f"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/albertmatyi/work/js/dictapp/packages/milight/package.js": "e856aba5a3f76adf98fc201419bafc35b9c7d14f"
+    },
+    "directories": []
+  },
+  "pluginProviderPackages": {
+    "milight": "/home/albertmatyi/work/js/dictapp/packages/milight",
+    "meteor": "/home/albertmatyi/.meteor/packages/meteor/d06ae22393",
+    "deps": "/home/albertmatyi/.meteor/packages/deps/ecfbe1ef3c",
+    "underscore": "/home/albertmatyi/.meteor/packages/underscore/381c001cdc",
+    "jquery": "/home/albertmatyi/.meteor/packages/jquery/2ff5a27117",
+    "spacebars": "/home/albertmatyi/.meteor/packages/spacebars/f548f99b4e",
+    "ui": "/home/albertmatyi/.meteor/packages/ui/756a8384dc",
+    "handlebars": "/home/albertmatyi/.meteor/packages/handlebars/854145b50a",
+    "htmljs": "/home/albertmatyi/.meteor/packages/htmljs/89311ec36f",
+    "blaze": "/home/albertmatyi/.meteor/packages/blaze/e7d07c3147"
+  },
+  "source": "/home/albertmatyi/work/js/dictapp/packages/milight"
+}

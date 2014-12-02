@@ -1,0 +1,44 @@
+{
+  "format": "unipackage-slice-pre1",
+  "packageVariables": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "deps"
+    },
+    {
+      "package": "underscore"
+    },
+    {
+      "package": "jquery"
+    },
+    {
+      "package": "spacebars"
+    },
+    {
+      "package": "ui"
+    },
+    {
+      "package": "handlebars"
+    }
+  ],
+  "resources": [
+    {
+      "type": "css",
+      "file": "browser/packages/milight/highlight.css",
+      "length": 43,
+      "offset": 0,
+      "servePath": "/packages/milight/highlight.css"
+    },
+    {
+      "type": "prelink",
+      "file": "browser/packages/milight.js",
+      "length": 19027,
+      "offset": 0,
+      "servePath": "/packages/milight.js",
+      "sourceMap": "browser/packages/milight.js.map"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"/packages/app-event-bus.js","sources":["app-event-bus/event_bus_common.js"],"names":[],"mappings":";;;;;;;;AAAA,kC;AACA,yC","sourcesContent":["App.eventBus = new EventEmitter();\nApp.eventBus.EventEmitter = EventEmitter;\n"]}

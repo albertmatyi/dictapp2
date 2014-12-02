@@ -1,0 +1,23 @@
+{
+  "name": "app-component",
+  "summary": "Provides App global variable and `component` method  to expose methods using dotnotation",
+  "version": "1.0.0+97defc8d76de09447173bbebd816bf740b11fec1",
+  "earliestCompatibleVersion": "1.0.0",
+  "isTest": false,
+  "plugins": [],
+  "unibuilds": [
+    {
+      "arch": "os",
+      "path": "os.json"
+    },
+    {
+      "arch": "web.browser",
+      "path": "web.browser.json"
+    },
+    {
+      "arch": "web.cordova",
+      "path": "web.cordova.json"
+    }
+  ],
+  "format": "unipackage-pre2"
+}

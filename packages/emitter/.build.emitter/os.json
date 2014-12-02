@@ -1,0 +1,27 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "EventEmitter",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "jquery"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "os/packages/emitter.js",
+      "length": 610,
+      "offset": 0,
+      "servePath": "/packages/emitter.js",
+      "sourceMap": "os/packages/emitter.js.map"
+    }
+  ]
+}

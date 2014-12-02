@@ -1,0 +1,30 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "App",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "app-component"
+    },
+    {
+      "package": "app-i18n"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "os/packages/app-editor.js",
+      "length": 0,
+      "offset": 0,
+      "servePath": "/packages/app-editor.js",
+      "sourceMap": "os/packages/app-editor.js.map"
+    }
+  ]
+}

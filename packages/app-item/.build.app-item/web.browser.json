@@ -1,0 +1,33 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "App",
+      "export": true
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "standard-app-packages"
+    },
+    {
+      "package": "app-component"
+    },
+    {
+      "package": "app-acl"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.browser/packages/app-item.js",
+      "length": 6610,
+      "offset": 0,
+      "servePath": "/packages/app-item.js",
+      "sourceMap": "web.browser/packages/app-item.js.map"
+    }
+  ]
+}

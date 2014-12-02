@@ -1,0 +1,38 @@
+{
+  "builtBy": "meteor/14",
+  "buildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/fixie/package.js": "13c31bbeffdf52c33515d13690acc9276117cbdb",
+        "/home/albertmatyi/work/js/dictapp/packages/fixie/fixie.js": "75ebca3e2e15e3c88640db42ceed4cb362ab3447"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/fixie/package.js": "13c31bbeffdf52c33515d13690acc9276117cbdb",
+        "/home/albertmatyi/work/js/dictapp/packages/fixie/fixie.js": "75ebca3e2e15e3c88640db42ceed4cb362ab3447"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/home/albertmatyi/work/js/dictapp/packages/fixie/package.js": "13c31bbeffdf52c33515d13690acc9276117cbdb",
+        "/home/albertmatyi/work/js/dictapp/packages/fixie/fixie.js": "75ebca3e2e15e3c88640db42ceed4cb362ab3447"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/albertmatyi/work/js/dictapp/packages/fixie/package.js": "13c31bbeffdf52c33515d13690acc9276117cbdb"
+    },
+    "directories": []
+  },
+  "source": "/home/albertmatyi/work/js/dictapp/packages/fixie",
+  "buildTimeDirectDependencies": {
+    "meteor": "1.1.3"
+  },
+  "buildTimePluginDependencies": {},
+  "cordovaDependencies": null
+}
