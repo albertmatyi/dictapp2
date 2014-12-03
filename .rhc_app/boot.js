@@ -19,14 +19,14 @@ var serverJsonPath = path.resolve(process.argv[2]);
 var serverDir = path.dirname(serverJsonPath);
 var serverJson = JSON.parse(fs.readFileSync(serverJsonPath, 'utf8'));
 var configJson =
-  JSON.parse(fs.readFileSync(path.resolve(serverDir, 'config.json'), 'utf8'));
+JSON.parse(fs.readFileSync(path.resolve(serverDir, 'config.json'), 'utf8'));
 
 // Set up environment
 __meteor_bootstrap__ = {
   startupHooks: [],
   serverDir: serverDir,
   configJson: configJson };
-__meteor_runtime_config__ = { meteorRelease: configJson.meteorRelease };
+  __meteor_runtime_config__ = { meteorRelease: configJson.meteorRelease };
 
 
 // connect (and some other NPM modules) use $NODE_ENV to make some decisions;
@@ -39,7 +39,9 @@ if (!process.env.NODE_ENV) {
 }
 
 if (!process.env.METEOR_SETTINGS){
-    process.env.METEOR_SETTINGS = '{"public":{"ga":{"account":"UA-51899110-1"}}}';
+  process.env.METEOR_SETTINGS = '{"public":{"ga":{"account":"UA-51899110-1"}}}';
+} else {
+  console.warn('METEOR_SETTINGS already set', process.env.METEOR_SETTINGS);
 }
 process.env.DISABLE_WEBSOCKETS = 1;
 //for http
@@ -100,17 +102,17 @@ Fiber(function () {
        * @locus Server
        * @memberOf Npm
        */
-      require: function (name) {
+       require: function (name) {
         if (! fileInfo.node_modules) {
           return require(name);
         }
 
         var nodeModuleDir =
-          path.resolve(serverDir, fileInfo.node_modules, name);
+        path.resolve(serverDir, fileInfo.node_modules, name);
 
         if (fs.existsSync(nodeModuleDir)) {
           return require(nodeModuleDir);
-          }
+        }
         try {
           return require(name);
         } catch (e) {
@@ -122,9 +124,9 @@ Fiber(function () {
           // XXX better message
           throw new Error(
             "Can't find npm module '" + name +
-              "'. Did you forget to call 'Npm.depends' in package.js " +
-              "within the '" + packageName + "' package?");
-          }
+            "'. Did you forget to call 'Npm.depends' in package.js " +
+            "within the '" + packageName + "' package?");
+        }
       }
     };
     var getAsset = function (assetPath, encoding, callback) {
@@ -137,33 +139,33 @@ Fiber(function () {
       // itself (and weird special cases like js-analyze) can't call
       // Assets.get*. (We could change this function so that it doesn't call
       // bindEnvironment if you don't pass a callback if we need to.)
-      var _callback = Package.meteor.Meteor.bindEnvironment(function (err, result) {
-        if (result && ! encoding)
+var _callback = Package.meteor.Meteor.bindEnvironment(function (err, result) {
+  if (result && ! encoding)
           // Sadly, this copies in Node 0.10.
-          result = new Uint8Array(result);
+        result = new Uint8Array(result);
         callback(err, result);
       }, function (e) {
         console.log("Exception in callback of getAsset", e.stack);
       });
 
-      if (!fileInfo.assets || !_.has(fileInfo.assets, assetPath)) {
-        _callback(new Error("Unknown asset: " + assetPath));
-      } else {
-        var filePath = path.join(serverDir, fileInfo.assets[assetPath]);
-        fs.readFile(filePath, encoding, _callback);
-      }
-      if (fut)
-        return fut.wait();
-    };
+if (!fileInfo.assets || !_.has(fileInfo.assets, assetPath)) {
+  _callback(new Error("Unknown asset: " + assetPath));
+} else {
+  var filePath = path.join(serverDir, fileInfo.assets[assetPath]);
+  fs.readFile(filePath, encoding, _callback);
+}
+if (fut)
+  return fut.wait();
+};
 
-    var Assets = {
-      getText: function (assetPath, callback) {
-        return getAsset(assetPath, "utf8", callback);
-      },
-      getBinary: function (assetPath, callback) {
-        return getAsset(assetPath, undefined, callback);
-      }
-    };
+var Assets = {
+  getText: function (assetPath, callback) {
+    return getAsset(assetPath, "utf8", callback);
+  },
+  getBinary: function (assetPath, callback) {
+    return getAsset(assetPath, undefined, callback);
+  }
+};
 
     // \n is necessary in case final line is a //-comment
     var wrapped = "(function(Npm, Assets){" + code + "\n})";
@@ -173,7 +175,7 @@ Fiber(function () {
     // urls.
     var absoluteFilePath = path.resolve(__dirname, fileInfo.path);
     var scriptPath =
-      parsedSourceMaps[absoluteFilePath] ? absoluteFilePath : fileInfo.path;
+    parsedSourceMaps[absoluteFilePath] ? absoluteFilePath : fileInfo.path;
     var func = require('vm').runInThisContext(wrapped, scriptPath, true);
     func.call(global, Npm, Assets); // Coffeescript
   });
