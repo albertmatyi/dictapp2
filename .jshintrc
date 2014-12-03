@@ -44,6 +44,7 @@
         "GAnalytics",
         "Hammer",
         "bootbox",
+        "Mailgun",
     // custom packages
         "PDFJS",
         "PDFViewer",

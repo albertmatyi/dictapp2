@@ -72,8 +72,10 @@ Template.search.events({
 		bootbox.confirm(
 			App.i18n.translate('Send a mail requesting the definition of: ') + word, function (result) {
 				if(result) {
+					var progress = new Progress(true);
+					progress.show();
 					Meteor.call('sendNotification', word, function (err) {
-						// console.log(arguments);
+						progress.remove();
 						if (!err) {
 							bootbox.alert('Mail sent successfully!');
 						} else {

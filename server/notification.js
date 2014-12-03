@@ -14,6 +14,7 @@ var NigerianPrinceGun = new Mailgun(options);
 
 Meteor.methods({
   'sendNotification': function (word) {
+    console.log('requested definition for:', word);
     NigerianPrinceGun.send({
      'to': App.property('notifications.destinationEmail'),
      'from': 'no-reply@dictapp.com',
@@ -21,9 +22,6 @@ Meteor.methods({
      'text': 'The word: ":word" has been requested. \n Please go to http://dictapp2-albertmatyi.rhcloud.com/search/:word and define it'.replace(/:word/g, word),
      'subject': 'The word: "'+ word + '" has been requested',
      'tags': ['word-request']
-   }, function () {
-    console.log('notification sent', arguments);
    });
   }
-})
-
+});

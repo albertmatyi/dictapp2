@@ -1,0 +1,14 @@
+<template name="progressBars">
+	{{#each progressBars}}
+		{{> progressBar}}
+	{{/each}}
+</template>
+<template name="progressBar">
+	<div class="progress-wrapper {{mainClass}}">
+		<div class="progress">
+			<div class="progress-bar" style="width: {{progress}}">
+				{{#if untrackable}}Please wait...{{/if}}
+			</div>
+		</div>
+	</div>
+</template>
