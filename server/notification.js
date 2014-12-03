@@ -21,6 +21,8 @@ Meteor.methods({
      'text': 'The word: ":word" has been requested. \n Please go to http://dictapp2-albertmatyi.rhcloud.com/search/:word and define it'.replace(/:word/g, word),
      'subject': 'The word: "'+ word + '" has been requested',
      'tags': ['word-request']
+   }, function () {
+    console.log('notification sent', arguments);
    });
   }
 })

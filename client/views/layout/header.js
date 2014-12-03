@@ -57,7 +57,7 @@ Template.header.events({
   }
 });
 
-Template.adminMenu.helpers({
+Template.adminMenu.events({
   'click .users': function(e) {
     e.preventDefault();
     App.users.show();
