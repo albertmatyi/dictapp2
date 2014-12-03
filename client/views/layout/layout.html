@@ -4,11 +4,14 @@
 </head>
 
 <template name="layout">
+	<div class="alerts">
+		{{> bootstrapAlerts}}
+	</div>
 	{{> header}}
 	<div class="container main {{page}}-page">
 		{{> yield}}	
 	</div>
 	{{>editor}}
 	{{> appPanels}}
-	{{> bootstrapAlerts}}
+	{{> progressBars}}
 </template>

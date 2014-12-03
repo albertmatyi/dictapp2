@@ -14,6 +14,7 @@ var NigerianPrinceGun = new Mailgun(options);
 
 Meteor.methods({
   'sendNotification': function (word) {
+    console.log('requested definition for:', word);
     NigerianPrinceGun.send({
      'to': App.property('notifications.destinationEmail'),
      'from': 'no-reply@dictapp.com',
@@ -23,5 +24,4 @@ Meteor.methods({
      'tags': ['word-request']
    });
   }
-})
-
+});
