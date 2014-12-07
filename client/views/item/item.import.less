@@ -4,23 +4,20 @@
 	padding-bottom: @item-controls-height;
 	font-family: @font-family-serif;
 	word-wrap: break-word;
-	.p-inline{
+	.p-inline {
 		p {
 			display: inline;
 		}
 	}
 	.title {
 		@font-size: 1.3em;
-		.left {
+		.left, .right {
 			font-size: @font-size;
-		}
-		.right {
 			.alternatives {
 				.clearfix();
 				margin: 0;
 				padding: 0;
 				li {
-					// display: inline;
 					float: left;
 					margin: 0;
 					padding: 0;
@@ -32,7 +29,6 @@
 					.wordRight, .meaning {
 					}
 					&:after {
-						// font-size: @font-size -.2em;	
 						content: '; |'
 					}
 					&:last-child {
@@ -72,28 +68,27 @@
 			.sense {
 				padding: @padding-base-vertical 0;
 				.phrase {
-				// margin-left: -@padding-base-horizontal;
-				font-weight: bold;
-				font-style: italic;
-			}
-			.description {
-			}
-			.example {
-				padding-top: @padding-base-vertical;
-				padding-left: @padding-base-horizontal * 2;
-				padding-right: @padding-base-horizontal * 2;
-				font-style: italic;
-				.lbl {
 					font-weight: bold;
+					font-style: italic;
+				}
+				.description {
+				}
+				.example {
+					padding-top: @padding-base-vertical;
+					padding-left: @padding-base-horizontal * 2;
+					padding-right: @padding-base-horizontal * 2;
+					font-style: italic;
+					.lbl {
+						font-weight: bold;
+					}
 				}
 			}
 		}
+		.less.btn {
+			display: inline-block;
+		}
+		.more.btn {
+			display: none;
+		}
 	}
-	.less.btn {
-		display: inline-block;
-	}
-	.more.btn {
-		display: none;
-	}
-}
 }

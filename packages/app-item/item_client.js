@@ -7,7 +7,7 @@ var dummySubscription = {
 App.component('item').expose({
 	subscription: dummySubscription,
 	initSubscription: function() {
-		App.item.subscription = Meteor.subscribe('items', 'master');
+		App.item.subscription = Meteor.subscribe('items', 'component auto-sub');
 	},
 	save: function(itemData, defaultType) {
 		var routeParams = Router.current().params;
@@ -55,5 +55,5 @@ App.component('item').expose({
 });
 
 Meteor.startup(function() {
-	App.item.initSubscription();
+	// App.item.initSubscription();
 });
