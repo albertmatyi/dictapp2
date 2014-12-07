@@ -21,7 +21,7 @@
     {
       "type": "prelink",
       "file": "web.cordova/packages/app-acl.js",
-      "length": 5420,
+      "length": 5314,
       "offset": 0,
       "servePath": "/packages/app-acl.js",
       "sourceMap": "web.cordova/packages/app-acl.js.map"

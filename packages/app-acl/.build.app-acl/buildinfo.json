@@ -4,21 +4,21 @@
     "os.json": {
       "files": {
         "/home/albertmatyi/work/js/dictapp/packages/app-acl/package.js": "d39940d34dbf7fdfc7f5ad8abb98e9b87e8d5190",
-        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "fb98ef83fd108b0f6d34898f0cc3aa8961e65a05"
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "6383939d64f357f017b1d47d80050e70df65e4d1"
       },
       "directories": []
     },
     "web.browser.json": {
       "files": {
         "/home/albertmatyi/work/js/dictapp/packages/app-acl/package.js": "d39940d34dbf7fdfc7f5ad8abb98e9b87e8d5190",
-        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "fb98ef83fd108b0f6d34898f0cc3aa8961e65a05"
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "6383939d64f357f017b1d47d80050e70df65e4d1"
       },
       "directories": []
     },
     "web.cordova.json": {
       "files": {
         "/home/albertmatyi/work/js/dictapp/packages/app-acl/package.js": "d39940d34dbf7fdfc7f5ad8abb98e9b87e8d5190",
-        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "fb98ef83fd108b0f6d34898f0cc3aa8961e65a05"
+        "/home/albertmatyi/work/js/dictapp/packages/app-acl/acl_common.js": "6383939d64f357f017b1d47d80050e70df65e4d1"
       },
       "directories": []
     }

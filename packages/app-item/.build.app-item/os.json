@@ -21,7 +21,7 @@
     {
       "type": "prelink",
       "file": "os/packages/app-item.js",
-      "length": 9310,
+      "length": 9460,
       "offset": 0,
       "servePath": "/packages/app-item.js",
       "sourceMap": "os/packages/app-item.js.map"

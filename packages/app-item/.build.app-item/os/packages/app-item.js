@@ -123,16 +123,18 @@ Meteor.methods({                                                     // 73
 	'item.remove': function(id) {                                       // 84
 		if (App.acl.isAllowed('item.manage') === true) {                   // 85
 			return App.item.collection.remove(id);                            // 86
-		}                                                                  // 87
-	},                                                                  // 88
-	'item.reset': function() {                                          // 89
-		if (App.acl.isAllowed('item.manage') === true) {                   // 90
-			App.item.collection.remove({});                                   // 91
-		}                                                                  // 92
-	},                                                                  // 93
-	'item.pathToRoot': App.item.pathToRoot                              // 94
-});                                                                  // 95
-                                                                     // 96
+		} else {                                                           // 87
+			console.log('not allowed');                                       // 88
+		}                                                                  // 89
+	},                                                                  // 90
+	'item.reset': function() {                                          // 91
+		if (App.acl.isAllowed('item.manage') === true) {                   // 92
+			App.item.collection.remove({});                                   // 93
+		}                                                                  // 94
+	},                                                                  // 95
+	'item.pathToRoot': App.item.pathToRoot                              // 96
+});                                                                  // 97
+                                                                     // 98
 ///////////////////////////////////////////////////////////////////////
 
 }).call(this);

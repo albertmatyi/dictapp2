@@ -84,6 +84,8 @@ Meteor.methods({
 	'item.remove': function(id) {
 		if (App.acl.isAllowed('item.manage') === true) {
 			return App.item.collection.remove(id);
+		} else {
+			console.log('not allowed');
 		}
 	},
 	'item.reset': function() {
