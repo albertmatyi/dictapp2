@@ -91,7 +91,9 @@ var rankItem = function(words, item) {
 
 var query = function(words, opts) {
   var startTime = +new Date();
-  var results = App.item.collection.find(App.search.buildCondition('searchableAll', words), opts);
+  var results = App.item.collection.find(
+    App.search.buildCondition('searchableAll', words), 
+    opts);
   // console.log('\nQuery time: ', +new Date() - startTime, 'ms');
   return results;
 };
@@ -118,7 +120,26 @@ var sort = function(items) {
   });
   // console.log('Sort time: ', +new Date() - startTime, 'ms');
 };
-var publish = function(subscription, items, limit, searchString) {
+
+var observe = function (cursor, subscription) {
+  var handle = cursor.observeChanges({
+    added: function (id, fields) {
+      subscription.added('items', id, fields);
+    },
+    changed: function (id, fields) {
+      subscription.changed('items', id, fields);
+    },
+    removed: function (id) {
+      subscription.removed(id);
+    }
+  });
+  subscription.onStop(function () {
+    // console.log('stoppped');
+    handle.stop();
+  });
+};
+
+var publish = function(subscription, cursor, items, limit, searchString) {
   var startTime = +new Date();
   // console.log('publishing', items.length, 'items');
   var prevRank = -1,
@@ -134,9 +155,11 @@ var publish = function(subscription, items, limit, searchString) {
       limit--;
     }
   });
+  observe(cursor, subscription);
   subscription.ready();
   // console.log('Publish time: ', +new Date() - startTime, 'ms');
 };
+
 var searchRanked = function(searchString, limit) {
   if (!searchString) {
     return [];
@@ -154,10 +177,11 @@ var searchRanked = function(searchString, limit) {
   var words = App.search.getWordsFor(searchString);
   // console.log(+new Date() - startTime, 'ms');
 
-  var items = query(words, opts);
+  var cursor = query(words, opts);
+
   // console.log(+new Date() - startTime, 'ms');
 
-  items = fetch(items);
+  var items = fetch(cursor);
   // console.log(+new Date() - startTime, 'ms');
 
   rank(words, items);
@@ -167,7 +191,7 @@ var searchRanked = function(searchString, limit) {
   // console.log(+new Date() - startTime, 'ms');
   // return [];
   var subscription = this;
-  publish(subscription, items, limit, searchString);
+  publish(subscription, cursor, items, limit, searchString);
 
   // console.log('Totaltime:', +new Date() - startTime, 'ms');
 };
