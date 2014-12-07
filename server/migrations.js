@@ -135,6 +135,7 @@ var migrateAlternatives = function () {
 		n++;
 	});
 	console.log('migrated', n, 'alternatives');
+	return true;
 };
 
 
