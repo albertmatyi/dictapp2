@@ -18,12 +18,20 @@
 				r: {{rank}}
 				]
 			</em>
-			<span class="wordLeft p-inline">{{#markdown}}{{wordLeft}}{{/markdown}}</span>{{separatorLeft}}{{#with endingLeft}}<span class="endingLeft">{{this}}</span>{{/with}}{{#with typeLeft}}<span class="typeLeft"> {{this}}</span>{{/with}}
+			<ol class="alternatives">
+				<li><span class="wordLeft p-inline">{{#markdown}}{{wordLeft}}{{/markdown}}</span></li>
+				{{#each leftAlternatives}}
+				<li>{{#with category}}<span class="category">({{this}})</span>
+					{{/with}}
+					<span class="meaning p-inline">{{#markdown}}{{meaning}}{{/markdown}}</span>
+				</li>
+				{{/each}}
+			</ol>
 		</div>
 		<div class="right col-xs-12 col-sm-6">
 			<ol class="alternatives">
 				<li><span class="wordRight p-inline">{{#markdown}}{{wordRight}}{{/markdown}}</span></li>
-				{{#each alternatives}}
+				{{#each rightAlternatives}}
 				<li>{{#with category}}<span class="category">({{this}})</span>
 					{{/with}}
 					<span class="meaning p-inline">{{#markdown}}{{meaning}}{{/markdown}}</span>

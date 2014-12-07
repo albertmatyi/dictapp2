@@ -48,17 +48,7 @@ var LEFT_FIELDS = {
 				UI.insert(comp, $('.array-wrapper.leftAlternatives')[0]);
 			}
 		}
-	},
-	endingLeft: {
-		'class': SHORT_CLASS,
-		placeholder: 'e -i',
-		label: App.i18n.getString
-	},
-	typeLeft: {
-		'class': SHORT_CLASS,
-		placeholder: 's fn',
-		label: App.i18n.getString
-	},
+	}
 };
 
 var RIGHT_FIELDS = {

@@ -131,7 +131,7 @@ var migrateAlternatives = function () {
 	console.log('migrating alternatives');
 	var n = 0;
 	App.item.collection.find().forEach(function (item) {
-		App.item.collection.update(item._id, {$set: {'rightAlternatives': item.alternatives, 'leftAlternatives':[]}});
+		App.item.collection.update(item._id, {$set: {'rightAlternatives': item.alternatives, 'leftAlternatives':[]}, $unset: {alternatives: true}});
 		n++;
 	});
 	console.log('migrated', n, 'alternatives');
