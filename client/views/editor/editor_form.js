@@ -6,6 +6,49 @@ var LEFT_FIELDS = {
 		placeholder: 'acţiune',
 		label: App.i18n.getString
 	},
+	leftAlternatives: {
+		type: 'array',
+		labelClass: 'col-xs-12',
+		fields: {
+			category: {
+				'class': SHORT_CLASS.replace('3', '4'),
+				placeholder: 'fiz.',
+				label: App.i18n.getString
+			},
+			meaning: {
+				'class': SHORT_CLASS.replace('3', '4'),
+				placeholder: 'efect chimic',
+				label: App.i18n.getString
+			},
+			removeAlternative: {
+				type: 'button',
+				btnType: 'link',
+				// 'class': SHORT_CLASS,
+				label: App.i18n.getString,
+				events: {
+					click: function(e) {
+						$(e.currentTarget).parents('.array-element').remove();
+					}
+				}
+			}
+		}
+	},
+	addLeftAlternative: {
+		'class': 'col-xs-12',
+		type: 'button',
+		btnType: 'success',
+		label: App.i18n.getString,
+		events: {
+			click: function() {
+				var data = {
+					fields: this.parentContext.fields[1].fields,
+					data: [{}]
+				};
+				var comp = UI.renderWithData(Template.appEditorArray, data);
+				UI.insert(comp, $('.array-wrapper.alternatives')[0]);
+			}
+		}
+	},
 	endingLeft: {
 		'class': SHORT_CLASS,
 		placeholder: 'e -i',
@@ -24,7 +67,7 @@ var RIGHT_FIELDS = {
 		placeholder: 'cselekvés, tett',
 		label: App.i18n.getString
 	},
-	alternatives: {
+	rightAlternatives: {
 		type: 'array',
 		labelClass: 'col-xs-12',
 		fields: {
@@ -51,7 +94,7 @@ var RIGHT_FIELDS = {
 			}
 		}
 	},
-	addAlternative: {
+	addRightAlternative: {
 		'class': 'col-xs-12',
 		type: 'button',
 		btnType: 'success',
@@ -63,7 +106,7 @@ var RIGHT_FIELDS = {
 					data: [{}]
 				};
 				var comp = UI.renderWithData(Template.appEditorArray, data);
-				UI.insert(comp, $('.array-wrapper.alternatives')[0]);
+				UI.insert(comp, $('.array-wrapper.alternatives')[1]);
 			}
 		}
 	}
