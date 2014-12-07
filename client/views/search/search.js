@@ -8,7 +8,8 @@ var getRegexFor = function(str) {
 	for (var i = 0; i < str.length; i++) {
 		var c = str[i];
 		if (/\s/.test(c)) {
-			re.push(')|(?:');
+			// re.push(')|(?:');
+			re.push('[^\\w]+');
 			continue;
 		}
 		var mapping = App.string.charmapInv[c];
@@ -24,7 +25,7 @@ var getRegexFor = function(str) {
 	re.push(')');
 	return new RegExp(re.join(''), 'i');
 };
-var getSearhStringRegex = function() {
+var getSearchStringRegex = function() {
 	if (!_searchStringRegex) {
 		var searchString = Session.get('search.string');
 		_searchStringRegex = getRegexFor(searchString);
@@ -32,8 +33,7 @@ var getSearhStringRegex = function() {
 	return _searchStringRegex;
 };
 
-var setSearhStringRegex = function(string) {
-	// Session.set('search.regex', +new Date());
+var setSearchStringRegex = function(string) {
 	_searchStringRegex = getRegexFor(string);
 };
 
@@ -57,7 +57,7 @@ Meteor.startup(function() {
 Template.searchItem.helpers({
 	openClass: function() {
 		var cls = 'item col-xs-12';
-		if (Session.get('search.expanded') || getSearhStringRegex().test(this.searchableAll.replace(this.searchableWord))) {
+		if (Session.get('search.expanded') || getSearchStringRegex().test(this.searchableAll.replace(this.searchableWord))) {
 			cls += ' open';
 		}
 		return cls;
@@ -114,7 +114,7 @@ Template.searchItem.rendered = function() {
 
 
 App.component('search').expose({
-	getRegex: getSearhStringRegex,
+	getRegex: getSearchStringRegex,
 	getString: function() {
 		return Session.get('search.string');
 	},
@@ -127,7 +127,7 @@ App.component('search').expose({
 			Router.go('home');
 		} else if (!instant) {
 			timeout = setTimeout(function() {
-				setSearhStringRegex(string);
+				setSearchStringRegex(string);
 				Router.go('search', {
 					string: string
 				});
