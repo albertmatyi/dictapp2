@@ -45,7 +45,7 @@ var LEFT_FIELDS = {
 					data: [{}]
 				};
 				var comp = UI.renderWithData(Template.appEditorArray, data);
-				UI.insert(comp, $('.array-wrapper.alternatives')[0]);
+				UI.insert(comp, $('.array-wrapper.leftAlternatives')[0]);
 			}
 		}
 	},
@@ -106,7 +106,7 @@ var RIGHT_FIELDS = {
 					data: [{}]
 				};
 				var comp = UI.renderWithData(Template.appEditorArray, data);
-				UI.insert(comp, $('.array-wrapper.alternatives')[1]);
+				UI.insert(comp, $('.array-wrapper.rightAlternatives')[1]);
 			}
 		}
 	}

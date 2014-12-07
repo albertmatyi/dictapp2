@@ -5,12 +5,12 @@ var clean = function(str) {
   cstr = cstr.toLowerCase();
   return cstr;
 };
-
+var altRedF = function(memo, alt) {
+  return memo + ' ' + alt.meaning;
+};
 App.component('item').expose({
   addSearchableDataTo: function(data) {
-    var altStr = _.reduce(data.alternatives, function(memo, alt) {
-      return memo + ' ' + alt.meaning;
-    }, ' ');
+    var altStr = _.reduce(data.leftAlternatives, altRedF, ' ') + _.reduce(data.rightAlternatives, altRedF, ' ');
     data.searchableWord = clean(data.wordLeft + ' ' + data.wordRight + ' ' + altStr);
     var senseSearchables = _.reduce(data.senses, function(memo, sense) {
       memo.searchablePhrase += ' ' + clean(sense.phraseLeft + ' ' + sense.phraseRight);
@@ -18,10 +18,10 @@ App.component('item').expose({
       memo.searchableExample += ' ' + clean(sense.exampleLeft + ' ' + sense.exampleRight);
       return memo;
     }, {
-        searchablePhrase: '',
-        searchableDescription: '',
-        searchableExample: ''
-      });
+      searchablePhrase: '',
+      searchableDescription: '',
+      searchableExample: ''
+    });
     _.extend(data, senseSearchables);
     data.searchableAll = [data.searchableWord, data.searchablePhrase, data.searchableDescription, data.searchableExample].join(' ');
   },
