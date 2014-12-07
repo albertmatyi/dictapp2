@@ -134,6 +134,7 @@ var observe = function (cursor, subscription) {
     }
   });
   subscription.onStop(function () {
+    // console.log('stoppped');
     handle.stop();
   });
 };

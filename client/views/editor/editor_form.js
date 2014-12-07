@@ -96,7 +96,7 @@ var RIGHT_FIELDS = {
 					data: [{}]
 				};
 				var comp = UI.renderWithData(Template.appEditorArray, data);
-				UI.insert(comp, $('.array-wrapper.rightAlternatives')[1]);
+				UI.insert(comp, $('.array-wrapper.rightAlternatives')[0]);
 			}
 		}
 	}
