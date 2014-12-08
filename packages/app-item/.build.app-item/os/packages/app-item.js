@@ -38,7 +38,7 @@ App.component('item').expose({                                       // 1
 ///////////////////////////////////////////////////////////////////////
                                                                      //
 Meteor.publish('items', function(parent) {                           // 1
-	console.log('publishing items for ', parent);                       // 2
+	// console.log('publishing items for ', parent);                    // 2
 	parent = parent || 0;                                               // 3
 	// console.log('publishing', parent);                               // 4
 	return App.item.collection.find({                                   // 5

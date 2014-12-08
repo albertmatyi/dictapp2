@@ -2,7 +2,7 @@
   "isopack-1": {
     "name": "app-item",
     "summary": "It provides DB storage access and utility functions for generic items.",
-    "version": "1.0.0+172c4a6eb62818ec109b857df44cd8e3c69f207f",
+    "version": "1.0.0+5b75f38591b6c2b53a0b3968e150b0602999b806",
     "earliestCompatibleVersion": "1.0.0",
     "isTest": false,
     "builds": [

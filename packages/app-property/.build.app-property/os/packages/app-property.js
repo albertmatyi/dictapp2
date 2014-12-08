@@ -101,7 +101,7 @@ App.component('property').expose({                                   // 38
 ///////////////////////////////////////////////////////////////////////
                                                                      //
 Meteor.publish('properties', function() {                            // 1
-	console.log('publishing properties');                               // 2
+	// console.log('publishing properties');                            // 2
 	return App.property.PropertiesCollection.find({});                  // 3
 });                                                                  // 4
                                                                      // 5

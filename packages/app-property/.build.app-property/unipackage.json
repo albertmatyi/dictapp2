@@ -1,7 +1,7 @@
 {
   "name": "app-property",
   "summary": "Provides the application with a property store for App cfg values. + UI controls for editing them",
-  "version": "1.0.0+4946a9b6225112c6860c76fe240745a1055027d6",
+  "version": "1.0.0+025ea723045e3809f28c998bd2b3797578814f59",
   "earliestCompatibleVersion": "1.0.0",
   "isTest": false,
   "plugins": [],
