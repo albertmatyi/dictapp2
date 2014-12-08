@@ -27,7 +27,6 @@ mv ./.demeteorized/server ./.rhc_app/$APPNAME/server -f
 # read
 
 cp -fv ./.rhc_app/boot.js ./.rhc_app/$APPNAME/programs/server/boot.js
-# cp -fv ./.rhc_app/newrelic.js ./.rhc_app/$APPNAME/programs/server/newrelic.js
 cd ./.rhc_app/$APPNAME
 
 git add . --all
