@@ -367,7 +367,7 @@ Template["appEditorButton"] = new Template("Template.appEditorButton", (function
       return [ "btn btn-", Spacebars.mustache(view.lookup("btnType")), " ", Spacebars.mustache(view.lookup("name")) ]; // 359
     }                                                                                                                  // 360
   }, Blaze.View(function() {                                                                                           // 361
-    return Spacebars.mustache(view.lookup("label"));                                                                   // 362
+    return Spacebars.mustache(view.lookup("translate"), view.lookup("label"));                                         // 362
   }));                                                                                                                 // 363
 }));                                                                                                                   // 364
                                                                                                                        // 365

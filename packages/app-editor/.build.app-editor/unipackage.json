@@ -1,7 +1,7 @@
 {
   "name": "app-editor",
   "summary": "A flexible editor panel for your data",
-  "version": "1.0.0+e4f395f231030b5800ba03b3938994a71aba330e",
+  "version": "1.0.0+28fa5692b576a19593296c1335927ca9dac06566",
   "earliestCompatibleVersion": "1.0.0",
   "isTest": false,
   "plugins": [],
