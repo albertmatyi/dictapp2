@@ -22,9 +22,8 @@ Meteor.startup(function() {
 					page: 'home'
 				};
 			},
-			// onAfterAction: function() {
-			// GAnalytics.pageview();
-			// }
+			onAfterAction: function() {
+			}
 		});
 		this.route('search', {
 			path: '/search/:string',
@@ -57,6 +56,8 @@ Meteor.startup(function() {
 					page: 'item',
 					item: App.item.collection.findOne(this.params._id)
 				};
+			},
+			onAfterAction: function () {
 			}
 		});
 		this.route('login', {

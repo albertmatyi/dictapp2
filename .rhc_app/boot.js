@@ -38,24 +38,6 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = 'production';
 }
 
-if (!process.env.METEOR_SETTINGS){
-  process.env.METEOR_SETTINGS = '{"public":{"ga":{"account":"UA-51899110-1"}}}';
-} else {
-  try {
-    var settings = JSON.parse(process.env.METEOR_SETTINGS);
-    settings.public = settings.public || {};
-    settings.public.ga = settings.public.ga || {};
-    settings.public.ga.account = settings.public.ga.account || "UA-51899110-1";
-  } catch(e) {
-    console.warn('Could not parse meteor settings!', process.env.METEOR_SETTINGS, e);
-  }
-}
-process.env.DISABLE_WEBSOCKETS = 1;
-//for http
-//process.env.DDP_DEFAULT_CONNECTION_URL = 'http://' + process.env.OPENSHIFT_APP_DNS + ':8000';
-//for ssl
-//process.env.DDP_DEFAULT_CONNECTION_URL = 'https://' + process.env.OPENSHIFT_APP_DNS + ':8443';
-
 // Map from load path to its source map.
 var parsedSourceMaps = {};
 

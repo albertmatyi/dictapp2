@@ -32,3 +32,14 @@ cd ./.rhc_app/$APPNAME
 git add . --all
 git commit -am publishing
 git push
+
+# set env vars
+rhc set-env METEOR_SETTINGS="{\"public\":{\"ga\":{\"id\":\"UA-51899110-1\"}}}"\
+ DISABLE_WEBSOCKETS=1\
+ -a $APPNAME
+# for http
+# process.env.DDP_DEFAULT_CONNECTION_URL = 'http://' + process.env.OPENSHIFT_APP_DNS + ':8000';
+# for ssl
+# process.env.DDP_DEFAULT_CONNECTION_URL = 'https://' + process.env.OPENSHIFT_APP_DNS + ':8443';
+
+rhc app restart $APPNAME
