@@ -1,3 +1,5 @@
 Template.header.rendered = function () {
-	$('[data-toggle="tooltip"]').tooltip();
+	setTimeout(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	}, 1500);
 };
