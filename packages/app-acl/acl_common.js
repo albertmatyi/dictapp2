@@ -4,10 +4,11 @@ var OVERRIDES_REGEX = {};
 var isAllowed = function(actionName) {
 	var overridden;
 	var allowed = true;
+	console.log('allowed:', actionName);
 	_.every(OVERRIDES, function(method, key) {
 		var ok = true;
 		var re = OVERRIDES_REGEX[key];
-		// console.log('testing', actionName, 'with', key, ': ',re.test(actionName));
+		console.log('testing', actionName, 'with', key, ': ',re.test(actionName));
 		if (re.test(actionName)) {
 			overridden = true;
 			var r = method();

@@ -1,7 +1,7 @@
 {
   "name": "app-acl",
   "summary": "Adds access control functionality to your app.",
-  "version": "1.0.0+0fcc5a87d82db4021d46578941251eacd90282f2",
+  "version": "1.0.0+20e680f5f045859805eefffdb1d724defbd752cd",
   "earliestCompatibleVersion": "1.0.0",
   "isTest": false,
   "plugins": [],
