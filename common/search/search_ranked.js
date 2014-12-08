@@ -121,16 +121,20 @@ var sort = function(items) {
   // console.log('Sort time: ', +new Date() - startTime, 'ms');
 };
 
-var observe = function (cursor, subscription) {
+var observe = function (cursor, subscription, searchString) {
   var handle = cursor.observeChanges({
     added: function (id, fields) {
+      
+      fields.searchString = searchString;
+      // console.log('ps added ','items', id, fields);
       subscription.added('items', id, fields);
     },
     changed: function (id, fields) {
       subscription.changed('items', id, fields);
     },
     removed: function (id) {
-      subscription.removed(id);
+      // console.log('ps rmd ');
+      subscription.removed('items', id);
     }
   });
   subscription.onStop(function () {
@@ -155,7 +159,7 @@ var publish = function(subscription, cursor, items, limit, searchString) {
       limit--;
     }
   });
-  observe(cursor, subscription);
+  observe(cursor, subscription, searchString);
   subscription.ready();
   // console.log('Publish time: ', +new Date() - startTime, 'ms');
 };

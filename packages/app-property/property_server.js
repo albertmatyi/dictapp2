@@ -1,5 +1,5 @@
 Meteor.publish('properties', function() {
-	console.log('publishing properties');
+	// console.log('publishing properties');
 	return App.property.PropertiesCollection.find({});
 });
 

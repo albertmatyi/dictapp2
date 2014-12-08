@@ -5,7 +5,7 @@ var defaultOptions = {
     template: null, // the child template to be rendered
     data: {}, // the child template to be rendered
     callback: function () {
-        console.log('closed panel');
+        // console.log('closed panel');
     },
     offScreen: true, // marking if panel should be offScreen of the screen
     _type: 'panels',
@@ -52,7 +52,7 @@ var setupOptions = function (options) {
 Template.appPanel.helpers({
     offScreen: function () {
         var oc = PanelCollection.findOne(this._id).offScreen;
-        console.log('recalc', oc);
+        // console.log('recalc', oc);
         return oc ? 'off-screen' : '';
     },
     content: function () {

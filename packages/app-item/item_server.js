@@ -1,5 +1,5 @@
 Meteor.publish('items', function(parent) {
-	console.log('publishing items for ', parent);
+	// console.log('publishing items for ', parent);
 	parent = parent || 0;
 	// console.log('publishing', parent);
 	return App.item.collection.find({

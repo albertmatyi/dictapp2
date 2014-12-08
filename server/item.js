@@ -52,7 +52,7 @@ Meteor.publish('searched-items', function(searchString, limit) {
 //     _id: id
 //   });
 // });
-console.log(App.auth.canEdit);
+// console.log(App.auth.canEdit);
 App.item.collection.allow({
   insert: App.auth.canEdit,
   update: App.auth.canEdit,
