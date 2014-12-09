@@ -57,7 +57,7 @@ Meteor.startup(function() {
 Template.searchItem.helpers({
 	openClass: function() {
 		var cls = 'item col-xs-12';
-		if (Session.get('search.expanded') || getSearchStringRegex().test(this.searchableAll.replace(this.searchableWord))) {
+		if (this.searchableWord.trim() === '' || Session.get('search.expanded') || getSearchStringRegex().test(this.searchableAll.replace(this.searchableWord))) {
 			cls += ' open';
 		}
 		return cls;
