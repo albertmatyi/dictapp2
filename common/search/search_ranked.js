@@ -21,8 +21,8 @@ var score1 = function(text, words, value) {
 var wordIndexes = function(text, word) {
   var idxs = text.indexesOf(word);
   var wordCount = 0,
-    chr,
-    j = 0;
+  chr,
+  j = 0;
   for (var i = 0; i < text.length && j < idxs.length; i++) {
     chr = text[i];
     if (/[^\w]/.test(chr)) {
@@ -47,7 +47,7 @@ var score2 = function(text, words, value) {
     }
   });
   var matchedWords = wordPtr.length,
-    changed, curRank, toAdvance, min, max, minPtr, maxDist, j;
+  changed, curRank, toAdvance, min, max, minPtr, maxDist, j;
   do {
     changed = false;
     curRank = 0;
@@ -124,30 +124,33 @@ var sort = function(items) {
 var observe = function (cursor, subscription, searchString) {
   var handle = cursor.observeChanges({
     added: function (id, fields) {
-      
+
       fields.searchString = searchString;
-      // console.log('ps added ','items', id, fields);
+      // console.log('OBS: added ','items', id);
       subscription.added('items', id, fields);
     },
     changed: function (id, fields) {
+      fields.searchString = searchString;
+      // console.log('OBS: changed ','items', id);
       subscription.changed('items', id, fields);
     },
     removed: function (id) {
-      // console.log('ps rmd ');
+      // console.log('OBS: rmd ');
       subscription.removed('items', id);
     }
   });
   subscription.onStop(function () {
-    // console.log('stoppped');
+    // console.log('OBS stoppped', searchString);
     handle.stop();
   });
 };
 
 var publish = function(subscription, cursor, items, limit, searchString) {
   var startTime = +new Date();
-  // console.log('publishing', items.length, 'items');
+  // console.log('publishing', searchString);
   var prevRank = -1,
-    diffIdx = 0;
+  diffIdx = 0;
+  observe(cursor, subscription, searchString, limit);
   _.each(items, function(item) {
     if (prevRank !== item.rank) {
       diffIdx++;
@@ -156,10 +159,11 @@ var publish = function(subscription, cursor, items, limit, searchString) {
     if (limit) {
       item.searchString = searchString;
       subscription.added('items', item._id, item);
+      subscription.changed('items', item._id, {searchString: searchString});
+      // console.log('changed ss:"',item.searchString, '"in lw: ', item.wordLeft);
       limit--;
     }
   });
-  observe(cursor, subscription, searchString);
   subscription.ready();
   // console.log('Publish time: ', +new Date() - startTime, 'ms');
 };
