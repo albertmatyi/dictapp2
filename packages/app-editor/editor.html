@@ -137,7 +137,12 @@
 </template>
 
 <template name="appEditorButton">
-    <button class="btn btn-{{btnType}} {{name}}">{{ translate label}}</button>
+    <button class="btn btn-{{btnType}} {{name}}">
+    {{#with icon}}
+    <span class="fa fa-{{this}}"></span>
+    {{/with}}
+    {{ translate label}}
+    </button>
 </template>
 
 <template name="appEditorSeparator">

@@ -2,7 +2,7 @@
   "isopack-1": {
     "name": "app-editor",
     "summary": "A flexible editor panel for your data",
-    "version": "1.0.0+28fa5692b576a19593296c1335927ca9dac06566",
+    "version": "1.0.0+35d668c2d5a3c3a2666edbd8c855f927713812d2",
     "earliestCompatibleVersion": "1.0.0",
     "isTest": false,
     "builds": [

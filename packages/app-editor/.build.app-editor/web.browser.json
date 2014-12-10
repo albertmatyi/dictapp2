@@ -36,7 +36,7 @@
     {
       "type": "prelink",
       "file": "web.browser/packages/app-editor.js",
-      "length": 89056,
+      "length": 90064,
       "offset": 0,
       "servePath": "/packages/app-editor.js",
       "sourceMap": "web.browser/packages/app-editor.js.map"

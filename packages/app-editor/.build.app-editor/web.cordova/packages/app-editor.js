@@ -366,25 +366,33 @@ Template["appEditorButton"] = new Template("Template.appEditorButton", (function
     "class": function() {                                                                                              // 358
       return [ "btn btn-", Spacebars.mustache(view.lookup("btnType")), " ", Spacebars.mustache(view.lookup("name")) ]; // 359
     }                                                                                                                  // 360
-  }, Blaze.View(function() {                                                                                           // 361
-    return Spacebars.mustache(view.lookup("translate"), view.lookup("label"));                                         // 362
-  }));                                                                                                                 // 363
-}));                                                                                                                   // 364
-                                                                                                                       // 365
-Template.__checkName("appEditorSeparator");                                                                            // 366
-Template["appEditorSeparator"] = new Template("Template.appEditorSeparator", (function() {                             // 367
-  var view = this;                                                                                                     // 368
-  return HTML.Raw("<hr>");                                                                                             // 369
-}));                                                                                                                   // 370
-                                                                                                                       // 371
-Template.__checkName("appEditorInvalid");                                                                              // 372
-Template["appEditorInvalid"] = new Template("Template.appEditorInvalid", (function() {                                 // 373
-  var view = this;                                                                                                     // 374
-  return [ "Invalid template for ", Blaze.View(function() {                                                            // 375
-    return Spacebars.mustache(view.lookup("type"));                                                                    // 376
-  }) ];                                                                                                                // 377
+  }, "\n    ", Spacebars.With(function() {                                                                             // 361
+    return Spacebars.call(view.lookup("icon"));                                                                        // 362
+  }, function() {                                                                                                      // 363
+    return [ "\n    ", HTML.SPAN({                                                                                     // 364
+      "class": function() {                                                                                            // 365
+        return [ "fa fa-", Spacebars.mustache(view.lookup(".")) ];                                                     // 366
+      }                                                                                                                // 367
+    }), "\n    " ];                                                                                                    // 368
+  }), "\n    ", Blaze.View(function() {                                                                                // 369
+    return Spacebars.mustache(view.lookup("translate"), view.lookup("label"));                                         // 370
+  }), "\n    ");                                                                                                       // 371
+}));                                                                                                                   // 372
+                                                                                                                       // 373
+Template.__checkName("appEditorSeparator");                                                                            // 374
+Template["appEditorSeparator"] = new Template("Template.appEditorSeparator", (function() {                             // 375
+  var view = this;                                                                                                     // 376
+  return HTML.Raw("<hr>");                                                                                             // 377
 }));                                                                                                                   // 378
                                                                                                                        // 379
+Template.__checkName("appEditorInvalid");                                                                              // 380
+Template["appEditorInvalid"] = new Template("Template.appEditorInvalid", (function() {                                 // 381
+  var view = this;                                                                                                     // 382
+  return [ "Invalid template for ", Blaze.View(function() {                                                            // 383
+    return Spacebars.mustache(view.lookup("type"));                                                                    // 384
+  }) ];                                                                                                                // 385
+}));                                                                                                                   // 386
+                                                                                                                       // 387
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

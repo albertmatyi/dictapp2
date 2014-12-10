@@ -5,55 +5,17 @@ var LEFT_FIELDS = {
 		'class': 'col-xs-12',
 		placeholder: 'acţiune',
 		label: App.i18n.getString
-	},
-	leftAlternatives: {
-		type: 'array',
-		labelClass: 'col-xs-12',
-		fields: {
-			category: {
-				'class': SHORT_CLASS.replace('3', '4'),
-				placeholder: 'fiz.',
-				label: App.i18n.getString
-			},
-			meaning: {
-				'class': SHORT_CLASS.replace('3', '4'),
-				placeholder: 'efect chimic',
-				label: App.i18n.getString
-			},
-			removeAlternative: {
-				type: 'button',
-				btnType: 'link',
-				// 'class': SHORT_CLASS,
-				label: App.i18n.getString,
-				events: {
-					click: function(e) {
-						$(e.currentTarget).parents('.array-element').remove();
-					}
-				}
-			}
-		}
-	},
-	addLeftAlternative: {
-		'class': 'col-xs-12',
-		type: 'button',
-		btnType: 'success',
-		label: App.i18n.getString,
-		events: {
-			click: function() {
-				var data = {
-					fields: this.parentContext.fields[1].fields,
-					data: [{}]
-				};
-				var comp = UI.renderWithData(Template.appEditorArray, data);
-				UI.insert(comp, $('.array-wrapper.leftAlternatives')[0]);
-			}
-		}
 	}
 };
 
 var RIGHT_FIELDS = {
+	category: {
+		'class': SHORT_CLASS.replace('3', '4'),
+		placeholder: 'fiz.',
+		label: App.i18n.getString
+	},
 	wordRight: {
-		'class': 'col-xs-12',
+		'class': SHORT_CLASS.replace('3', '6'),
 		placeholder: 'cselekvés, tett',
 		label: App.i18n.getString
 	},
@@ -67,15 +29,16 @@ var RIGHT_FIELDS = {
 				label: App.i18n.getString
 			},
 			meaning: {
-				'class': SHORT_CLASS.replace('3', '4'),
+				'class': SHORT_CLASS.replace('3', '5'),
 				placeholder: 'vegyhatás',
 				label: App.i18n.getString
 			},
 			removeAlternative: {
 				type: 'button',
 				btnType: 'link',
-				// 'class': SHORT_CLASS,
+				'class': SHORT_CLASS.replace('3', '3') + ' pad-top',
 				label: App.i18n.getString,
+				icon: 'trash-o',
 				events: {
 					click: function(e) {
 						$(e.currentTarget).parents('.array-element').remove();
@@ -92,11 +55,10 @@ var RIGHT_FIELDS = {
 		events: {
 			click: function() {
 				var data = {
-					fields: this.parentContext.fields[1].fields,
+					fields: this.parentContext.fields[2].fields,
 					data: [{}]
 				};
-				var comp = UI.renderWithData(Template.appEditorArray, data);
-				UI.insert(comp, $('.array-wrapper.rightAlternatives')[0]);
+				Blaze.renderWithData(Template.appEditorArray, data, $('.array-wrapper.rightAlternatives')[0]);
 			}
 		}
 	}
@@ -149,6 +111,7 @@ var SENSES_FIELDS = {
 				type: 'button',
 				btnType: 'link',
 				label: App.i18n.getString,
+				icon: 'trash-o',
 				events: {
 					click: function(e) {
 						$(e.currentTarget).parents('.array-element').remove();
@@ -168,8 +131,8 @@ var SENSES_FIELDS = {
 					fields: this.parentContext.fields[0].fields,
 					data: [{}]
 				};
-				var comp = UI.renderWithData(Template.appEditorArray, data);
-				UI.insert(comp, $('.array-wrapper.senses')[0]);
+				Blaze.renderWithData(Template.appEditorArray, data, $('.array-wrapper.senses')[0]);
+				// UI.insert(comp, $('.array-wrapper.senses')[0]);
 			}
 		}
 	}
