@@ -36,7 +36,7 @@
     {
       "type": "prelink",
       "file": "web.cordova/packages/app-editor.js",
-      "length": 89056,
+      "length": 90064,
       "offset": 0,
       "servePath": "/packages/app-editor.js",
       "sourceMap": "web.cordova/packages/app-editor.js.map"

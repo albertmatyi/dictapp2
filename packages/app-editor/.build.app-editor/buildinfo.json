@@ -10,7 +10,7 @@
     "web.browser.json": {
       "files": {
         "/home/albertmatyi/work/js/dictapp/packages/app-editor/package.js": "009b5647cd03167ba1c5d6f05e9e84e5fb5409a2",
-        "/home/albertmatyi/work/js/dictapp/packages/app-editor/editor.html": "c759b371a44252893db0f061c195c7a7607b7183",
+        "/home/albertmatyi/work/js/dictapp/packages/app-editor/editor.html": "8bdd5b1303c4671466b5e33e33c0df3aefda10b8",
         "/home/albertmatyi/work/js/dictapp/packages/app-editor/editor.js": "bcc606d48547d9c0412e2e2dcb0cf7f2d8c61473"
       },
       "directories": []
@@ -18,7 +18,7 @@
     "web.cordova.json": {
       "files": {
         "/home/albertmatyi/work/js/dictapp/packages/app-editor/package.js": "009b5647cd03167ba1c5d6f05e9e84e5fb5409a2",
-        "/home/albertmatyi/work/js/dictapp/packages/app-editor/editor.html": "c759b371a44252893db0f061c195c7a7607b7183",
+        "/home/albertmatyi/work/js/dictapp/packages/app-editor/editor.html": "8bdd5b1303c4671466b5e33e33c0df3aefda10b8",
         "/home/albertmatyi/work/js/dictapp/packages/app-editor/editor.js": "bcc606d48547d9c0412e2e2dcb0cf7f2d8c61473"
       },
       "directories": []

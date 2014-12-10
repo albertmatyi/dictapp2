@@ -20,20 +20,17 @@
 			</em>
 			<ol class="alternatives">
 				<li><span class="wordLeft p-inline">{{#markdown}}{{wordLeft}}{{/markdown}}</span></li>
-				{{#each leftAlternatives}}
-				<li>{{#with category}}<span class="category">({{this}})</span>
-					{{/with}}
-					<span class="meaning p-inline">{{#markdown}}{{meaning}}{{/markdown}}</span>
-				</li>
-				{{/each}}
 			</ol>
 		</div>
 		<div class="right col-xs-12 col-sm-6">
 			<ol class="alternatives">
-				<li><span class="wordRight p-inline">{{#markdown}}{{wordRight}}{{/markdown}}</span></li>
+				<li>
+					{{#with category}}<span class="category">({{this}})</span>{{/with}}
+					<span class="wordRight p-inline">{{#markdown}}{{wordRight}}{{/markdown}}</span>
+				</li>
 				{{#each rightAlternatives}}
-				<li>{{#with category}}<span class="category">({{this}})</span>
-					{{/with}}
+				<li>
+					{{#with category}}<span class="category">({{this}})</span>{{/with}}
 					<span class="meaning p-inline">{{#markdown}}{{meaning}}{{/markdown}}</span>
 				</li>
 				{{/each}}
