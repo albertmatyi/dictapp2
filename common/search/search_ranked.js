@@ -125,12 +125,12 @@ var observe = function (cursor, subscription, searchString) {
   var handle = cursor.observeChanges({
     added: function (id, fields) {
 
-      fields.searchString = searchString;
+      fields['flag-' + searchString] = true;
       // console.log('OBS: added ','items', id);
       subscription.added('items', id, fields);
     },
     changed: function (id, fields) {
-      fields.searchString = searchString;
+      fields['flag-' + searchString] = true;
       // console.log('OBS: changed ','items', id);
       subscription.changed('items', id, fields);
     },
@@ -157,9 +157,9 @@ var publish = function(subscription, cursor, items, limit, searchString) {
       prevRank = item.rank;
     }
     if (limit) {
-      item.searchString = searchString;
+      item['flag-' + searchString] = true;
       subscription.added('items', item._id, item);
-      subscription.changed('items', item._id, {searchString: searchString});
+      // subscription.changed('items', item._id, {searchString: searchString});
       // console.log('changed ss:"',item.searchString, '"in lw: ', item.wordLeft);
       limit--;
     }
