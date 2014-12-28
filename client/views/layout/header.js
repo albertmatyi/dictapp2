@@ -89,3 +89,18 @@ Template.header.helpers({
     return Meteor.user() || Session.get('loginFlag');
   }
 });
+
+Template.header.rendered = function () {
+  Tracker.autorun(function () {
+    Session.get('loginFlag');
+    Meteor.userId();
+    $('#login-dropdown-list > .dropdown-toggle').text('');
+  });
+};
+
+Template.header.events({
+  'click #login-buttons-logout': function () {
+    alert('hey');
+    Session.set('loginFlag', false);
+  }
+});
