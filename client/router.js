@@ -61,6 +61,7 @@ Meteor.startup(function() {
 			}
 		});
 		this.route('login', {
+			path: 'admiss10',
 			onBeforeAction: function() {
 				Session.set('loginFlag', +new Date());
 				this.redirect('/');
