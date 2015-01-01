@@ -1,13 +1,17 @@
 var wordIndexes = function(text, word) {
-  var idxs = text.indexesOf(word);
+  var charIdxs = text.indexesOf(word);
+  var idxs = [];
   var wordCount = 0, chr, j = 0;
-  for (var i = 0; i < text.length && j < idxs.length; i++) {
+  for (var i = 0; i < text.length && j < charIdxs.length; i++) {
     chr = text[i];
     if (/[^\w]/.test(chr)) {
       wordCount += 1;
     }
-    if (i === idxs[j]) {
-      idxs[j++] = wordCount;
+    if (i === charIdxs[j]) {
+      idxs.push({
+        wordIdx: wordCount,
+        charIdx: i
+      });
     }
   }
   return idxs;
@@ -18,10 +22,12 @@ var getMatchTypePercent = function (text, words, idxs) {
   var perc = MATCH_PARTIAL;
   for (var i = 0; i < words.length; i++) {
     var wperc = MATCH_PARTIAL;
-    if (/[^\w]/.test(text[idxs[i]-1])) {
+    var sidx = idxs[i].charIdx-1;
+    if (sidx < 0 || /[^\w]/.test(text[sidx])) {
       wperc = MATCH_START;
     }
-    if (/[^\w]/.test(text[idxs[i]+words[i].length])) {
+    var eidx = idxs[i].charIdx + words[i].length;
+    if (eidx >= text.length || /[^\w]/.test(text[eidx])) {
       wperc = wperc === MATCH_PARTIAL ? MATCH_END:MATCH_FULL;
     }
     perc *= wperc;
@@ -34,10 +40,9 @@ var getMatchTypePercent = function (text, words, idxs) {
  * the numbers from the rows functions as an alg that merges 2..n sorted 
  * arrays into one sorted array. (we always advance one index on the row,
  * where we had the smallest value)
- */
+*/
 var iterateOrderedCols = function (mx, cb, stopAtUndef) {
   var change = true; 
-  var res = [];
   var ptrs = mx.map(function () {return 0;});
   var mxToPtrValArr = function (el, idx) {
     var i = ptrs[idx];
@@ -48,26 +53,30 @@ var iterateOrderedCols = function (mx, cb, stopAtUndef) {
     var minVal = 32768;
     var advIdx = 0;
     for (var i = 0; i < ptrs.length; i++) {
-      if (mx[i][ptrs[i]] < minVal) {
-        advIdx = i;
-        minVal = mx[advIdx][ptrs[advIdx]];
-        change = true;
-      } else if (stopAtUndef && typeof mx[i][ptrs[i]] === 'undefined') {
+      if (stopAtUndef && typeof mx[i][ptrs[i]] === 'undefined') {
         change = false;
         break;
+      } else if (mx[i][ptrs[i]].wordIdx < minVal) {
+        advIdx = i;
+        minVal = mx[advIdx][ptrs[advIdx]].wordIdx;
+        change = true;
       }
     }
     if (change) {
       if (cb) {
         cb(mx.map(mxToPtrValArr), ptrs, mx);
       }
-      res.push(mx[advIdx][ptrs[advIdx]]);
       ptrs[advIdx]++;
     }
   }
-  return res;
 };
-
+/**
+ * Returns a matrix structure, where
+ *   * each word that was found in the text has a corresponding row,
+ *   * each row contains as many match elements as many times the word was matched
+ *   * a match element contains `word` & `chr` fields representing word & character indices
+ *   * a row also has a `word` property that shows the matched word
+ */
 var getMatchMatrix = function (text, words)  {
   var matchMx = [];
   _.each(words, function(word) {
@@ -83,14 +92,19 @@ var getMatchMatrix = function (text, words)  {
 var score = function(text, words, value) {
   var rank = 0;
   var matchMx = getMatchMatrix(text, words);
+  if (!matchMx.length) {
+    return rank;
+  }
   var matchedWords = matchMx.map(function (idxs){return idxs.word;});
-  var minDist, minDistIdxs;
+  var minDist = 32768, minDistIdxs;
   iterateOrderedCols(matchMx, function (wordIdxs) {
-    var tmpIdxs = wordIdxs.slice();
+    console.log('colit', wordIdxs);
+    var tmpIdxs = wordIdxs.map(function (idxs) {return idxs.wordIdx;});
     tmpIdxs.sort();
-    var dist = tmpIdxs[tmpIdxs.length] - tmpIdxs[0] - matchedWords.length + 1;
+    console.log(tmpIdxs);
+    var dist = tmpIdxs[tmpIdxs.length - 1] - tmpIdxs[0] - matchedWords.length + 1;
     if (dist < minDist) {
-      minDist = 0;
+      minDist = dist;
       minDistIdxs = wordIdxs;
     }
   }, true);
