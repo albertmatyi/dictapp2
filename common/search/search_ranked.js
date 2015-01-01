@@ -20,9 +20,7 @@ var score1 = function(text, words, value) {
 
 var wordIndexes = function(text, word) {
   var idxs = text.indexesOf(word);
-  var wordCount = 0,
-  chr,
-  j = 0;
+  var wordCount = 0, chr, j = 0;
   for (var i = 0; i < text.length && j < idxs.length; i++) {
     chr = text[i];
     if (/[^\w]/.test(chr)) {
@@ -35,43 +33,78 @@ var wordIndexes = function(text, word) {
   return idxs;
 };
 
+var MATCH_PARTIAL = 1, MATCH_END = 1.2, MATCH_START =  1.4, MATCH_FULL = 1.7;
+var getMatchTypes = function (text, word, idxs) {
+  console.log(text, word, idxs);
+  return [MATCH_PARTIAL, MATCH_START, MATCH_END, MATCH_FULL];
+};
+/**
+ * Iterates over a matrix and provides the callback a set of numbers,
+ * where each number comes from a column and the algorithm that combines
+ * the numbers from the rows functions as an alg that merges 2..n sorted 
+ * arrays into one sorted array. (we always advance one index on the row,
+ * where we had the smallest value)
+ */
+var iterateOrderedCols = function (mx, cb, stopAtUndef) {
+  var change = true; 
+  var res = [];
+  var ptrs = mx.map(function () {return 0;});
+  var mxToPtrValArr = function (el, idx) {
+    var i = ptrs[idx];
+    return i < el.length ? el[i]:0; 
+  };
+  while(change) {
+    change = false;
+    var minVal = 32768;
+    var advIdx = 0;
+    for (var i = 0; i < ptrs.length; i++) {
+      if (mx[i][ptrs[i]] < minVal) {
+        advIdx = i;
+        minVal = mx[advIdx][ptrs[advIdx]];
+        change = true;
+      } else if (stopAtUndef && typeof mx[i][ptrs[i]] === 'undefined') {
+        change = false;
+        break;
+      }
+    }
+    if (change) {
+      if (cb) {
+        cb(mx.map(mxToPtrValArr), ptrs, mx);
+      }
+      res.push(mx[advIdx][ptrs[advIdx]]);
+      ptrs[advIdx]++;
+    }
+  }
+  return res;
+};
+
 var score2 = function(text, words, value) {
+  var matchType = MATCH_PARTIAL;
   var rank = 0;
   var wordPtr = [];
   var matchMx = [];
   _.each(words, function(word) {
     var idxs = wordIndexes(text, word);
+    var matchTypes = getMatchTypes(text, word, idxs);
     if (idxs.length) {
       wordPtr.push(0);
       matchMx.push(idxs);
     }
   });
-  var matchedWords = wordPtr.length,
-  changed, curRank, toAdvance, min, max, minPtr, maxDist, j;
-  do {
-    changed = false;
-    curRank = 0;
-
-    min = 32767;
-    max = -32768;
-    minPtr = min;
-    for (var i = wordPtr.length - 1; i >= 0; i--) {
-      j = wordPtr[i];
-      if (j < minPtr) {
-        toAdvance = i;
-        minPtr = j;
-      }
-      var idx = matchMx[i][j];
-      min = Math.min(idx, min);
-      max = Math.max(idx, max);
-      changed = false;
-    }
-    if (isNaN(max) || isNaN(min)) {
-      break;
-    }
-  } while (changed);
+  // console.log(wordPtr, matchMx);
+  var matchedWords = wordPtr.length, min, max, maxDist, j;
+  min = 32767;
+  max = -32768;
+  for (var i = wordPtr.length - 1; i >= 0; i--) {
+    j = wordPtr[i];
+    console.log(j);
+    var idx = matchMx[i][j];
+    min = Math.min(idx, min);
+    max = Math.max(idx, max);
+  }
+  // console.log('test', test++);
   maxDist = max - min + 1 - (matchedWords - 1);
-  rank = value * 1 / maxDist * matchedWords / words.length;
+  rank = value * matchType / maxDist * matchedWords / words.length;
   return rank;
 };
 
@@ -90,7 +123,7 @@ var rankItem = function(words, item) {
 };
 
 var query = function(words, opts) {
-  var startTime = +new Date();
+  // var startTime = +new Date();
   var results = App.item.collection.find(
     App.search.buildCondition('searchableAll', words), 
     opts);
@@ -99,14 +132,14 @@ var query = function(words, opts) {
 };
 
 var fetch = function(results) {
-  var startTime = +new Date();
+  // var startTime = +new Date();
   results = results.fetch();
   // console.log('Fetch time: ', +new Date() - startTime, 'ms (', results.length, ')');
   return results;
 };
 
 var rank = function(words, items) {
-  var startTime = +new Date();
+  // var startTime = +new Date();
   _.each(items, function(item) {
     rankItem(words, item);
   });
@@ -114,7 +147,7 @@ var rank = function(words, items) {
 };
 
 var sort = function(items) {
-  var startTime = +new Date();
+  // var startTime = +new Date();
   items.sort(function(a, b) {
     return b.rank - a.rank;
   });
@@ -146,7 +179,7 @@ var observe = function (cursor, subscription, searchString) {
 };
 
 var publish = function(subscription, cursor, items, limit, searchString) {
-  var startTime = +new Date();
+  // var startTime = +new Date();
   // console.log('publishing', searchString);
   var prevRank = -1,
   diffIdx = 0;
@@ -173,7 +206,7 @@ var searchRanked = function(searchString, limit) {
     return [];
   }
   limit = limit || 30;
-  var startTime = +new Date();
+  // var startTime = +new Date();
   var opts = {};
   // opts.fields = {
   // 	searchableWord: 1,
