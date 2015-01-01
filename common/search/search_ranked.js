@@ -1,23 +1,3 @@
-var score1 = function(text, words, value) {
-  var score = 0;
-  var idxs = _.map(words, function(word) {
-    var idx = text.indexOf(word);
-    score += value * (idx > -1);
-    return idx;
-  });
-  idxs.sort(function(a, b) {
-    return a - b;
-  });
-  // console.log(idxs);
-  for (var i = idxs.length - 2; i >= 0; i--) {
-    if (idxs[i] === -1) {
-      break;
-    }
-    score += value / (idxs[i + 1] - idxs[i]);
-  }
-  return score;
-};
-
 var wordIndexes = function(text, word) {
   var idxs = text.indexesOf(word);
   var wordCount = 0, chr, j = 0;
@@ -100,7 +80,7 @@ var getMatchMatrix = function (text, words)  {
   return matchMx;
 };
 
-var score2 = function(text, words, value) {
+var score = function(text, words, value) {
   var rank = 0;
   var matchMx = getMatchMatrix(text, words);
   var matchedWords = matchMx.map(function (idxs){return idxs.word;});
@@ -122,8 +102,6 @@ var score2 = function(text, words, value) {
   rank = value *  distPercent * wordPercent * matchTypePercent;
   return rank;
 };
-
-var score = score2;
 
 var rankItem = function(words, item) {
   item.rank = 0;
