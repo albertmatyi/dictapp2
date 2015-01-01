@@ -34,9 +34,19 @@ var wordIndexes = function(text, word) {
 };
 
 var MATCH_PARTIAL = 1, MATCH_END = 1.2, MATCH_START =  1.4, MATCH_FULL = 1.7;
-var getMatchTypes = function (text, word, idxs) {
-  console.log(text, word, idxs);
-  return [MATCH_PARTIAL, MATCH_START, MATCH_END, MATCH_FULL];
+var getMatchTypePercent = function (text, words, idxs) {
+  var perc = MATCH_PARTIAL;
+  for (var i = 0; i < words.length; i++) {
+    var wperc = MATCH_PARTIAL;
+    if (/[^\w]/.test(text[idxs[i]-1])) {
+      wperc = MATCH_START;
+    }
+    if (/[^\w]/.test(text[idxs[i]+words[i].length])) {
+      wperc = wperc === MATCH_PARTIAL ? MATCH_END:MATCH_FULL;
+    }
+    perc *= wperc;
+  }
+  return perc;
 };
 /**
  * Iterates over a matrix and provides the callback a set of numbers,
@@ -78,33 +88,38 @@ var iterateOrderedCols = function (mx, cb, stopAtUndef) {
   return res;
 };
 
-var score2 = function(text, words, value) {
-  var matchType = MATCH_PARTIAL;
-  var rank = 0;
-  var wordPtr = [];
+var getMatchMatrix = function (text, words)  {
   var matchMx = [];
   _.each(words, function(word) {
     var idxs = wordIndexes(text, word);
-    var matchTypes = getMatchTypes(text, word, idxs);
     if (idxs.length) {
-      wordPtr.push(0);
+      idxs.word = word;
       matchMx.push(idxs);
     }
   });
-  // console.log(wordPtr, matchMx);
-  var matchedWords = wordPtr.length, min, max, maxDist, j;
-  min = 32767;
-  max = -32768;
-  for (var i = wordPtr.length - 1; i >= 0; i--) {
-    j = wordPtr[i];
-    console.log(j);
-    var idx = matchMx[i][j];
-    min = Math.min(idx, min);
-    max = Math.max(idx, max);
-  }
-  // console.log('test', test++);
-  maxDist = max - min + 1 - (matchedWords - 1);
-  rank = value * matchType / maxDist * matchedWords / words.length;
+  return matchMx;
+};
+
+var score2 = function(text, words, value) {
+  var rank = 0;
+  var matchMx = getMatchMatrix(text, words);
+  var matchedWords = matchMx.map(function (idxs){return idxs.word;});
+  var minDist, minDistIdxs;
+  iterateOrderedCols(matchMx, function (wordIdxs) {
+    var tmpIdxs = wordIdxs.slice();
+    tmpIdxs.sort();
+    var dist = tmpIdxs[tmpIdxs.length] - tmpIdxs[0] - matchedWords.length + 1;
+    if (dist < minDist) {
+      minDist = 0;
+      minDistIdxs = wordIdxs;
+    }
+  }, true);
+  
+  var wordPercent = matchedWords.length / words.length;
+  var distPercent = 1 / (minDist + 1);
+  var matchTypePercent = getMatchTypePercent(text, matchedWords, minDistIdxs);
+  console.log('dist:', minDist, 'words', matchedWords.length, 'matchType', matchTypePercent);
+  rank = value *  distPercent * wordPercent * matchTypePercent;
   return rank;
 };
 
