@@ -126,16 +126,16 @@ var observe = function (cursor, subscription, searchString) {
     added: function (id, fields) {
 
       fields['flag-' + searchString] = true;
-      // console.log('OBS: added ','items', id);
+      console.log('OBS: added ','items', id);
       subscription.added('items', id, fields);
     },
     changed: function (id, fields) {
       fields['flag-' + searchString] = true;
-      // console.log('OBS: changed ','items', id);
+      console.log('OBS: changed ','items', id);
       subscription.changed('items', id, fields);
     },
     removed: function (id) {
-      // console.log('OBS: rmd ');
+      console.log('OBS: rmd ');
       subscription.removed('items', id);
     }
   });
